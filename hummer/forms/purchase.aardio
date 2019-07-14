@@ -1,0 +1,22 @@
+//简单数据视图 
+import win.ui;
+import web.form.sockpuppet;
+/*DSG{{*/
+var winform = win.form(text="简单数据视图 - 双击编辑单元格(可指定只读列)";right=1031;bottom=712;bgcolor=16777215;border="dialog frame")
+winform.add(
+customWeb={cls="custom";left=36;top=25;right=1021;bottom=657;bgcolor=16777215;db=1;dl=1;dr=1;dt=1;repeat="center";z=1}
+)
+/*}}*/
+
+//创建web窗体
+var loginWeb = web.form.sockpuppet( winform.customWeb 
+     ,0x8/*_UIFLAG_SCROLL_NO 禁用滚动条*/
+     ,//可输入_DLCTL_ 前缀的常量以控制下载行为
+     ,//"USER AGENT"
+     );
+loginWeb.noScriptErr=true; 
+loginWeb.go("https://www.taobao.com/");
+loginWeb.wait(,3000);
+winform.show(); 
+win.loopMessage();
+return winform;

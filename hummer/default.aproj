@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project ver="10" name="hummer" libEmbed="true" icon="res\images\favicon.ico" ui="win" output="hummer.exe" CompanyName="单位名称" FileDescription="hummer" LegalCopyright="Copyright (C) 作者 2019" ProductName="hummer" InternalName="hummer" FileVersion="0.0.0.10" ProductVersion="0.0.0.10" publishDir="/Publish/" dstrip="false">
+	<file name="main" path="main.aardio"/>
+	<folder name="资源文件" path="res" embed="true">
+		<folder name="images" path="res\images" comment="res\images" embed="false">
+			<file name="bg.png" path="res\images\bg.png" comment="res\images\bg.png"/>
+			<file name="excel.png" path="res\images\excel.png" comment="res\images\excel.png"/>
+			<file name="feed.png" path="res\images\feed.png" comment="res\images\feed.png"/>
+			<file name="main-nav-bg-hover.png" path="res\images\main-nav-bg-hover.png" comment="res\images\main-nav-bg-hover.png"/>
+			<file name="main-nav-bg.png" path="res\images\main-nav-bg.png" comment="res\images\main-nav-bg.png"/>
+			<file name="ppt.png" path="res\images\ppt.png" comment="res\images\ppt.png"/>
+			<file name="rss.png" path="res\images\rss.png" comment="res\images\rss.png"/>
+			<file name="add.png" path="res\images\add.png" comment="res\images\add.png"/>
+			<file name="bookmark.png" path="res\images\bookmark.png" comment="res\images\bookmark.png"/>
+			<file name="carton.png" path="res\images\carton.png" comment="res\images\carton.png"/>
+			<file name="cross.png" path="res\images\cross.png" comment="res\images\cross.png"/>
+			<file name="delete.png" path="res\images\delete.png" comment="res\images\delete.png"/>
+			<file name="favicon.ico" path="res\images\favicon.ico" comment="res\images\favicon.ico"/>
+			<file name="home.png" path="res\images\home.png" comment="res\images\home.png"/>
+			<file name="info.png" path="res\images\info.png" comment="res\images\info.png"/>
+			<file name="minus.png" path="res\images\minus.png" comment="res\images\minus.png"/>
+			<file name="notepad.png" path="res\images\notepad.png" comment="res\images\notepad.png"/>
+			<file name="search.png" path="res\images\search.png" comment="res\images\search.png"/>
+			<file name="tick.png" path="res\images\tick.png" comment="res\images\tick.png"/>
+			<file name="tools.png" path="res\images\tools.png" comment="res\images\tools.png"/>
+			<file name="trash.png" path="res\images\trash.png" comment="res\images\trash.png"/>
+			<file name="user.png" path="res\images\user.png" comment="res\images\user.png"/>
+		</folder>
+	</folder>
+	<folder name="窗体" path="forms" comment="" embed="true">
+		<file name="login.aardio" path="forms\login.aardio" comment="forms\page1.aardio"/>
+		<file name="purchase.aardio" path="forms\purchase.aardio" comment="forms\page2.aardio"/>
+		<file name="page3.aardio" path="forms\page3.aardio" comment="forms\page3.aardio"/>
+		<file name="order.aardio" path="forms\order.aardio" comment="forms\order.aardio"/>
+		<file name="log.aardio" path="forms\log.aardio" comment="forms\log.aardio"/>
+		<file name="other.aardio" path="forms\other.aardio" comment="forms\other.aardio"/>
+		<file name="setup.aardio" path="forms\setup.aardio" comment="forms\setup.aardio"/>
+	</folder>
+</project>
