@@ -94,6 +94,8 @@ queryPurchaseInfo({});
 
 //查询
 winform.buttonQuery.oncommand = function(id,event){
+    console.debug("loginUserName:" +loginUserName);
+    console.pause();
     var queryParam = {};
     queryParam["user_id"] = loginUserName;
     if(""!=string.trim(winform.editPurchaseId.text)){

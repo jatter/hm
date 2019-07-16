@@ -196,6 +196,10 @@ winform.btnLogin.oncommand = function(id,event){
         
         //console.log("loginWeb.body:"+loginWeb.body);
         //console.pause();
+    //登录成功    
+    }else{
+        winform.customWeb.hide=0;
+        hideLoginPanel();
     }
 
     
