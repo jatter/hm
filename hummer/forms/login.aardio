@@ -100,6 +100,7 @@ var isLocalSuccessLogin = false; //是否本地成功登录
 loginWeb.NavigateComplete2 = function(pDisp, url) {
     if(isLocalSuccessLogin && "https://www.taobao.com/" == url){
        winform.customWeb.hide=1;
+       loginUserName = winform.editUserName.text;
     }	
 }
 
@@ -130,7 +131,7 @@ winform.btnLogin.oncommand = function(id,event){
 	var password = winform.editPassword.text;
 	if("" == userName || "" == string.trim(userName)){
 		win.msgbox("用户名为空,请输入");
-		 win.setFocus(winform.editUserName.hwnd);
+		win.setFocus(winform.editUserName.hwnd);
 		return ; 
 	}
 	if("" == password || "" == string.trim(password)){
@@ -146,7 +147,9 @@ winform.btnLogin.oncommand = function(id,event){
 	loginWeb.scrollPos(,-1,200);
 	//点击密码登录链接
 	var passwordLoginElement = loginWeb.queryEles({innerHTML="密码登录"; tagName="^A$";className="forget-pwd J_Quick2Static"}, 3000);
-	passwordLoginElement.click();
+	if(passwordLoginElement){
+	  passwordLoginElement.click();
+	}
     
 	//获取用户名，密码控件
 	var usernameEle = loginWeb.getEle("TPL_username_1"); 
@@ -194,14 +197,7 @@ winform.btnLogin.oncommand = function(id,event){
         //console.log("loginWeb.body:"+loginWeb.body);
         //console.pause();
     }
-    //process.execute("hummer.dat");
-	//console.log("return body:"+loginWeb.body);
-  
-	//import process;
-    //var prcs = process( io._exepath )
-    //purchaseForm,purchaseWeb = winform.loadForm("\forms\purchase.aardio");
-    //purchaseWeb.show();
-    //winform.close();
+
     
 }
 

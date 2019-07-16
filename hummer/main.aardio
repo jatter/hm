@@ -29,6 +29,8 @@ var tbs = win.ui.tabs(
 	mainForm.btnNavOther
 );
 
+var loginUserName = ""; //登录用户名
+
 //指定选项卡的外观样式
 tbs.skin( {
 	background = { 

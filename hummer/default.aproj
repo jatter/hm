@@ -35,5 +35,8 @@
 		<file name="log.aardio" path="forms\log.aardio" comment="forms\log.aardio"/>
 		<file name="other.aardio" path="forms\other.aardio" comment="forms\other.aardio"/>
 		<file name="setup.aardio" path="forms\setup.aardio" comment="forms\setup.aardio"/>
+		<file name="purchaselist.aardio" path="forms\purchaselist.aardio" comment="forms\purchaselist.aardio"/>
+		<file name="mypurchase.aardio" path="forms\mypurchase.aardio" comment="forms\mypurchase.aardio"/>
+		<file name="allpurchase.aardio" path="forms\allpurchase.aardio" comment="forms\allpurchase.aardio"/>
 	</folder>
 </project>
