@@ -14,7 +14,7 @@ import win.ui.tabs;
 
 //至少要添加2个创建好的选项卡(作为设计模板,创建成功后可清除)
 var tbs = win.ui.tabs(winform.strip2,winform.strip1);
-
+winform.text = loginUserName;
 //指定选项卡的外观样式,用法请参考plus控件说明
 tbs.skin(
     background = {  //背景

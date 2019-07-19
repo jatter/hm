@@ -4,13 +4,14 @@ import debug.log;
 import web.form.sockpuppet;
 import console;
 import io;
+import fsys.config;
 /*DSG{{*/
-var winform = win.form(text="aardio form";right=939;bottom=772;bgcolor=16777215)
+var winform = win.form(right=939;bottom=772;bgcolor=16777215)
 winform.add(
 btnCancel={cls="button";text="取消";left=759;top=678;right=848;bottom=738;ah=1;aw=1;z=2};
 btnDel={cls="button";text="删除";left=570;top=678;right=659;bottom=738;ah=1;aw=1;z=1};
 btnLogin={cls="button";text="登录";left=184;top=420;right=394;bottom=480;ah=1;aw=1;db=0.38;dl=0.2;dr=0.58;dt=0.54;tabstop=1;z=3};
-customWeb={cls="custom";left=37;top=25;right=569;bottom=657;bgcolor=16777215;db=1;dl=1;dr=1;dt=1;hide=1;repeat="center";z=10};
+customWeb={cls="custom";left=37;top=25;right=569;bottom=669;bgcolor=16777215;db=1;dl=1;dr=1;dt=1;hide=1;repeat="center";z=10};
 editPassword={cls="edit";left=184;top=278;right=398;bottom=338;ah=1;autohscroll=false;autovscroll=false;aw=1;db=0.56;dl=0.2;dr=0.58;dt=0.36;edge=1;font=LOGFONT(h=-19);multiline=1;password=1;tabstop=1;z=9};
 editUserName={cls="edit";left=184;top=186;right=398;bottom=246;ah=1;autohscroll=false;autovscroll=false;aw=1;db=0.68;dl=0.2;dr=0.58;dt=0.24;edge=1;font=LOGFONT(h=-19);multiline=1;tabstop=1;z=8};
 gbLogin={cls="groupbox";text="登录";left=8;top=17;right=505;bottom=645;ah=1;aw=1;edge=1;z=4};
@@ -99,8 +100,7 @@ var isLocalSuccessLogin = false; //是否本地成功登录
 //页面跳转完成
 loginWeb.NavigateComplete2 = function(pDisp, url) {
     if(isLocalSuccessLogin && "https://www.taobao.com/" == url){
-       winform.customWeb.hide=1;
-       loginUserName = winform.editUserName.text;
+       winform.customWeb.hide=1;      
     }	
 }
 
@@ -118,6 +118,12 @@ loginWeb.ProgressChange = function( progress, progressMax ) {
         if(loginPanelEle && equityEle && isLocalSuccessLogin){ 
             winform.customWeb.hide=1;
             winform.labloginMessage.text = "登录成功";
+            mainForm.staticUserName.text = winform.editUserName.text;
+            //var cfg = fsys.config("/res/config/")
+    		//cfg.config.edit = {
+        	//	text = loginWeb.document.cookie["dnk"];
+    		//}
+            updateLoginInfo();
             disableLoginPanel();
         }
     } 
@@ -196,10 +202,6 @@ winform.btnLogin.oncommand = function(id,event){
         
         //console.log("loginWeb.body:"+loginWeb.body);
         //console.pause();
-    //登录成功    
-    }else{
-        winform.customWeb.hide=0;
-        hideLoginPanel();
     }
 
     
@@ -239,20 +241,30 @@ queryLoginInfo();
 
 //更新登录数据库操作
 updateLoginInfo = function(){
-    var result  = db.stepQuery("SELECT * FROM [工作日志表]",{
-        姓名 = mainForm.editUser.text;
-    } )
-
-    if(result){
-        mainForm.editResult.print( result.姓名 );
-        mainForm.editResult.print( result.工作地点 );
-        mainForm.editResult.print( result.时间 );
-    }
+ 	//改 - exec函数也可以用一个表添加简单的命名参数( 添加并过滤分隔符 )
+	db.exec("UPDATE login_info SET login_status = '1',login_time=datetime('now') WHERE user_name = @userName;",{
+		userName = winform.editUserName.text;
+	} );
 }
 
 //更新登录数据库操作
 deleteLoginInfo = function(userName){
     db.exec("DELETE FROM [%s] WHERE user_name='%s';","login_info",userName);
+}
+
+//设置状态栏
+setStatusBar = function(){
+    //var t = time(, "%H:%M:%S");
+    var cookieUserName = (string.match(loginWeb.document.cookie,"lgc=([^;]+);"));
+    console.debug("cookieUserName:" + cookieUserName);
+    var result = db.stepQuery("SELECT user_id,user_name,user_pwd,login_status,login_time,remark from [login_info] ",{
+        user_name = cookieUserName;
+    });
+    
+    if(result){
+        winform.statusbar.setText("登录用户名:" + cookieUserName + ", 登录时间:" + result.login_time);
+    }  
+    console.pause();
 }
 
 //同步系统当时网络标准时间
@@ -379,4 +391,4 @@ tmid = winform.addtimer(
 winform.setFocus(winform.editUserName.hwnd);
 winform.show();
 win.loopMessage();
-return winform;
+return winform,loginWeb;

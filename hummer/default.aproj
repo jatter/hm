@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<project ver="10" name="hummer" libEmbed="true" icon="res\images\favicon.ico" ui="win" output="hummer.exe" CompanyName="单位名称" FileDescription="hummer" LegalCopyright="Copyright (C) 作者 2019" ProductName="hummer" InternalName="hummer" FileVersion="0.0.0.12" ProductVersion="0.0.0.12" publishDir="/Publish/" dstrip="false">
+<project ver="10" name="hummer" libEmbed="true" icon="res\images\favicon.ico" ui="win" output="hummer.exe" CompanyName="单位名称" FileDescription="hummer" LegalCopyright="Copyright (C) 作者 2019" ProductName="hummer" InternalName="hummer" FileVersion="0.0.0.10" ProductVersion="0.0.0.10" publishDir="/Publish/" dstrip="false">
 	<file name="main" path="main.aardio"/>
 	<folder name="资源文件" path="res" embed="true">
 		<folder name="images" path="res\images" comment="res\images" embed="false">
@@ -26,10 +26,11 @@
 			<file name="trash.png" path="res\images\trash.png" comment="res\images\trash.png"/>
 			<file name="user.png" path="res\images\user.png" comment="res\images\user.png"/>
 		</folder>
+		<file name="config.aardio" path="res\config.aardio" comment="res\config.aardio"/>
 	</folder>
 	<folder name="窗体" path="forms" comment="" embed="true">
 		<file name="login.aardio" path="forms\login.aardio" comment="forms\page1.aardio"/>
-		<file name="purchase.aardio" path="forms\purchase.aardio" comment="forms\page2.aardio"/>
+		<file name="purchaseedit.aardio" path="forms\purchaseedit.aardio" comment="forms\page2.aardio"/>
 		<file name="page3.aardio" path="forms\page3.aardio" comment="forms\page3.aardio"/>
 		<file name="order.aardio" path="forms\order.aardio" comment="forms\order.aardio"/>
 		<file name="log.aardio" path="forms\log.aardio" comment="forms\log.aardio"/>

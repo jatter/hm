@@ -1,14 +1,17 @@
 import win.ui;
+import win.ui.statusbar;
 /*DSG{{*/
 mainForm = win.form(text="hummer";right=836;bottom=555;image=$"\include\images\bg.gif";bkBottom=2;bkLeft=83;bkRight=255;bkTop=110;border="none";max=false)
 mainForm.add(
-btnNavLog={cls="plus";text="日志";left=421;top=7;right=497;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\notepad.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=5};
-btnNavLogin={cls="plus";text="登录";left=22;top=7;right=98;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\user.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=1};
-btnNavOrder={cls="plus";text="订单";left=218;top=7;right=294;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\carton.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=3};
-btnNavOther={cls="plus";text="其它";left=529;top=7;right=605;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\info.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=6};
-btnNavPurchase={cls="plus";text="抢购";left=120;top=7;right=196;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\bookmark.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=2};
-btnNavSetup={cls="plus";text="设置";left=317;top=7;right=393;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\tools.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=4};
-custom={cls="custom";left=5;top=96;right=811;bottom=560;bgcolor=16777215;db=1;dl=1;dr=1;dt=1;z=7}
+btnNavLog={cls="plus";text="日志";left=508;top=7;right=584;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\notepad.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=5};
+btnNavLogin={cls="plus";text="登录";left=109;top=7;right=185;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\user.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=1};
+btnNavOrder={cls="plus";text="订单";left=305;top=7;right=381;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\carton.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=3};
+btnNavOther={cls="plus";text="其它";left=614;top=7;right=690;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\info.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=6};
+btnNavPurchase={cls="plus";text="抢购";left=207;top=7;right=283;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\bookmark.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=2};
+btnNavSetup={cls="plus";text="设置";left=404;top=7;right=480;bottom=88;background="\res\images\icon_bg.jpg";bkBottom=3;bkLeft=7;bkRight=8;bkTop=2;color=16777215;dl=1;dt=1;foreground="\res\images\tools.png";notify=1;paddingBottom=7;paddingLeft=5;paddingRight=5;paddingTop=5;valign="bottom";x=0.5;y=0.20000000298023;z=4};
+custom={cls="custom";left=0;top=92;right=838;bottom=556;bgcolor=16777215;db=1;dl=1;dr=1;dt=1;z=7};
+customWeb={cls="custom";left=2;top=504;right=3;bottom=505;bgcolor=16777215;db=1;dl=1;dr=1;dt=1;hide=1;repeat="center";z=9};
+staticUserName={cls="static";left=16;top=27;right=103;bottom=66;color=255;font=LOGFONT(h=-19);transparent=1;z=8}
 )
 /*}}*/
 
@@ -29,8 +32,6 @@ var tbs = win.ui.tabs(
 	mainForm.btnNavOther
 );
 
-var loginUserName = ""; //登录用户名
-
 //指定选项卡的外观样式
 tbs.skin( {
 	background = { 
@@ -48,22 +49,22 @@ tbs.skin( {
 } )  
 
 //加载窗口,绑定第一个登录选项卡
-tbs.loadForm(1,"\forms\login.aardio" );
+tbs.loadForm(1,"\forms\login.aardio");
 
 //加载窗口, 绑定第二个抢购选项卡
-tbs.loadForm(2,"\forms\purchaselist.aardio" );
+tbs.loadForm(2,"\forms\purchaselist.aardio");
 
 //加载窗口, 绑定订单选项卡
-tbs.loadForm(3,"\forms\order.aardio" )
+tbs.loadForm(3,"\forms\order.aardio")
 
 //加载窗口, 绑定设置选项卡
-tbs.loadForm(4,"\forms\setup.aardio" );
+tbs.loadForm(4,"\forms\setup.aardio");
 
 //加载窗口, 绑定日志选项卡
-tbs.loadForm(5,"\forms\log.aardio" );
+tbs.loadForm(5,"\forms\log.aardio");
 
 //加载窗口, 绑定其它选项卡
-tbs.loadForm(6,"\forms\other.aardio" );
+tbs.loadForm(6,"\forms\other.aardio");
 
 //必须指定默认选中项
 tbs.selIndex = 1;
@@ -80,5 +81,18 @@ tbs.onSelchange = function(idx,strip,form){
 	
 }
 
-mainForm.show() 
-win.loopMessage(); 
+//关闭窗口
+mainForm.wndproc = function(hwnd,message,wparam,lparam){
+    select(message) {//判断消息类型
+        case 0x10/*_WM_CLOSE窗口关闭消息*/{
+            if(win.msgboxTest("确定退出系统?","询问")=false){
+                return wparam; 
+            }
+        }   
+    }
+    //无返回值则继续调用默认回调函数
+}
+
+
+mainForm.show(); 
+win.loopMessage();

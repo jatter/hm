@@ -4,25 +4,23 @@ import time;
 import console;
 var db = sqlite("/hummer.dll");//打开数据库连接
 /*DSG{{*/
-var winform = win.form(text="全部抢购";right=759;bottom=469)
+var winform = win.form(text="全部抢购";right=829;bottom=479)
 winform.add(
-buttonCopy={cls="button";text="复制";left=522;top=176;right=632;bottom=206;z=17};
-buttonQuery={cls="button";text="查询";left=372;top=121;right=482;bottom=151;z=11};
-buttonReset={cls="button";text="重置";left=522;top=120;right=632;bottom=150;z=12};
-comboboxPurchaseStatus={cls="combobox";left=97;top=68;right=223;bottom=94;edge=1;items={"全部";"未执行";"成功";"失败"};mode="dropdown";z=6};
-datetimeBegin={cls="datetimepick";left=372;top=69;right=497;bottom=95;edge=1;z=8};
-datetimeEnd={cls="datetimepick";left=522;top=68;right=647;bottom=94;edge=1;z=9};
-editPurchaseId={cls="edit";left=96;top=23;right=223;bottom=49;edge=1;z=15};
-editPurchaseName={cls="edit";left=370;top=27;right=645;bottom=53;edge=1;z=4};
-groupbox2={cls="groupbox";text="操作";left=4;top=165;right=759;bottom=211;edge=1;z=16};
-groupboxQuery={cls="groupbox";text="查询";left=4;top=1;right=758;bottom=164;edge=1;z=1};
-listview={cls="listview";left=2;top=217;right=759;bottom=468;edge=1;z=2};
-static={cls="static";text="Static";left=122;top=136;right=123;bottom=137;transparent=1;z=13};
-static2={cls="static";text="-";left=506;top=71;right=518;bottom=91;transparent=1;z=10};
-staticPurchase={cls="static";text="编号:";left=56;top=27;right=90;bottom=53;transparent=1;z=14};
-staticPurchaseName={cls="static";text="抢购名称:";left=301;top=27;right=371;bottom=48;transparent=1;z=3};
-staticPurchaseStatus={cls="static";text="状态:";left=52;top=73;right=86;bottom=99;transparent=1;z=5};
-staticPurchaseTime={cls="static";text="起止时间:";left=304;top=69;right=369;bottom=100;transparent=1;z=7}
+buttonCopy={cls="button";text="复制";left=522;top=187;right=632;bottom=217;z=15};
+buttonQuery={cls="button";text="查询";left=372;top=121;right=482;bottom=151;z=9};
+buttonReset={cls="button";text="重置";left=522;top=120;right=632;bottom=150;z=10};
+comboboxPurchaseStatus={cls="combobox";left=97;top=68;right=223;bottom=94;edge=1;items={"全部";"未执行";"成功";"失败"};mode="dropdown";z=4};
+datetimeBegin={cls="datetimepick";left=372;top=22;right=497;bottom=48;edge=1;z=6};
+datetimeEnd={cls="datetimepick";left=522;top=21;right=647;bottom=47;edge=1;z=7};
+editPurchaseId={cls="edit";left=96;top=23;right=223;bottom=49;edge=1;z=13};
+groupbox2={cls="groupbox";text="操作";left=4;top=165;right=830;bottom=223;edge=1;z=14};
+groupboxQuery={cls="groupbox";text="查询";left=4;top=0;right=830;bottom=163;edge=1;z=1};
+listview={cls="listview";left=4;top=224;right=830;bottom=475;edge=1;z=2};
+static={cls="static";text="Static";left=122;top=136;right=123;bottom=137;transparent=1;z=11};
+static2={cls="static";text="-";left=506;top=24;right=518;bottom=44;transparent=1;z=8};
+staticPurchase={cls="static";text="编号:";left=56;top=27;right=90;bottom=53;transparent=1;z=12};
+staticPurchaseStatus={cls="static";text="状态:";left=52;top=73;right=86;bottom=99;transparent=1;z=3};
+staticPurchaseTime={cls="static";text="起止时间:";left=304;top=22;right=369;bottom=53;transparent=1;z=5}
 )
 /*}}*/
 
@@ -46,12 +44,9 @@ winform.listview.setExtended(0x8000000/*_LVS_EX_AUTOCHECKSELECT*/);
 //查询登录用户信息
 queryPurchaseInfo = function(queryParam){
     winform.listview.clear();
-    sqlStr = "SELECT purchase_id, purchase_name, platform, user_id, status, purchase_time, remark from purchase_info where 1=1";
+    sqlStr = "SELECT purchase_id, platform, user_id, status, purchase_time, remark from purchase_info where 1=1";
     if(queryParam["user_id"]){
         sqlStr = string.concat(sqlStr," and user_id='",queryParam["user_id"],"'");
-    }
-    if(queryParam["purchase_name"]){
-        sqlStr = string.concat(sqlStr," and purchase_name='",queryParam["purchase_name"],"'");
     }
     if(queryParam["status"]){
         sqlStr = string.concat(sqlStr," and status='",queryParam["status"],"'");
@@ -70,9 +65,9 @@ queryPurchaseInfo = function(queryParam){
     //db.getTable(sqlStr);
      
     //迭代方式查询数据 
-	for purchase_id, purchase_name, platform, user_id, status, purchase_time, remark in db.each(sqlStr) {
+	for purchase_id, platform, user_id, status, purchase_time, remark in db.each(sqlStr) {
 	  var statusDesc = (status=="0"?"未执行": (status=="1"?"成功":"失败"));
-      winform.listview.addItem({purchase_id; purchase_name; purchase_time; platform; statusDesc; remark});
+      winform.listview.addItem({purchase_id; purchase_time; platform; statusDesc; remark});
 	}
 
 	//分页大小 
@@ -95,9 +90,6 @@ winform.buttonQuery.oncommand = function(id,event){
     var queryParam = {};
     if(""!=string.trim(winform.editPurchaseId.text)){
        queryParam["purchase_id"] = winform.editPurchaseId.text;
-    }
-    if(""!=string.trim(winform.editPurchaseName.text)){
-       queryParam["purchase_name"] = winform.editPurchaseName.text;
     }
     if(""!=winform.comboboxPurchaseStatus.text && "全部"!=winform.comboboxPurchaseStatus.text){
        var status = (winform.comboboxPurchaseStatus.text=="未执行"?"0": 
@@ -123,7 +115,6 @@ winform.buttonQuery.oncommand = function(id,event){
 //重置
 winform.buttonReset.oncommand = function(id,event){
 	winform.editPurchaseId.text = "";
-	winform.editPurchaseName.text = "";
 	winform.datetimeBegin.text = "";
 	winform.datetimeEnd.text = "";
 }
