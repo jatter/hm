@@ -1,0 +1,1869 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+<title>新版高级选项卡演示 -  </title>
+<link href="http://bbs.aardio.com/forum.php?mod=viewthread&tid=22149" rel="canonical" />
+<meta name="keywords" content="源码分享  新版高级选项卡演示" />
+<meta name="description" content=" 新版高级选项卡演示 " />
+<meta name="generator" content="Discuz! X3.4" />
+<meta name="author" content="Discuz! Team and Comsenz UI Team" />
+<meta name="copyright" content="2001-2017 Comsenz Inc." />
+<meta name="MSSmartTagsPreventParsing" content="True" />
+<meta http-equiv="MSThemeCompatible" content="Yes" />
+<base href="http://bbs.aardio.com/" /><link rel="stylesheet" type="text/css" href="data/cache/style_1_common.css?x3L" /><link rel="stylesheet" type="text/css" href="data/cache/style_1_forum_viewthread.css?x3L" /><script type="text/javascript">var STYLEID = '1', STATICURL = 'static/', IMGDIR = 'static/image/common', VERHASH = 'x3L', charset = 'gbk', discuz_uid = '0', cookiepre = 'rT0K_732a_', cookiedomain = '.aardio.com', cookiepath = '/', showusercard = '1', attackevasive = '0', disallowfloat = 'newthread', creditnotice = '1|专家分|,2|金币|,3|活力值|,4|银币|', defaultstyle = '', REPORTURL = 'aHR0cDovL2Jicy5hYXJkaW8uY29tL2ZvcnVtLnBocD9tb2Q9dmlld3RocmVhZCZ0aWQ9MjIxNDkmZnJvbT1wb3J0YWw=', SITEURL = 'http://bbs.aardio.com/', JSPATH = 'static/js/', CSSPATH = 'data/cache/style_', DYNAMICURL = '';</script>
+<script src="static/js/common.js?x3L" type="text/javascript"></script>
+<meta name="application-name" content="aardio官方社区" />
+<meta name="msapplication-tooltip" content="aardio官方社区" />
+<meta name="msapplication-task" content="name=首页;action-uri=http://bbs.aardio.com/forum.php;icon-uri=http://bbs.aardio.com/static/image/common/bbs.ico" />
+<script src="static/js/forum.js?x3L" type="text/javascript"></script>
+</head>
+
+<body id="nv_forum" class="pg_viewthread" onkeydown="if(event.keyCode==27) return false;">
+<div id="append_parent"></div><div id="ajaxwaitid"></div>
+<div id="toptb" class="cl">
+<div class="wp">
+<div class="z"></div>
+<div class="y">
+<a id="switchblind" href="javascript:;" onclick="toggleBlind(this)" title="开启辅助访问" class="switchblind">开启辅助访问</a>
+<a href="http://bbs.aardio.com/plugin.php?id=fb_opinion:main" >意见、BUG反馈</a></div>
+</div>
+</div>
+
+<div id="qmenu_menu" class="p_pop blk" style="display: none;">
+<div class="ptm pbw hm">
+请 <a href="javascript:;" class="xi2" onclick="lsSubmit()"><strong>登录</strong></a> 后使用快捷导航<br />没有帐号？<a href="member.php?mod=register" class="xi2 xw1">注册会员</a>
+</div>
+<div id="fjump_menu" class="btda"></div></div><div id="hd">
+<div class="wp">
+<div class="hdc cl"><h2><a href="http://bbs.aardio.com/" title="aardio官方社区"><img src="static/image/common/aardio.png" alt="aardio官方社区" border="0" /></a></h2><div class="fastlg cl">
+<span id="return_ls" style="display:none"></span>
+<div class="y pns">
+<a href="member.php?mod=logging&amp;action=login" onclick="showWindow('login', this.href)">登录</a> <span class="pipe">|</span> <a href="member.php?mod=register">注册会员</a> 
+</div>
+</div>
+</div>
+
+<div id="nv">
+<a href="javascript:;" id="qmenu" onmouseover="delayShow(this, function () {showMenu({'ctrlid':'qmenu','pos':'34!','ctrlclass':'a','duration':2});showForummenu(39);})">快捷导航</a>
+<ul><li class="a" id="mn_forum" ><a href="http://bbs.aardio.com/forum.php" hidefocus="true" title="BBS"  >首页<span>BBS</span></a></li><li id="mn_N9e23" ><a href="http://www.aardio.com" hidefocus="true" title="aardio 最新版本下载，aardio是绿色软件不需要安装，解压缩即可使用" target="_blank"  >下载 aardio（5.9 MB ）<span>aardio 最新版本下载，aardio是绿色软件不需要安装，解压缩即可使用</span></a></li><li id="mn_N1411" ><a href="/forum.php?mod=forumdisplay&fid=133" hidefocus="true" title="aardio程序开发快速入门教程"  >教程<span>aardio程序开发快速入门教程</span></a></li><li id="mn_N1891" onmouseover="showMenu({'ctrlid':this.id,'ctrlclass':'hover','duration':2})"><a href="/doc" hidefocus="true" title="aardio编程技术 - 文档中心" target="_blank"  >文档<span>aardio编程技术 - 文档中心</span></a></li></ul>
+</div>
+<ul class="p_pop h_pop" id="mn_N1891_menu" style="display: none"><li><a href="http://www.aardio.com" hidefocus="true" target="_blank" >aardio 简介</a></li><li><a href="/doc" hidefocus="true" target="_blank" >aardio 文档</a></li><li><a href="http://social.msdn.microsoft.com/Search/en-us?query=" hidefocus="true" target="_blank" >微软 MSDN</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web" hidefocus="true" target="_blank" >MDN Web 文档</a></li></ul><div id="mu" class="cl">
+</div><div id="scbar" class="cl">
+<form id="scbar_form" method="post" autocomplete="off" onsubmit="searchFocus($('scbar_txt'))" action="search.php?searchsubmit=yes" target="_blank">
+<input type="hidden" name="mod" id="scbar_mod" value="search" />
+<input type="hidden" name="formhash" value="10ec3ae0" />
+<input type="hidden" name="srchtype" value="title" />
+<input type="hidden" name="srhfid" value="39" />
+<input type="hidden" name="srhlocality" value="forum::viewthread" />
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td class="scbar_icon_td"></td>
+<td class="scbar_txt_td"><input type="text" name="srchtxt" id="scbar_txt" value="请输入搜索内容" autocomplete="off" x-webkit-speech speech /></td>
+<td class="scbar_type_td"><a href="javascript:;" id="scbar_type" class="xg1" onclick="showMenu(this.id)" hidefocus="true">搜索</a></td>
+<td class="scbar_btn_td"><button type="submit" name="searchsubmit" id="scbar_btn" sc="1" class="pn pnc" value="true"><strong class="xi2">搜索</strong></button></td>
+<td class="scbar_hot_td">
+<div id="scbar_hot">
+</div>
+</td>
+</tr>
+</table>
+</form>
+</div>
+<ul id="scbar_type_menu" class="p_pop" style="display: none;"><li><a href="javascript:;" rel="curforum" fid="39" >本版</a></li><li><a href="javascript:;" rel="forum" class="curtype">帖子</a></li><li><a href="javascript:;" rel="user">用户</a></li></ul>
+<script type="text/javascript">
+initSearchmenu('scbar', '');
+</script>
+</div>
+</div>
+
+
+<div id="wp" class="wp">
+<script type="text/javascript">var fid = parseInt('39'), tid = parseInt('22149');</script>
+
+<script src="static/js/forum_viewthread.js?x3L" type="text/javascript"></script>
+<script type="text/javascript">zoomstatus = parseInt(1);var imagemaxwidth = '600';var aimgcount = new Array();</script>
+
+<style id="diy_style" type="text/css"></style>
+<!--[diy=diynavtop]--><div id="diynavtop" class="area"></div><!--[/diy]-->
+<div id="pt" class="bm cl">
+<div class="z">
+<a href="./" class="nvhm" title="首页">aardio官方社区</a><em>&raquo;</em><a href="http://bbs.aardio.com/forum.php">首页</a> <em>&rsaquo;</em> <a href="http://bbs.aardio.com/forum.php?gid=36">aardio编程语言</a> <em>&rsaquo;</em> <a href="http://bbs.aardio.com/forum.php?mod=forumdisplay&amp;fid=39">源码分享</a> <em>&rsaquo;</em> <a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149">新版高级选项卡演示</a>
+</div>
+</div>
+
+<style id="diy_style" type="text/css"></style>
+<div class="wp">
+<!--[diy=diy1]--><div id="diy1" class="area"></div><!--[/diy]-->
+</div>
+
+<div id="ct" class="wp cl">
+<div id="pgt" class="pgs mbm cl ">
+<div class="pgt"></div>
+<span class="y pgb"><a href="http://bbs.aardio.com/forum.php?mod=forumdisplay&amp;fid=39">返回列表</a></span>
+<a id="newspecial" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=39')" href="javascript:;" title="发新帖"><img src="static/image/common/pn_post.png" alt="发新帖" /></a></div>
+
+
+
+<div id="postlist" class="pl bm">
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls ptn pbn">
+<div class="hm ptn">
+<span class="xg1">查看:</span> <span class="xi1">38629</span><span class="pipe">|</span><span class="xg1">回复:</span> <span class="xi1">12</span>
+</div>
+</td>
+<td class="plc ptm pbn vwthd">
+<div class="y">
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;action=printable&amp;tid=22149" title="打印" target="_blank"><img src="static/image/common/print.png" alt="打印" class="vm" /></a>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&amp;goto=nextoldset&amp;tid=22149" title="上一主题"><img src="static/image/common/thread-prev.png" alt="上一主题" class="vm" /></a>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&amp;goto=nextnewset&amp;tid=22149" title="下一主题"><img src="static/image/common/thread-next.png" alt="下一主题" class="vm" /></a>
+</div>
+<h1 class="ts">
+<a href="http://bbs.aardio.com/forum.php?mod=forumdisplay&amp;fid=39&amp;filter=typeid&amp;typeid=12">[win]</a>
+<span id="thread_subject">新版高级选项卡演示</span>
+</h1>
+<span class="xg1">
+&nbsp;<img src="static/image/common/recommend_1.gif" alt="" title="评价指数 3" />
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149" onclick="return copyThreadUrl(this, 'aardio官方社区')" >[复制链接]</a>
+</span>
+</td>
+</tr>
+</table>
+
+
+<table cellspacing="0" cellpadding="0" class="ad">
+<tr>
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table><div id="post_84315" ><table id="pid84315" class="plhin" summary="pid84315" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84315" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1" target="_blank" class="xw1">Jacen.He</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84315" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84315_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1" target="_blank" class="xi2">Jacen.He</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" target="_blank" class="xi2">14010</a></dd>
+</dl><div class="imicn">
+<a href="http://www.ecranesoft.com" target="_blank" title="查看个人网站"><img src="static/image/common/forumlink.gif" alt="查看个人网站" /></a><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=thread&type=thread&view=me&from=space" class="xi2">187</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=thread&type=reply&view=me&from=space" class="xi2">2541</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" class="xi2"><span title="14010">1万</span></a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=1" target="_blank">管理员</a></em></p>
+
+
+<p><span><img src="static/image/common/star_level3.gif" alt="Rank: 9" /><img src="static/image/common/star_level3.gif" alt="Rank: 9" /><img src="static/image/common/star_level1.gif" alt="Rank: 9" /></span></p>
+
+
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" target="_blank" class="xi2">14010</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_1&amp;touid=1&amp;pmid=0&amp;daterange=2&amp;pid=84315&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<div id="fj" class="y">
+<label class="z">电梯直达</label>
+<input type="text" class="px p_fre z" size="2" onkeyup="$('fj_btn').href='forum.php?mod=redirect&ptid=22149&authorid=0&postno='+this.value" onkeydown="if(event.keyCode==13) {window.location=$('fj_btn').href;return false;}" title="跳转到指定楼层" />
+<a href="javascript:;" id="fj_btn" class="z" title="跳转到指定楼层"><img src="static/image/common/fj_btn.png" alt="跳转到指定楼层" class="vm" /></a>
+</div>
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&tid=22149"   id="postnum84315" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+楼主</a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84315" src="static/image/common/online_admin.gif" />
+<em id="authorposton84315">发表于 2018-1-12 17:45:47</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=1" rel="nofollow">只看该作者</a>
+<span class="pipe">|</span><a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;from=album">只看大图</a>
+<span class="none"><img src="static/image/common/arw_r.gif" class="vm" alt="回帖奖励" /></span>
+<span class="pipe show">|</span><a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;extra=&amp;ordertype=1"  class="show">倒序浏览</a>
+<span class="pipe show">|</span><a href="javascript:;" onclick="readmode($('thread_subject').innerHTML, 84315);" class="show">阅读模式</a>
+</div>
+</div>
+</div><div class="pct"><style type="text/css">.pcb{margin-right:0}</style><div class="pcb">
+ 
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84315">
+plus系列控件最强大的功能是贴图功能，<br />
+但是这个例子我们不使用图像，纯代码实现（请使用最新版测试）：<br /><div class="quote"><blockquote><div align="left"><font face="新宋体"><font color="#0000ff">import</font><font color="#000000"> win.ui;<br />
+</font><font color="#008000">/*DSG{{*/</font><font color="#000000"><br />
+</font><font color="#0000ff">var</font><font color="#000000"> winform = win.form(text=</font><font color="#800000">&quot;aardio form&quot;</font><font color="#000000">;right=939;bottom=772;bgcolor=16777215)<br />
+winform.add(<br />
+custom={cls=</font><font color="#800000">&quot;custom&quot;</font><font color="#000000">;left=148;top=11;right=921;bottom=751;bgcolor=16777215;db=1;dl=1;dr=1;dt=1;z=4};<br />
+static={cls=</font><font color="#800000">&quot;static&quot;</font><font color="#000000">;left=139;top=7;right=140;bottom=757;bgcolor=16752414;clip=1;db=1;dl=1;dt=1;z=3};<br />
+strip1={cls=</font><font color="#800000">&quot;plus&quot;</font><font color="#000000">;text=</font><font color="#800000">&quot;测试文本&quot;</font><font color="#000000">;left=31;top=34;right=139;bottom=63;bgcolor=16752414;clip=1;dl=1;dt=1;z=1};<br />
+strip2={cls=</font><font color="#800000">&quot;plus&quot;</font><font color="#000000">;text=</font><font color="#800000">&quot;测试文本&quot;</font><font color="#000000">;left=31;top=63;right=139;bottom=92;bgcolor=16752414;clip=1;dl=1;dt=1;z=2}<br />
+)<br />
+</font><font color="#008000">/*}}*/</font><font color="#000000"><br />
+<br />
+</font><font color="#008000">//创建高级选项卡<br />
+</font><font color="#0000ff">import</font><font color="#000000"> win.ui.tabs;<br />
+<br />
+</font><font color="#008000">//至少要添加2个创建好的选项卡(作为设计模板,创建成功后可清除)<br />
+</font><font color="#0000ff">var</font><font color="#000000"> tbs = win.ui.tabs(winform.strip2,winform.strip1);<br />
+<br />
+</font><font color="#008000">//指定选项卡的外观样式<br />
+</font><font color="#000000">tbs.skin(<br />
+&nbsp; &nbsp; background = {&nbsp;&nbsp;<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;default = 0xFFFFFFFF;<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; color = {<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;hover = 0xF00000FF; <br />
+&nbsp; &nbsp; } <br />
+&nbsp; &nbsp; border = {<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;default = { bottom = 1;color= 0xFF1E9FFF;&nbsp;&nbsp;}<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;hover = { bottom = 1;right = 4;color= 0xFF1E9FFF; }<br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; checked = {<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;background = { <br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;hover = 0xFF99CCFF;<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;focus = 0xFF1E9FFF;<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;active = 0xFF333366;<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;default = 0xFF1E9FFF;<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;}<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;color = {<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;hover = 0xFF000000; <br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;default = 0xFFFFFFFF; <br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;} <br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;border = {<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;hover = { right = 2;color=0xFF1E9FFF}<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;default = { right = 2;color=0xFF1E9FFF}<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;}<br />
+&nbsp; &nbsp; }<br />
+)<br />
+<br />
+</font><font color="#008000">//动态添加更多选项卡<br />
+</font><font color="#000000">tbs.add({<br />
+&nbsp; &nbsp; text=</font><font color="#800000">&quot;标题文本&quot;</font><font color="#000000">; <br />
+})<br />
+<br />
+tbs.add({<br />
+&nbsp; &nbsp; text=</font><font color="#800000">&quot;标题文本&quot;</font><font color="#000000">; <br />
+})<br />
+<br />
+</font><font color="#0000ff">import</font><font color="#000000"> web.form;<br />
+</font><font color="#0000ff">var</font><font color="#000000"> wb = web.form( win.form() )<br />
+wb.go(</font><font color="#800000">&quot;http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;from=portal&quot;</font><font color="#000000">);<br />
+<br />
+</font><font color="#008000">//动态添加更多选项卡<br />
+</font><font color="#000000">tbs.add({<br />
+&nbsp; &nbsp; text=</font><font color="#800000">&quot;打开网站&quot;</font><font color="#000000">;&nbsp;&nbsp;<br />
+&nbsp; &nbsp; hasCloseButton = </font><font color="#0000ff">true</font><font color="#000000">;</font><font color="#008000">//允许显示关闭按钮<br />
+</font><font color="#000000">},wb._form)<br />
+<br />
+</font><font color="#008000">//也可以用下面的代码自定义关闭按钮的外观样式<br />
+</font><font color="#000000">tbs.closeButton.skin(<br />
+&nbsp; &nbsp; background = { <br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;hover = 0xFFe35c51; <br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;active = 0xFF8f241b;<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;default = 0x99FFCC66; <br />
+&nbsp; &nbsp; }<br />
+&nbsp; &nbsp; color = {<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;hover = 0xFFFFFFFF; <br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;active = 0xFFEEEEEE;<br />
+&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;default = 0xCCFFFFFF; <br />
+&nbsp; &nbsp; } <br />
+)<br />
+<br />
+</font><font color="#008000">//可以自定义关闭按钮在选项卡上的显示位<br />
+</font><font color="#000000">tbs.beforeShowCloseButton = </font><font color="#0000ff">function</font><font color="#000000">(strip,rcStrip,rcCloseButton){<br />
+&nbsp; &nbsp; </font><font color="#0000ff">return</font><font color="#000000"> rcStrip.right - rcCloseButton.width() - 5, rcStrip.top + ( rcStrip.height() - rcCloseButton.height() )/2;<br />
+}<br />
+<br />
+winform.show();<br />
+win.loopMessage();</font></font></div></blockquote></div><br />
+<br />
+</td></tr></table>
+
+
+</div>
+<div id="comment_84315" class="cm">
+</div>
+
+<div id="post_rate_div_84315"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div id="p_btn" class="mtw mbm hm cl">
+<div class="tshare cl">
+<b>分享到:&nbsp;</b>
+
+<a href="http://bbs.aardio.com/home.php?mod=spacecp&ac=plugin&id=qqconnect:spacecp&pluginop=share&sh_type=4&thread_id=22149" id="k_share_to_qq" title="QQ好友和群" target="_blank"><i><img src="static/image/common/qq_share.png" alt="QQ好友和群" />QQ好友和群</i></a>
+</div>
+
+<a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=favorite&amp;type=thread&amp;id=22149&amp;formhash=10ec3ae0" id="k_favorite" onclick="showWindow(this.id, this.href, 'get', 0);" onmouseover="this.title = $('favoritenumber').innerHTML + ' 人收藏'" title="收藏本帖"><i><img src="static/image/common/fav.gif" alt="收藏" />收藏<span id="favoritenumber">12</span></i></a>
+<a id="recommend_add" href="forum.php?mod=misc&amp;action=recommend&amp;do=add&amp;tid=22149&amp;hash=10ec3ae0"  onclick="showWindow('login', this.href)" onmouseover="this.title = $('recommendv_add').innerHTML + ' 人顶'" title="顶一下"><i><img src="static/image/common/rec_add.gif" alt="顶" />顶<span id="recommendv_add">2</span></i></a>
+<a id="recommend_subtract" href="forum.php?mod=misc&amp;action=recommend&amp;do=subtract&amp;tid=22149&amp;hash=10ec3ae0"  onclick="showWindow('login', this.href)" onmouseover="this.title = $('recommendv_subtract').innerHTML + ' 人踩'" title="踩一下"><i><img src="static/image/common/rec_subtract.gif" alt="踩" />踩<span id="recommendv_subtract" style="display:none">0</span></i></a>
+</div>
+<div class="a_pb"><a href="http://mp.weixin.qq.com/s/OEF59moE4RzOm-PqjWwkhQ" style="font-size:14px;color:red;">公告：提问请提供可运行、可重现问题的代码，并且在发表以前对代码进行整理（移除与问题无关的代码），集中注意力把问题表述清楚，移除任何与解决问题无关的内容，实在不明白请点击此链接阅读教程。</a>
+
+</div></td>
+</tr>
+<tr id="_postposition84315"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;reppost=84315&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84315" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84315', 'misc.php?mod=report&rtype=post&rid=84315&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84315_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84315')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_84322" ><table id="pid84322" class="plhin" summary="pid84322" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84322" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21440" target="_blank" class="xw1">popdes</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84322" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84322_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21440" target="_blank" class="xi2">popdes</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=21440&do=profile" target="_blank" class="xi2">1062</a></dd>
+</dl><div class="imicn">
+<a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21440&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21440&do=thread&type=thread&view=me&from=space" class="xi2">39</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21440&do=thread&type=reply&view=me&from=space" class="xi2">174</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21440&do=profile" class="xi2">1062</a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=20" target="_blank">荣誉会员</a></em></p>
+<p class="xg1">htmlayout.cn 我的学习笔记</p>
+
+<p><span><img src="static/image/common/star_level3.gif" alt="Rank: 8" /><img src="static/image/common/star_level3.gif" alt="Rank: 8" /></span></p>
+
+
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=21440&do=profile" target="_blank" class="xi2">1062</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_21440&amp;touid=21440&amp;pmid=0&amp;daterange=2&amp;pid=84322&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84322"   id="postnum84322" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+沙发</a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84322" src="static/image/common/online_member.gif" />
+<em id="authorposton84322">发表于 2018-1-12 23:07:36</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=21440" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84322">
+<i class="pstatus"> 本帖最后由 popdes 于 2018-1-14 15:08 编辑 </i><br />
+<br />
+tabs+fontAwesome 实现的简单界面, 真心简单,谢谢Jacen<br />
+更新了下, 添加了tabs的使用方法<br />
+同时添加了两三个调用layui和echarts图表的示例, 完整工程可以下载链接：<a href="https://pan.baidu.com/s/1pMuFpvP" target="_blank">https://pan.baidu.com/s/1pMuFpvP</a> 密码：swcq<br />
+
+<ignore_js_op>
+
+<img style="cursor:pointer" id="aimg_4758" aid="4758" src="static/image/common/none.gif" onclick="zoom(this, this.getAttribute('zoomfile'), 0, 0, '0')" zoomfile="data/attachment/forum/201801/14/150222v4xgnnoyna3zxnla.png" file="data/attachment/forum/201801/14/150222v4xgnnoyna3zxnla.png.thumb.jpg" inpost="1" onmouseover="showMenu({'ctrlid':this.id,'pos':'12'})" />
+
+<div class="tip tip_4 aimg_tip" id="aimg_4758_menu" style="position: absolute; display: none" disautofocus="true">
+<div class="xs0">
+<p><strong>QQ图片20180114150142.png</strong> <em class="xg1">(19.32 KB, 下载次数: 19)</em></p>
+<p>
+<a href="http://bbs.aardio.com/forum.php?mod=attachment&amp;aid=NDc1OHxjOGE4OWRkY3wxNTYzODA2NTc3fDB8MjIxNDk%3D&amp;nothumb=yes" target="_blank">下载附件</a>
+
+</p>
+
+<p class="xg1 y">2018-1-14 15:02 上传</p>
+
+</div>
+<div class="tip_horn"></div>
+</div>
+
+</ignore_js_op>
+<br />
+<br /><div class="blockcode"><div id="code_oJF"><ol><li>import win.ui;<br /><li>import gdip.fontAwesome;<br /><li>/*DSG{{*/<br /><li>var winform = win.form(text=&quot;aardio form&quot;;right=939;bottom=772;bgcolor=3947580;border=&quot;none&quot;)<br /><li>winform.add(<br /><li>custom2={cls=&quot;custom&quot;;left=121;top=43;right=939;bottom=773;bgcolor=8421376;db=1;dl=1;dr=1;dt=1;z=4};<br /><li>plus={cls=&quot;plus&quot;;text='\uF13B';left=0;top=0;right=120;bottom=43;bgcolor=16095795;color=16777215;dl=1;dt=1;font=LOGFONT(name='FontAwesome';h=-24);z=3};<br /><li>strip1={cls=&quot;plus&quot;;text='\uF015';left=0;top=48;right=118;bottom=142;bgcolor=3947580;clipch=1;color=16777215;dl=1;dt=1;font=LOGFONT(name='FontAwesome';h=-40);z=1};<br /><li>strip2={cls=&quot;plus&quot;;text='\uF290';left=0;top=142;right=118;bottom=236;bgcolor=3947580;clipch=1;color=16777215;dl=1;dt=1;font=LOGFONT(name='FontAwesome';h=-40);z=2}<br /><li>)<br /><li>/*}}*/<br /><li><br /><li>//设置右上角最小化/最大化/关闭按钮图形<br /><li>import win.ui.simpleWindow;<br /><li>win.ui.simpleWindow(winform,17,47,43)<br /><li><br /><li>//设置拖动窗体功能<br /><li>winform.wndproc = function(hwnd,message,wParam,lParam){<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; select( message ) { <br /><li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; case 0x201/*_WM_LBUTTONDOWN*/{<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; winform.hitCaption();<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; }<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; }<br /><li>}<br /><li><br /><li>//创建高级选项卡<br /><li>import win.ui.tabs;<br /><li><br /><li>//至少要添加2个创建好的选项卡(作为设计模板,创建成功后可清除)<br /><li>var tbs = win.ui.tabs(winform.strip2,winform.strip1);<br /><li>//指定选项卡的外观样式<br /><li>tbs.skin(<br /><li>&nbsp; &nbsp;&nbsp;&nbsp;background = { <br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;disabled = 0xFF3C3C3C; <br /><li>&nbsp; &nbsp;&nbsp;&nbsp;}<br /><li>&nbsp; &nbsp; color = {<br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;hover = 0xFF3a9ff7; <br /><li>&nbsp; &nbsp; }<br /><li>&nbsp; &nbsp; checked = {<br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;color = {<br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;hover = 0xFF3a9ff7; <br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;default = 0xFF3a9ff7; <br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;} <br /><li>&nbsp; &nbsp; } <br /><li>)<br /><li>//设置的模版项也可以显示关闭按钮<br /><li>winform.strip2.hasCloseButton = true;<br /><li>//方式一:给模版项绑定加载的窗体<br /><li>//tbs.loadForm(1,&quot;\res\aa.aardio&quot;);<br /><li>//tbs.loadForm(2,&quot;\res\layuitable.aardio&quot;);<br /><li><br /><li>//动态添加更多选项卡<br /><li>tbs.add({<br /><li>&nbsp; &nbsp; text='\uf216';<br /><li>&nbsp; &nbsp;}//,&quot;\res\layui.aardio&quot;&nbsp;&nbsp;//方式二:直接绑定需要加载的窗体<br /><li>)<br /><li><br /><li>//动态添加更多选项卡<br /><li>tbs.add(<br /><li>&nbsp; &nbsp; text='\uf1c5'; <br /><li>)<br /><li><br /><li>//动态添加更多选项卡<br /><li>tbs.add({<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; text='\uf008';<br /><li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; hasCloseButton = true;//允许显示关闭按钮 <br /><li>&nbsp; &nbsp; &nbsp; &nbsp; }//,&quot;\res\set.aardio&quot;<br /><li>)<br /><li>tbs.add(<br /><li>&nbsp; &nbsp; text='\uf201'; <br /><li>)<br /><li><br /><li>//方式三: 后面追加形式绑定窗体<br /><li>//tbs.loadForm(6,&quot;\res\test.aardio&quot;);<br /><li><br /><li>//设置tabs选项卡默认选中项<br /><li>tbs.selIndex = 3;<br /><li><br /><li>//也可以用下面的代码自定义关闭按钮的外观样式<br /><li>tbs.closeButton.skin(<br /><li>&nbsp; &nbsp; background = { <br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;hover = 0xFFe35c51; <br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;active = 0xFF8f241b;<br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;default = 0x99FFCC66; <br /><li>&nbsp; &nbsp; }<br /><li>&nbsp; &nbsp; color = {<br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;hover = 0xFFFFFFFF; <br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;active = 0xFFEEEEEE;<br /><li>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;default = 0xCCFFFFFF; <br /><li>&nbsp; &nbsp; } <br /><li>)<br /><li><br /><li>//可以自定义关闭按钮在选项卡上的显示位<br /><li>tbs.beforeShowCloseButton = function(strip,rcStrip,rcCloseButton){<br /><li>&nbsp; &nbsp; return rcStrip.left + 5, rcStrip.top + ( rcStrip.height() - rcCloseButton.height() )/2;<br /><li>}<br /><li><br /><li>import win.ui.shadow;<br /><li>win.ui.shadow(winform,,10);<br /><li><br /><li>winform.show();<br /><li>win.loopMessage();</ol></div><em onclick="copycode($('code_oJF'));">复制代码</em></div></td></tr></table>
+
+
+</div>
+<div id="comment_84322" class="cm">
+</div>
+
+<div id="post_rate_div_84322"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign" style="max-height:300px;maxHeightIE:300px;"><strong><font color="Green">每</font><font color="Blue">天</font><font color="Magenta">进</font>步<font color="Red">一</font><font color="SeaGreen">点</font>点<font color="Blue"> !</font> <a href="http://www.htmlayout.cn" target="_blank"><font color="Red"><font size="4">www.HtmLayout.Cn 我的学习笔记</font></font></a></strong></div>
+</td>
+</tr>
+<tr id="_postposition84322"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84322&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84322" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84322', 'misc.php?mod=report&rtype=post&rid=84322&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84322_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84322')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+<script type="text/javascript" reload="1">
+aimgcount[84322] = ['4758'];
+attachimggroup(84322);
+var aimgfid = 0;
+</script>
+</div><div id="post_84323" ><table id="pid84323" class="plhin" summary="pid84323" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84323" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1" target="_blank" class="xw1">Jacen.He</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84323" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84323_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1" target="_blank" class="xi2">Jacen.He</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" target="_blank" class="xi2">14010</a></dd>
+</dl><div class="imicn">
+<a href="http://www.ecranesoft.com" target="_blank" title="查看个人网站"><img src="static/image/common/forumlink.gif" alt="查看个人网站" /></a><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=thread&type=thread&view=me&from=space" class="xi2">187</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=thread&type=reply&view=me&from=space" class="xi2">2541</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" class="xi2"><span title="14010">1万</span></a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=1" target="_blank">管理员</a></em></p>
+
+
+<p><span><img src="static/image/common/star_level3.gif" alt="Rank: 9" /><img src="static/image/common/star_level3.gif" alt="Rank: 9" /><img src="static/image/common/star_level1.gif" alt="Rank: 9" /></span></p>
+
+
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" target="_blank" class="xi2">14010</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_1&amp;touid=1&amp;pmid=0&amp;daterange=2&amp;pid=84323&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84323"   id="postnum84323" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+板凳</a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84323" src="static/image/common/ico_lz.png" />
+&nbsp;楼主<span class="pipe">|</span>
+<em id="authorposton84323">发表于 2018-1-12 23:18:34</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=1" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84323">
+<div class="quote"><blockquote><font size="2"><a href="http://bbs.aardio.com/forum.php?mod=redirect&amp;goto=findpost&amp;pid=84322&amp;ptid=22149" target="_blank"><font color="#999999">popdes 发表于 2018-1-12 23:07</font></a></font><br />
+tabs+fontAwesome 实现的简单界面, 真心简单,谢谢Jacen</blockquote></div><br />
+感谢,</td></tr></table>
+
+
+</div>
+<div id="comment_84323" class="cm">
+</div>
+
+<div id="post_rate_div_84323"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition84323"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84323&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84323" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84323', 'misc.php?mod=report&rtype=post&rid=84323&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84323_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84323')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_84324" ><table id="pid84324" class="plhin" summary="pid84324" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84324" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1" target="_blank" class="xw1">Jacen.He</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84324" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84324_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1" target="_blank" class="xi2">Jacen.He</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" target="_blank" class="xi2">14010</a></dd>
+</dl><div class="imicn">
+<a href="http://www.ecranesoft.com" target="_blank" title="查看个人网站"><img src="static/image/common/forumlink.gif" alt="查看个人网站" /></a><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=thread&type=thread&view=me&from=space" class="xi2">187</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=thread&type=reply&view=me&from=space" class="xi2">2541</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" class="xi2"><span title="14010">1万</span></a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=1" target="_blank">管理员</a></em></p>
+
+
+<p><span><img src="static/image/common/star_level3.gif" alt="Rank: 9" /><img src="static/image/common/star_level3.gif" alt="Rank: 9" /><img src="static/image/common/star_level1.gif" alt="Rank: 9" /></span></p>
+
+
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" target="_blank" class="xi2">14010</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_1&amp;touid=1&amp;pmid=0&amp;daterange=2&amp;pid=84324&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84324"   id="postnum84324" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+地板</a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84324" src="static/image/common/ico_lz.png" />
+&nbsp;楼主<span class="pipe">|</span>
+<em id="authorposton84324">发表于 2018-1-13 00:22:35</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=1" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84324">
+<div class="quote"><blockquote><font size="2"><a href="http://bbs.aardio.com/forum.php?mod=redirect&amp;goto=findpost&amp;pid=84322&amp;ptid=22149" target="_blank"><font color="#999999">popdes 发表于 2018-1-12 23:07</font></a></font><br />
+tabs+fontAwesome 实现的简单界面, 真心简单,谢谢Jacen</blockquote></div><br />
+创建标题栏按钮，在新版可简化为<br /><div class="quote"><blockquote><font color="#0000ff">import</font><font color="#000000"> win.ui.simpleWindow;<br />
+</font><font color="#0000ff">var</font><font color="#000000"> sw = win.ui.simpleWindow(winform,17,47,37)</font></blockquote></div><br />
+</td></tr></table>
+
+
+</div>
+<div id="comment_84324" class="cm">
+</div>
+
+<div id="post_rate_div_84324"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition84324"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84324&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84324" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84324', 'misc.php?mod=report&rtype=post&rid=84324&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84324_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84324')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_84373" ><table id="pid84373" class="plhin" summary="pid84373" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84373" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=23795" target="_blank" class="xw1">fatalis</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84373" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84373_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=23795" target="_blank" class="xi2">fatalis</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=profile" target="_blank" class="xi2">64</a></dd>
+</dl><div class="imicn">
+<a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=23795&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=thread&type=thread&view=me&from=space" class="xi2">0</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=thread&type=reply&view=me&from=space" class="xi2">9</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=profile" class="xi2">64</a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=11" target="_blank">一级会员</a></em></p>
+
+
+<p><span id="g_up84373" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!'});"><img src="static/image/common/star_level2.gif" alt="Rank: 2" /></span></p>
+<div id="g_up84373_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c">一级会员, 积分 64, 距离下一级还需 136 积分</div></div>
+
+
+<p><span class="pbg2"  id="upgradeprogress_84373" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!', 'menuid':'g_up84373_menu'});"><span class="pbr2" style="width:9%;"></span></span></p>
+<div id="g_up84373_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c">一级会员, 积分 64, 距离下一级还需 136 积分</div></div>
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=profile" target="_blank" class="xi2">64</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_23795&amp;touid=23795&amp;pmid=0&amp;daterange=2&amp;pid=84373&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84373"   id="postnum84373" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>5</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84373" src="static/image/common/online_member.gif" />
+<em id="authorposton84373">发表于 2018-1-14 21:33:36</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=23795" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84373">
+<div class="quote"><blockquote><font size="2"><a href="http://bbs.aardio.com/forum.php?mod=redirect&amp;goto=findpost&amp;pid=84322&amp;ptid=22149" target="_blank"><font color="#999999">popdes 发表于 2018-1-12 23:07</font></a></font><br />
+tabs+fontAwesome 实现的简单界面, 真心简单,谢谢Jacen<br />
+更新了下, 添加了tabs的使用方法<br />
+同时添加了两三个 ...</blockquote></div><div class="blockcode"><div id="code_OOl"><ol><li>界面真心好看啊，收藏级别的界面模板，编译成功了，但是运行的时候出错了<br /><li>{File}:~lib\win\ui\tabs.aardio<br /><li>{Line}:#426<br /><li>{Error}:<br /><li>{File}:res\layuitable.aardio<br /><li>{Line}:#19<br /><li>{Error}:import web.kit.form failed :<br /><li><br /><li>{File}:lib\web\kit\form.aardio<br /><li>{Line}:#6<br /><li>{Error}:import web.kit failed :<br /><li><br /><li>{File}:lib\web\kit\_.aardio<br /><li>{Line}:#10<br /><li>{Error}:Cannot load library '~\lib\web\kit\.dll\wke.dll'.&nbsp;&nbsp;</ol></div><em onclick="copycode($('code_OOl'));">复制代码</em></div></td></tr></table>
+
+
+</div>
+<div id="comment_84373" class="cm">
+</div>
+
+<div id="post_rate_div_84373"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition84373"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84373&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84373" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84373', 'misc.php?mod=report&rtype=post&rid=84373&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84373_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84373')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_84375" ><table id="pid84375" class="plhin" summary="pid84375" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84375" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21440" target="_blank" class="xw1">popdes</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84375" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84375_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21440" target="_blank" class="xi2">popdes</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=21440&do=profile" target="_blank" class="xi2">1062</a></dd>
+</dl><div class="imicn">
+<a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21440&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21440&do=thread&type=thread&view=me&from=space" class="xi2">39</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21440&do=thread&type=reply&view=me&from=space" class="xi2">174</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21440&do=profile" class="xi2">1062</a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=20" target="_blank">荣誉会员</a></em></p>
+<p class="xg1">htmlayout.cn 我的学习笔记</p>
+
+<p><span><img src="static/image/common/star_level3.gif" alt="Rank: 8" /><img src="static/image/common/star_level3.gif" alt="Rank: 8" /></span></p>
+
+
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=21440&do=profile" target="_blank" class="xi2">1062</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_21440&amp;touid=21440&amp;pmid=0&amp;daterange=2&amp;pid=84375&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84375"   id="postnum84375" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>6</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84375" src="static/image/common/online_member.gif" />
+<em id="authorposton84375">发表于 2018-1-14 22:00:01</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=21440" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84375">
+<div class="quote"><blockquote><font size="2"><a href="http://bbs.aardio.com/forum.php?mod=redirect&amp;goto=findpost&amp;pid=84373&amp;ptid=22149" target="_blank"><font color="#999999">fatalis 发表于 2018-1-14 21:33</font></a></font></blockquote></div><br />
+要是编译为独立exe的话，要把几个二级界面中使用webkit功能的代码前面那个允许编译为独立那句的注释解除，然后在工程中设置所有文件内嵌，手机码字，提供不了截图了</td></tr></table>
+
+
+</div>
+<div id="comment_84375" class="cm">
+</div>
+
+<div id="post_rate_div_84375"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign" style="max-height:300px;maxHeightIE:300px;"><strong><font color="Green">每</font><font color="Blue">天</font><font color="Magenta">进</font>步<font color="Red">一</font><font color="SeaGreen">点</font>点<font color="Blue"> !</font> <a href="http://www.htmlayout.cn" target="_blank"><font color="Red"><font size="4">www.HtmLayout.Cn 我的学习笔记</font></font></a></strong></div>
+</td>
+</tr>
+<tr id="_postposition84375"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84375&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84375" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84375', 'misc.php?mod=report&rtype=post&rid=84375&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84375_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84375')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_84377" ><table id="pid84377" class="plhin" summary="pid84377" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84377" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=23795" target="_blank" class="xw1">fatalis</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84377" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84377_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=23795" target="_blank" class="xi2">fatalis</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=profile" target="_blank" class="xi2">64</a></dd>
+</dl><div class="imicn">
+<a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=23795&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=thread&type=thread&view=me&from=space" class="xi2">0</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=thread&type=reply&view=me&from=space" class="xi2">9</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=profile" class="xi2">64</a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=11" target="_blank">一级会员</a></em></p>
+
+
+<p><span id="g_up84377" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!'});"><img src="static/image/common/star_level2.gif" alt="Rank: 2" /></span></p>
+<div id="g_up84377_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c">一级会员, 积分 64, 距离下一级还需 136 积分</div></div>
+
+
+<p><span class="pbg2"  id="upgradeprogress_84377" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!', 'menuid':'g_up84377_menu'});"><span class="pbr2" style="width:9%;"></span></span></p>
+<div id="g_up84377_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c">一级会员, 积分 64, 距离下一级还需 136 积分</div></div>
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=profile" target="_blank" class="xi2">64</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_23795&amp;touid=23795&amp;pmid=0&amp;daterange=2&amp;pid=84377&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84377"   id="postnum84377" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>7</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84377" src="static/image/common/online_member.gif" />
+<em id="authorposton84377">发表于 2018-1-14 23:59:03</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=23795" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84377">
+<div class="quote"><blockquote><font size="2"><a href="http://bbs.aardio.com/forum.php?mod=redirect&amp;goto=findpost&amp;pid=84375&amp;ptid=22149" target="_blank"><font color="#999999">popdes 发表于 2018-1-14 22:00</font></a></font><br />
+要是编译为独立exe的话，要把几个二级界面中使用webkit功能的代码前面那个允许编译为独立那句的注释解除 ...</blockquote></div><br />
+谢谢您这么晚还给我回复，小菜鸟一枚给您添麻烦啦，<img src="static/image/smiley/default/shy.gif" smilieid="8" border="0" alt="" /></td></tr></table>
+
+
+</div>
+<div id="comment_84377" class="cm">
+</div>
+
+<div id="post_rate_div_84377"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition84377"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84377&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84377" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84377', 'misc.php?mod=report&rtype=post&rid=84377&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84377_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84377')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_84379" ><table id="pid84379" class="plhin" summary="pid84379" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84379" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=19690" target="_blank" class="xw1">kaba47</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84379" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84379_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=19690" target="_blank" class="xi2">kaba47</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=19690&do=profile" target="_blank" class="xi2">381</a></dd>
+</dl><div class="imicn">
+<a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=19690&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=19690&do=thread&type=thread&view=me&from=space" class="xi2">1</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=19690&do=thread&type=reply&view=me&from=space" class="xi2">54</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=19690&do=profile" class="xi2">381</a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=35" target="_blank">培训班</a></em></p>
+
+
+<p><span></span></p>
+
+
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=19690&do=profile" target="_blank" class="xi2">381</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_19690&amp;touid=19690&amp;pmid=0&amp;daterange=2&amp;pid=84379&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84379"   id="postnum84379" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>8</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84379" src="static/image/common/online_member.gif" />
+<em id="authorposton84379">发表于 2018-1-15 08:37:06</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=19690" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84379">
+很强大，收藏！！！！</td></tr></table>
+
+
+</div>
+<div id="comment_84379" class="cm">
+</div>
+
+<div id="post_rate_div_84379"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+<div class="sign" style="max-height:300px;maxHeightIE:300px;">--雪之梦--</div>
+</td>
+</tr>
+<tr id="_postposition84379"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84379&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84379" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84379', 'misc.php?mod=report&rtype=post&rid=84379&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84379_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84379')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_84382" ><table id="pid84382" class="plhin" summary="pid84382" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84382" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=23795" target="_blank" class="xw1">fatalis</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84382" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84382_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=23795" target="_blank" class="xi2">fatalis</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=profile" target="_blank" class="xi2">64</a></dd>
+</dl><div class="imicn">
+<a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=23795&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=thread&type=thread&view=me&from=space" class="xi2">0</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=thread&type=reply&view=me&from=space" class="xi2">9</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=profile" class="xi2">64</a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=11" target="_blank">一级会员</a></em></p>
+
+
+<p><span id="g_up84382" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!'});"><img src="static/image/common/star_level2.gif" alt="Rank: 2" /></span></p>
+<div id="g_up84382_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c">一级会员, 积分 64, 距离下一级还需 136 积分</div></div>
+
+
+<p><span class="pbg2"  id="upgradeprogress_84382" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!', 'menuid':'g_up84382_menu'});"><span class="pbr2" style="width:9%;"></span></span></p>
+<div id="g_up84382_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c">一级会员, 积分 64, 距离下一级还需 136 积分</div></div>
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=23795&do=profile" target="_blank" class="xi2">64</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_23795&amp;touid=23795&amp;pmid=0&amp;daterange=2&amp;pid=84382&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84382"   id="postnum84382" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>9</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84382" src="static/image/common/online_member.gif" />
+<em id="authorposton84382">发表于 2018-1-15 20:35:15</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=23795" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84382">
+已经编译发布成功了哈哈，感谢xauto前辈的指导，只需在main文件导入 import web.kit.portable&nbsp;&nbsp;这个库就行了，会提示下载，等下载完，发布就不会出错了，小菜鸟一枚，再次感谢两位的帮忙，辛苦啦（拥抱），让我少走了不少弯路，学到了很多东西。</td></tr></table>
+
+
+</div>
+<div id="comment_84382" class="cm">
+</div>
+
+<div id="post_rate_div_84382"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition84382"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84382&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84382" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84382', 'misc.php?mod=report&rtype=post&rid=84382&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84382_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84382')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_84421" ><table id="pid84421" class="plhin" summary="pid84421" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84421" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21206" target="_blank" class="xw1">幻月</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84421" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84421_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21206" target="_blank" class="xi2">幻月</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=21206&do=profile" target="_blank" class="xi2">315</a></dd>
+</dl><div class="imicn">
+<a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21206&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21206&do=thread&type=thread&view=me&from=space" class="xi2">3</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21206&do=thread&type=reply&view=me&from=space" class="xi2">51</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21206&do=profile" class="xi2">315</a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=12" target="_blank">二级会员</a></em></p>
+
+
+<p><span id="g_up84421" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!'});"><img src="static/image/common/star_level2.gif" alt="Rank: 3" /><img src="static/image/common/star_level1.gif" alt="Rank: 3" /></span></p>
+<div id="g_up84421_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c">二级会员, 积分 315, 距离下一级还需 185 积分</div></div>
+
+
+<p><span class="pbg2"  id="upgradeprogress_84421" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!', 'menuid':'g_up84421_menu'});"><span class="pbr2" style="width:38%;"></span></span></p>
+<div id="g_up84421_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c">二级会员, 积分 315, 距离下一级还需 185 积分</div></div>
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=21206&do=profile" target="_blank" class="xi2">315</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_21206&amp;touid=21206&amp;pmid=0&amp;daterange=2&amp;pid=84421&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84421"   id="postnum84421" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>10</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84421" src="static/image/common/online_member.gif" />
+<em id="authorposton84421">发表于 2018-1-18 13:26:40</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=21206" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84421">
+仿微信界面时发现，tbs成员太多的情况下下方会出现一个下拉的按钮，稍微有点丑，失去美感了。如果能变成滑块，像列表框一样展示出来就会漂亮狠多，滑块也可以自定义样式</td></tr></table>
+
+
+</div>
+<div id="comment_84421" class="cm">
+</div>
+
+<div id="post_rate_div_84421"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition84421"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84421&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84421" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84421', 'misc.php?mod=report&rtype=post&rid=84421&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84421_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84421')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_84428" ><table id="pid84428" class="plhin" summary="pid84428" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84428" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1" target="_blank" class="xw1">Jacen.He</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84428" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84428_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1" target="_blank" class="xi2">Jacen.He</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" target="_blank" class="xi2">14010</a></dd>
+</dl><div class="imicn">
+<a href="http://www.ecranesoft.com" target="_blank" title="查看个人网站"><img src="static/image/common/forumlink.gif" alt="查看个人网站" /></a><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=thread&type=thread&view=me&from=space" class="xi2">187</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=thread&type=reply&view=me&from=space" class="xi2">2541</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" class="xi2"><span title="14010">1万</span></a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=1" target="_blank">管理员</a></em></p>
+
+
+<p><span><img src="static/image/common/star_level3.gif" alt="Rank: 9" /><img src="static/image/common/star_level3.gif" alt="Rank: 9" /><img src="static/image/common/star_level1.gif" alt="Rank: 9" /></span></p>
+
+
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" target="_blank" class="xi2">14010</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_1&amp;touid=1&amp;pmid=0&amp;daterange=2&amp;pid=84428&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84428"   id="postnum84428" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>11</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84428" src="static/image/common/ico_lz.png" />
+&nbsp;楼主<span class="pipe">|</span>
+<em id="authorposton84428">发表于 2018-1-18 19:40:38</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=1" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84428">
+<div class="quote"><blockquote><font size="2"><a href="http://bbs.aardio.com/forum.php?mod=redirect&amp;goto=findpost&amp;pid=84421&amp;ptid=22149" target="_blank"><font color="#999999">幻月 发表于 2018-1-18 13:26</font></a></font><br />
+仿微信界面时发现，tbs成员太多的情况下下方会出现一个下拉的按钮，稍微有点丑，失去美感了。如果能变成滑 ...</blockquote></div><br />
+<br />
+下拉按钮也是一个plus控件，你可以自己定义外观和样式，<br />
+一个下拉按钮，你要说“丑”就不厚道了，你去看看系统提供的选项卡，理解一下什么叫“丑”。<br />
+毕竟他是一个控件，不能做成浏览器。<br />
+<br />
+再说了，选项卡拥挤到放不下，<br />
+在普通的软件界面中，本来就是很不常见的一个情况，一般都用不到的功能。<br />
+类似chrome浏览器，遇到这种情况，就直接挤到一起，没有什么滑块。<br />
+<br />
+如果有进一步的需求，可以<br />
+1、重写选项卡对象的 showDropButton 函数，修改默认的下拉按钮。<br />
+2、可以考虑用HTMLayout，或浏览器控件实现你要的效果。<br />
+<br />
+win.ui.tabs原则是小轻快，简洁，不求最好，如果越搞越复杂，就不如直接去用其他界面引擎。</td></tr></table>
+
+
+</div>
+<div id="comment_84428" class="cm">
+</div>
+
+<div id="post_rate_div_84428"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition84428"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84428&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84428" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84428', 'misc.php?mod=report&rtype=post&rid=84428&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84428_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84428')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_84430" ><table id="pid84430" class="plhin" summary="pid84430" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84430" class="pls favatar">
+ <div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21206" target="_blank" class="xw1">幻月</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84430" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84430_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21206" target="_blank" class="xi2">幻月</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=21206&do=profile" target="_blank" class="xi2">315</a></dd>
+</dl><div class="imicn">
+<a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=21206&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21206&do=thread&type=thread&view=me&from=space" class="xi2">3</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21206&do=thread&type=reply&view=me&from=space" class="xi2">51</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=21206&do=profile" class="xi2">315</a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=12" target="_blank">二级会员</a></em></p>
+
+
+<p><span id="g_up84430" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!'});"><img src="static/image/common/star_level2.gif" alt="Rank: 3" /><img src="static/image/common/star_level1.gif" alt="Rank: 3" /></span></p>
+<div id="g_up84430_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c">二级会员, 积分 315, 距离下一级还需 185 积分</div></div>
+
+
+<p><span class="pbg2"  id="upgradeprogress_84430" onmouseover="showMenu({'ctrlid':this.id, 'pos':'12!', 'menuid':'g_up84430_menu'});"><span class="pbr2" style="width:38%;"></span></span></p>
+<div id="g_up84430_menu" class="tip tip_4" style="display: none;"><div class="tip_horn"></div><div class="tip_c">二级会员, 积分 315, 距离下一级还需 185 积分</div></div>
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=21206&do=profile" target="_blank" class="xi2">315</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_21206&amp;touid=21206&amp;pmid=0&amp;daterange=2&amp;pid=84430&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84430"   id="postnum84430" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>12</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84430" src="static/image/common/online_member.gif" />
+<em id="authorposton84430">发表于 2018-1-18 20:31:44</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=21206" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84430">
+<div class="quote"><blockquote><font size="2"><a href="http://bbs.aardio.com/forum.php?mod=redirect&amp;goto=findpost&amp;pid=84428&amp;ptid=22149" target="_blank"><font color="#999999">Jacen.He 发表于 2018-1-18 19:40</font></a></font><br />
+下拉按钮也是一个plus控件，你可以自己定义外观和样式，<br />
+一个下拉按钮，你要说“丑”就不厚道了，你去 ...</blockquote></div><br />
+倒不是说plus丑，只是相对HL来讲的，我仔细想了一个一下，对于plus来说已经做得确实很不错了<br />
+根据用途来选择吧，或许仿微信电脑版界面来说，还是HL更适合一点<br />
+但平时做个简单软件界面什么的plus更方便</td></tr></table>
+
+
+</div>
+<div id="comment_84430" class="cm">
+</div>
+
+<div id="post_rate_div_84430"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition84430"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84430&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84430" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84430', 'misc.php?mod=report&rtype=post&rid=84430&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84430_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84430')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="post_84434" ><table id="pid84434" class="plhin" summary="pid84434" cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls" rowspan="2">
+<div id="favatar84434" class="pls favatar">
+ <a name="lastpost"></a><div class="pi">
+<div class="authi"><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1" target="_blank" class="xw1">Jacen.He</a>
+</div>
+</div>
+<div class="p_pop blk bui card_gender_0" id="userinfo84434" style="display: none; margin-top: -11px;">
+<div class="m z">
+<div id="userinfo84434_ma"></div>
+</div>
+<div class="i y">
+<div>
+<strong><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1" target="_blank" class="xi2">Jacen.He</a></strong>
+<em>当前离线</em>
+</div><dl class="cl">
+<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" target="_blank" class="xi2">14010</a></dd>
+</dl><div class="imicn">
+<a href="http://www.ecranesoft.com" target="_blank" title="查看个人网站"><img src="static/image/common/forumlink.gif" alt="查看个人网站" /></a><a href="http://bbs.aardio.com/home.php?mod=space&amp;uid=1&amp;do=profile" target="_blank" title="查看详细资料"><img src="static/image/common/userinfo.gif" alt="查看详细资料" /></a>
+</div>
+<div id="avatarfeed"><span id="threadsortswait"></span></div>
+</div>
+</div>
+<div>
+</div>
+<div class="tns xg2"><table cellspacing="0" cellpadding="0"><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=thread&type=thread&view=me&from=space" class="xi2">187</a></p>主题</th><th><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=thread&type=reply&view=me&from=space" class="xi2">2541</a></p>帖子</th><td><p><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" class="xi2"><span title="14010">1万</span></a></p>积分</td></table></div>
+
+<p><em><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=usergroup&amp;gid=1" target="_blank">管理员</a></em></p>
+
+
+<p><span><img src="static/image/common/star_level3.gif" alt="Rank: 9" /><img src="static/image/common/star_level3.gif" alt="Rank: 9" /><img src="static/image/common/star_level1.gif" alt="Rank: 9" /></span></p>
+
+
+
+<dl class="pil cl">
+	<dt>积分</dt><dd><a href="http://bbs.aardio.com/home.php?mod=space&uid=1&do=profile" target="_blank" class="xi2">14010</a></dd>
+</dl>
+
+<dl class="pil cl"></dl><ul class="xl xl2 o cl">
+<li class="pm2"><a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=pm&amp;op=showmsg&amp;handlekey=showmsg_1&amp;touid=1&amp;pmid=0&amp;daterange=2&amp;pid=84434&amp;tid=22149" onclick="showWindow('sendpm', this.href);" title="发消息" class="xi2">发消息</a></li>
+</ul>
+</div>
+</td>
+<td class="plc">
+<div class="pi">
+<strong>
+<a href="http://bbs.aardio.com/forum.php?mod=redirect&goto=findpost&ptid=22149&pid=84434"   id="postnum84434" onclick="setCopy(this.href, '帖子地址复制成功');return false;">
+<em>13</em><sup>#</sup></a>
+</strong>
+<div class="pti">
+<div class="pdbt">
+</div>
+<div class="authi">
+<img class="authicn vm" id="authicon84434" src="static/image/common/ico_lz.png" />
+&nbsp;楼主<span class="pipe">|</span>
+<em id="authorposton84434">发表于 2018-1-18 21:15:32</em>
+<span class="pipe">|</span>
+<a href="http://bbs.aardio.com/forum.php?mod=viewthread&amp;tid=22149&amp;page=1&amp;authorid=1" rel="nofollow">只看该作者</a>
+</div>
+</div>
+</div><div class="pct"><div class="pcb">
+<div class="t_fsz">
+<table cellspacing="0" cellpadding="0"><tr><td class="t_f" id="postmessage_84434">
+<div class="quote"><blockquote><font size="2"><a href="http://bbs.aardio.com/forum.php?mod=redirect&amp;goto=findpost&amp;pid=84430&amp;ptid=22149" target="_blank"><font color="#999999">幻月 发表于 2018-1-18 20:31</font></a></font><br />
+倒不是说plus丑，只是相对HL来讲的，我仔细想了一个一下，对于plus来说已经做得确实很不错了<br />
+根据用途来 ...</blockquote></div>我的理解，你其实要的是一个listview，win.ui.tabs是用来做选项卡、导航按钮的，这种弄个大滚动条上去？！<br />
+如果你说的是listview，的确用HTMLayout做这个是比较方便的，而且可以做的很漂亮。 <br />
+<br />
+但plus控件也可以跟htmlayout结合使用，htmlayout做tabs是没有plus控件方便的。</td></tr></table>
+
+
+</div>
+<div id="comment_84434" class="cm">
+</div>
+
+<div id="post_rate_div_84434"></div>
+</div>
+</div>
+
+</td></tr>
+<tr><td class="plc plm">
+</td>
+</tr>
+<tr id="_postposition84434"></tr>
+<tr>
+<td class="pls"></td>
+<td class="plc" style="overflow:visible;">
+<div class="po hin">
+<div class="pob cl">
+<em>
+<a class="fastre" href="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;repquote=84434&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)">回复</a>
+</em>
+
+<p>
+<a href="javascript:;" id="mgc_post_84434" onmouseover="showMenu(this.id)" class="showmenu">使用道具</a>
+<a href="javascript:;" onclick="showWindow('miscreport84434', 'misc.php?mod=report&rtype=post&rid=84434&tid=22149&fid=39', 'get', -1);return false;">举报</a>
+</p>
+
+<ul id="mgc_post_84434_menu" class="p_pop mgcmn" style="display: none;">
+</ul>
+<script type="text/javascript" reload="1">checkmgcmn('post_84434')</script>
+</div>
+</div>
+</td>
+</tr>
+<tr class="ad">
+<td class="pls">
+</td>
+<td class="plc">
+</td>
+</tr>
+</table>
+</div><div id="postlistreply" class="pl"><div id="post_new" class="viewthread_table" style="display: none"></div></div>
+</div>
+
+
+<form method="post" autocomplete="off" name="modactions" id="modactions">
+<input type="hidden" name="formhash" value="10ec3ae0" />
+<input type="hidden" name="optgroup" />
+<input type="hidden" name="operation" />
+<input type="hidden" name="listextra" value="" />
+<input type="hidden" name="page" value="1" />
+</form>
+
+
+
+<div class="pgs mtm mbm cl">
+<span class="pgb y"><a href="http://bbs.aardio.com/forum.php?mod=forumdisplay&amp;fid=39">返回列表</a></span>
+<a id="newspecialtmp" onmouseover="$('newspecial').id = 'newspecialtmp';this.id = 'newspecial';showMenu({'ctrlid':this.id})" onclick="showWindow('newthread', 'forum.php?mod=post&action=newthread&fid=39')" href="javascript:;" title="发新帖"><img src="static/image/common/pn_post.png" alt="发新帖" /></a>
+</div>
+
+<!--[diy=diyfastposttop]--><div id="diyfastposttop" class="area"></div><!--[/diy]-->
+<script type="text/javascript">
+var postminchars = parseInt('50');
+var postmaxchars = parseInt('40000');
+var disablepostctrl = parseInt('0');
+</script>
+
+<div id="f_pst" class="pl bm bmw">
+<form method="post" autocomplete="off" id="fastpostform" action="forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;extra=&amp;replysubmit=yes&amp;infloat=yes&amp;handlekey=fastpost" onSubmit="return fastpostvalidate(this)">
+<table cellspacing="0" cellpadding="0">
+<tr>
+<td class="pls">
+</td>
+<td class="plc">
+
+<span id="fastpostreturn"></span>
+
+
+<div class="cl">
+<div id="fastsmiliesdiv" class="y"><div id="fastsmiliesdiv_data"><div id="fastsmilies"></div></div></div><div class="hasfsl" id="fastposteditor">
+<div class="tedt mtn">
+<div class="bar">
+<span class="y">
+<a href="http://bbs.aardio.com/forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149" onclick="return switchAdvanceMode(this.href)">高级模式</a>
+</span><script src="static/js/seditor.js?x3L" type="text/javascript"></script>
+<div class="fpd">
+<a href="javascript:;" title="文字加粗" class="fbld">B</a>
+<a href="javascript:;" title="设置文字颜色" class="fclr" id="fastpostforecolor">Color</a>
+<a id="fastpostimg" href="javascript:;" title="图片" class="fmg">Image</a>
+<a id="fastposturl" href="javascript:;" title="添加链接" class="flnk">Link</a>
+<a id="fastpostquote" href="javascript:;" title="引用" class="fqt">Quote</a>
+<a id="fastpostcode" href="javascript:;" title="代码" class="fcd">Code</a>
+<a href="javascript:;" class="fsml" id="fastpostsml">Smilies</a>
+</div></div>
+<div class="area">
+<div class="pt hm">
+您需要登录后才可以回帖 <a href="member.php?mod=logging&amp;action=login" onclick="showWindow('login', this.href)" class="xi2">登录</a> | <a href="member.php?mod=register" class="xi2">注册会员</a>
+
+
+<a href="http://bbs.aardio.com/connect.php?mod=login&op=init&referer=forum.php%3Fmod%3Dviewthread%26tid%3D22149%26from%3Dportal&statfrom=login" target="_top" rel="nofollow"><img src="static/image/common/qq_login.gif" class="vm" /></a>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="seccheck_fastpost">
+</div>
+
+
+<input type="hidden" name="formhash" value="10ec3ae0" />
+<input type="hidden" name="usesig" value="" />
+<input type="hidden" name="subject" value="  " />
+<p class="ptm pnpost">
+<a href="http://bbs.aardio.com/home.php?mod=spacecp&amp;ac=credit&amp;op=rule&amp;fid=39" class="y" target="_blank">本版积分规则</a>
+<button type="button" onclick="showWindow('login', 'member.php?mod=logging&action=login&guestmessage=yes')" name="replysubmit" id="fastpostsubmit" class="pn pnc vm" value="replysubmit" tabindex="5"><strong>发表回复</strong></button>
+<label for="fastpostrefresh"><input id="fastpostrefresh" type="checkbox" class="pc" />回帖后跳转到最后一页</label>
+<script type="text/javascript">if(getcookie('fastpostrefresh') == 1) {$('fastpostrefresh').checked=true;}</script>
+</p>
+</td>
+</tr>
+</table>
+</form>
+</div>
+
+<script type="text/javascript">
+new lazyload();
+</script>
+<script type="text/javascript">document.onkeyup = function(e){keyPageScroll(e, 0, 0, 'forum.php?mod=viewthread&tid=22149', 1);}</script>
+</div>
+
+<div class="wp mtn">
+<!--[diy=diy3]--><div id="diy3" class="area"></div><!--[/diy]-->
+</div>
+
+<script type="text/javascript">
+function succeedhandle_followmod(url, msg, values) {
+var fObj = $('followmod_'+values['fuid']);
+if(values['type'] == 'add') {
+fObj.innerHTML = '不收听';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=del&fuid='+values['fuid'];
+} else if(values['type'] == 'del') {
+fObj.innerHTML = '收听TA';
+fObj.href = 'home.php?mod=spacecp&ac=follow&op=add&hash=10ec3ae0&fuid='+values['fuid'];
+}
+}
+fixed_avatar([84315,84322,84323,84324,84373,84375,84377,84379,84382,84421,84428,84430,84434], 1);
+</script>	</div>
+<div id="ft" class="wp cl">
+<div id="flk" class="y">
+<p>
+<a href="http://bbs.aardio.com/forum.php?mobile=yes" >手机版</a><span class="pipe">|</span><a href="/" >未经许可严禁引用或转载本站文章</a><span class="pipe">|</span><a href="mailto:jacen.he@aardio.com" >站长邮箱</a><span class="pipe">|</span><a href="http://www.aardio.com/" title="aardio官网" >aardio.com</a><span class="pipe">|</span><strong><a href="http://bbs.aardio.com/" target="_blank">aardio官方社区</a></strong>
+( <a href="http://www.miitbeian.gov.cn/" target="_blank">皖ICP备09012014号</a> )</p>
+<p class="xs0">
+GMT+8, 2019-7-22 22:42<span id="debuginfo">
+, Processed in 0.062500 second(s), 24 queries
+.
+</span>
+</p>
+</div>
+<div id="frt">
+<p>Powered by <strong><a href="http://www.discuz.net" target="_blank">Discuz!</a></strong> <em>X3.4</em></p>
+<p class="xs0">&copy; 2001-2017 <a href="http://www.comsenz.com" target="_blank">Comsenz Inc.</a></p>
+</div></div>
+<script src="home.php?mod=misc&ac=sendmail&rand=1563806577" type="text/javascript"></script>
+
+<div id="scrolltop">
+<span><a href="http://bbs.aardio.com/forum.php?mod=post&amp;action=reply&amp;fid=39&amp;tid=22149&amp;extra=&amp;page=1" onclick="showWindow('reply', this.href)" class="replyfast" title="快速回复"><b>快速回复</b></a></span>
+<span hidefocus="true"><a title="返回顶部" onclick="window.scrollTo('0','0')" class="scrolltopa" ><b>返回顶部</b></a></span>
+<span>
+<a href="http://bbs.aardio.com/forum.php?mod=forumdisplay&amp;fid=39" hidefocus="true" class="returnlist" title="返回列表"><b>返回列表</b></a>
+</span>
+</div>
+<script type="text/javascript">_attachEvent(window, 'scroll', function () { showTopLink(); });checkBlind();</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+  </style>
+</head>
+<body oncontextmenu="return false" ondragstart="return false" onselectstart ="return false">
+  <script type="text/javascript">
+      var queryString = function(name) {
+        var i = 0,
+          params = {},
+          key,
+          value,
+          pos,
+          search = location.search ? location.search.substr(1).split("&") : [];
+
+        for (; i < search.length; i++) {
+          pos = search[i].indexOf("=");
+          if (pos > 0) {
+            key = search[i].substring(0, pos);
+            value = search[i].substring(pos + 1);
+            params[key] = decodeURIComponent(value);
+          }
+        }
+        return params[name] ? params[name] : undefined;
+      };
+      
+      var adId = queryString('cpro_id');
+      
+      (function() {
+          var s = "_" + Math.random().toString(36).slice(2);
+          document.write('<div style="" id="' + s + '"></div>');
+          (window.slotbydup = window.slotbydup || []).push({
+              id: adId,
+              container:  s
+          });
+      })();
+  </script>
+  <!-- 多条广告如下脚本只需引入一次 -->
+  <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/c.js" async="async" defer="defer" ></script>
+</body>
+</html>

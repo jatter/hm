@@ -3,29 +3,32 @@ import win.ui;
 import web.form.sockpuppet;
 import zz;
 import sqlite;
+import console;
 var db = sqlite("/hummer.dll");//打开数据库连接
 /*DSG{{*/
 var winform = win.form(text="添加抢购";right=759;bottom=469)
 winform.add(
-buttonBasket={cls="button";text="加入购物车";left=615;top=131;right=701;bottom=163;z=22};
 buttonExecute={cls="button";text="立即执行";left=615;top=199;right=701;bottom=231;z=27};
 buttonSave={cls="button";text="保存设置";left=615;top=165;right=701;bottom=197;z=23};
-buttonSkuLoad={cls="button";text="加载";left=658;top=51;right=719;bottom=80;dr=1;dt=1;z=21};
+buttonShopCart={cls="button";text="加入购物车";left=614;top=131;right=700;bottom=163;z=22};
+buttonSkuLoad={cls="button";text="加载";left=657;top=51;right=718;bottom=80;dr=1;dt=1;z=21};
 checkboxAutoPay={cls="checkbox";text="自动付款";left=60;top=139;right=135;bottom=160;dl=1;dt=1;z=3};
 checkboxAutoRule={cls="checkbox";text="自动捡漏";left=341;top=175;right=419;bottom=197;dl=1;dt=1;z=11};
 checkboxSteadPay={cls="checkbox";text="代付";left=343;top=137;right=397;bottom=157;dr=1;dt=1;z=6};
+comboboxCircuit={cls="combobox";left=588;top=55;right=654;bottom=79;edge=1;items={"线路1";"线路2";"线路3"};mode="dropdown";z=28};
 customWeb={cls="custom";left=37;top=25;right=38;bottom=26;bgcolor=16777215;db=1;dl=1;dr=1;dt=1;hide=1;repeat="center";z=20};
 dpickTimelySubmit={cls="datetimepick";left=125;top=217;right=269;bottom=242;edge=1;z=25};
 editAlipay={cls="edit";left=454;top=134;right=603;bottom=157;dr=1;dt=1;edge=1;multiline=1;z=8};
 editAmountLimit={cls="edit";left=493;top=172;right=550;bottom=195;dr=1;dt=1;edge=1;multiline=1;z=13};
 editDelayedPay={cls="edit";left=359;top=216;right=389;bottom=240;db=1;dl=1;dr=1;dt=1;edge=1;z=16};
+editFeatureParam={cls="edit";left=125;top=252;right=603;bottom=278;dl=1;dt=1;edge=1;z=30};
 editFrequency={cls="edit";left=494;top=216;right=548;bottom=240;db=1;dr=1;dt=1;edge=1;z=18};
 editLeavingMessage={cls="edit";left=98;top=175;right=309;bottom=201;dl=1;dt=1;edge=1;z=10};
-editLog={cls="edit";left=37;top=283;right=718;bottom=444;edge=1;multiline=1;z=24};
+editLog={cls="edit";left=37;top=309;right=718;bottom=444;edge=1;multiline=1;z=24};
 editPayPwd={cls="edit";left=220;top=136;right=310;bottom=159;dl=1;dt=1;edge=1;z=5};
-editPurchaseUrl={cls="edit";left=96;top=53;right=645;bottom=82;dl=1;dr=1;dt=1;edge=1;multiline=1;z=19};
-groupboxPurchase={cls="groupbox";text="抢购(单帐号)";left=11;top=19;right=739;bottom=450;db=1;dl=1;dr=1;dt=1;edge=1;z=1};
-groupboxSetup={cls="groupbox";text="抢购设置";left=37;top=108;right=719;bottom=259;db=1;dl=1;dr=1;dt=1;edge=1;z=2};
+editPurchaseUrl={cls="edit";left=96;top=53;right=579;bottom=82;dl=1;dr=1;dt=1;edge=1;multiline=1;z=19};
+groupboxPurchase={cls="groupbox";text="抢购(单帐号)";left=10;top=18;right=738;bottom=449;db=1;dl=1;dr=1;dt=1;edge=1;z=1};
+groupboxSetup={cls="groupbox";text="抢购设置";left=39;top=108;right=721;bottom=298;db=1;dl=1;dr=1;dt=1;edge=1;z=2};
 static={cls="static";text="支付密码:";left=149;top=138;right=216;bottom=157;dl=1;dt=1;transparent=1;z=4};
 static2={cls="static";text="支付宝:";left=402;top=138;right=451;bottom=158;dr=1;dt=1;transparent=1;z=7};
 static3={cls="static";text="留言:";left=60;top=179;right=98;bottom=204;dl=1;dt=1;transparent=1;z=9};
@@ -33,7 +36,8 @@ static4={cls="static";text="金额限制:";left=427;top=175;right=498;bottom=199
 static5={cls="static";text="定时提交:";left=61;top=221;right=150;bottom=247;db=1;dl=1;dt=1;transparent=1;z=14};
 static6={cls="static";text="延迟付款:";left=290;top=221;right=353;bottom=240;db=1;dl=1;dt=1;transparent=1;z=15};
 static7={cls="static";text="频率:";left=451;top=218;right=493;bottom=240;db=1;dr=1;dt=1;transparent=1;z=17};
-static8={cls="static";text="商品url:";left=37;top=60;right=104;bottom=79;dl=1;dt=1;transparent=1;z=26}
+static8={cls="static";text="商品url:";left=37;top=60;right=104;bottom=79;dl=1;dt=1;transparent=1;z=26};
+static9={cls="static";text="特征参数:";left=64;top=256;right=121;bottom=281;dl=1;dt=1;transparent=1;z=29}
 )
 /*}}*/
 
@@ -56,22 +60,65 @@ winform.buttonSkuLoad.oncommand = function(id,event){
     wb.wait(,4000);              
 
 	var productTitleEle = wb.waitQueryEles({tagName="^DIV$";className="tb-detail-hd"});
+	//天猫
 	if(productTitleEle){
 		productTitle = productTitleEle.innerText;
 	    winform.editLog.print(productTitle);
+	//淘宝
+	}else{
+		productTitleEle = wb.waitQueryEles({tagName="^DIV$";className="tb-title"});
+	    productTitle = productTitleEle.innerText;
+	    winform.editLog.print(productTitle);
 	}	
+	
 }
 
 //加入购物车
-winform.buttonBasket.oncommand = function(id,event){
+winform.buttonShopCart.oncommand = function(id,event){
 	wb.go(winform.editPurchaseUrl.text);
     wb.wait(,3000);
-    wb.getEle("J_LinkBasket").click(); 
+
+    //淘宝
+    var shopCart = wb.waitQueryEles({tagName="^A$";className="J_LinkAdd"}, 2000);
+    if(!shopCart){
+        console.debug("shopCartshopCartshopCartshopCart ");
+        //天猫
+        shopCart = wb.waitQueryEles({tagName="^A$";id="J_LinkBasket"}, 2000);
+    }
+    
+    if(shopCart){
+       shopCart.click();
+    }
+ 
+    wb.wait(,2000);
+    winform.editLog.print("已成功加入购物车");
+    
+    /**
+    
+    //天猫
+    var addSuccess = wb.waitQueryEles({innerHTML="成功加入购物车！"; tagName="^B$"}, 2000);
+
+    if(!addSuccess){
+        console.debug("33333333333333333333 ");
+        addSuccess = wb.waitQueryEles({innerHTML="已成功加入购物车"; tagName="^DIV$";className="result-hint"}, 2000);
+    }
+    if(addSuccess){
+        console.debug("4444444444444 ");
+        winform.editLog.print("已成功加入购物车"); 
+        
+    }
+    //
+    myShopCart = wb.waitQueryEles({tagName="^A$";id="mc-menu-hd"}, 2000);
+    if(myShopCart){
+        myShopCart.click();
+    }
+    **/
 }
 
 //保存配置
 winform.buttonSave.oncommand = function(id,event){
     var purchaseUrl = winform.editPurchaseUrl.text;//商品URL
+    var circuit = winform.comboboxCircuit.text;//线路 1，2，3
     var isAutoPay = winform.checkboxAutoPay.checked;//自动付款 1:选中 0:未选中
     var payPwd = winform.editPayPwd.text;//支付密码
     var steadPay = winform.checkboxSteadPay.checked;//代付 1:选中 0:未选中
@@ -82,6 +129,8 @@ winform.buttonSave.oncommand = function(id,event){
 	var timelySubmit = winform.dpickTimelySubmit.text;//定时提交
 	var delayedPay = winform.editDelayedPay.text;//延迟付款   
 	var frequency = winform.editFrequency.text;//频率
+	var featureParam = winform.editFeatureParam.text;//特征参数
+	
 	var sqlStr = "insert into purchase_info (";
 	var valueStr = "";
 	if(string.len(string.trim(purchaseUrl)) == 0){
@@ -89,6 +138,12 @@ winform.buttonSave.oncommand = function(id,event){
 		win.setFocus(winform.editPurchaseUrl.hwnd);
 		return ; 
 	}
+    if(""!=circuit){
+		win.msgbox("线路为空,请输入");
+		win.setFocus(winform.comboboxCircuit.hwnd);
+		return ; 
+	}
+	
 	if(isAutoPay == 1 && string.len(string.trim(payPwd)) == 0){
 		win.msgbox("支付密码为空,请输入");
 		win.setFocus(winform.editPayPwd.hwnd);
@@ -128,6 +183,11 @@ winform.buttonSave.oncommand = function(id,event){
 	if(purchaseUrl){
         sqlStr = string.concat(sqlStr,"purchase_url,");
         valueStr = string.concat(valueStr,"'",purchaseUrl,"',");
+    }
+    //线路
+    if(circuit){
+        sqlStr = string.concat(sqlStr,"circuit,");
+        valueStr = string.concat(valueStr,"'",circuit,"',");
     }
     //支付密码
     if(payPwd){
@@ -174,13 +234,16 @@ winform.buttonSave.oncommand = function(id,event){
         sqlStr = string.concat(sqlStr,"frequency,");
         valueStr = string.concat(valueStr,"'",frequency,"',");
     }
-    sqlStr = string.concat(sqlStr,"user_id,");
-    valueStr = string.concat(valueStr,"'",frequency,"',");
-    
-    
+    //特征参数
+    if(featureParam){
+        sqlStr = string.concat(sqlStr,"feature_param,");
+        valueStr = string.concat(valueStr,"'",featureParam,"',");
+    }
+       
     sqlStr = string.sub(sqlStr,0, string.len(sqlStr)-1) + ") values (";
     valueStr = string.sub(valueStr,0, string.len(valueStr)-1) + ")";
-    zz.trace(sqlStr+valueStr);
+    //zz.trace(sqlStr+valueStr);
+    db.exec(sqlStr+valueStr);
      //sqlConn.exec( "insert into film values ('Silence of the Lambs, The', 11.8, 1991, 'Jodie Foster');")
      //我想这个就是传说中的开启事物
      //sqlConn.exec("begin;")

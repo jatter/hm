@@ -1,0 +1,1 @@
+/**/__jsonp_callbacks__.callback_get_splash_1563723540000({"data":{"dataType":1,"open":0,"small":2008,"large":215}});

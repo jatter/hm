@@ -1,0 +1,41 @@
+<!DOCTYPE html><html><head><meta charset="utf-8" /><style>html,body{height:100%;margin:0}</style></head><body><div id="p4p"></div><script>
+
+var args = (location.hash || location.search).slice(1).replace("?pid=", "&pid=")
+
+getScript("//tns.simba.taobao.com/?" + args.replace(/p4p_size(=\d+x\d+)/i,"size$1") + (/(&|^)name=.+/.test(args) ? "&p4p=cb" : "&name=crtopt&p4p=cb"))
+
+function cb(data) {
+    p4pdata = data.data[0].adList
+    var url = data.data[0].templateUrl.replace(/(https?)?:\/\/[^/]+/, "//" + location.host)
+
+    var html = '<iframe src="{src}" style="width:{width}px;height:{height}px" border="0" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe>'
+
+    var size = args.match(/(?:^|&)p4p_size=([^&]+)/i)[1]
+    var arr = size.split(/x/i)
+    var width = arr[0]
+    var height = arr[1]
+
+    html = html.replace("{src}", url).replace("{width}", width).replace("{height}", height)
+    document.getElementById("p4p").innerHTML = html
+}
+
+function getScript(url, callback, charset) {
+    var head = document.head || document.getElementsByTagName("head")[0] || document.documentElement
+    var script = document.createElement("script")
+    script.src = url
+    script.async = true
+    script.charset = charset || "utf-8"
+    script.onload = script.onreadystatechange = function () {
+        if(!script.readyState || /loaded|complete/.test(script.readyState)) {
+            script.parentNode.removeChild(script)
+            script.onload = script.onreadystatechange = null
+            script = null
+            if(callback && typeof callback == "function") {
+                callback()
+            }
+        }
+    }
+    head.appendChild(script)
+}
+
+</script></body></html>

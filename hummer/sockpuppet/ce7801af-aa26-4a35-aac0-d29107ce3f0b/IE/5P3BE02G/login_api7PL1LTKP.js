@@ -1,0 +1,1 @@
+var userCookie={dnk:'',_nk_:'',_l_g_:'',ck1:'',tracknick:'lijie0610',mt:'ci=0_1&np=',l:'cBEFlfmeqryYFcczBOCanurza77OSCRYYuPzaNbMi_5Cq6T_di7Ok4IUsF96VsBdtQ8B4gn_A6J9-etuqBFHBrk8sxAR.',uc1:'',t:'2f94354c05e905cf6b7ea9fd074320d0',unb:'',cna:'cM2wFdC7ODUCAbfVTvNe1azQ',_tb_token_:'316ee138e8737',version:'4.0.0'};window.TB && TB.Global && TB.Global.run && TB.Global.run();

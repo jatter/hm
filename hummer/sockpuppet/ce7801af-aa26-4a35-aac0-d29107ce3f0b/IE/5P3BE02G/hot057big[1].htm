@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mini Page</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+	<link rel="stylesheet" href="/Public/Template/smallmini900/css/reset.css" type="text/css">
+	<script type="text/javascript" src="/Public/Template/js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="/Public/Template/js/jquery.cookie.js"></script>
+	<link rel="stylesheet" href="/Public/Template/smallmini900/css/small.css"> 
+	<style type="text/css">
+		/*双十一*/
+		.nav_ad a, .nav_ad img{
+			display: block;
+			width: 60px;
+			height: 60px;
+		}
+		.xuanfu {
+			width: 774px;
+			height: 82px;
+			position: absolute;
+			bottom: 0;
+			left: 105px;
+			z-index: 999;
+			display: none;
+		}
+		.xuanfu a {
+			display: block;
+			width: 100%;
+			height: 82px;
+		}
+		.xuanfu img {
+			width: 100%;
+			height: 82px;
+		}
+		.xuanfu span {
+			display: inline-block;
+			width: 20px;
+			height: 20px;
+			line-height: 20px;
+			text-align: center;
+			border-radius: 50%;
+			background: rgba(0, 0, 0, 0.5);
+			color: #fff;
+			font-size: 13px;
+			position: absolute;
+			top: 5px;
+			right: 10px;
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		var f_pathname = window.location.pathname.replace('/mini/', '').replace('/index.html', '').replace(/\//g, '');
+		if(localStorage['f_'+f_pathname+'_vuid']){
+			var f_vuid = localStorage['f_'+f_pathname+'_vuid'];
+		}else{
+			var f_vuid = '';
+		}
+		
+		var val = localStorage['fl_'+f_pathname+'_time'];
+		if(val){
+			if(window.location.host == 'hot.eastday.com'){
+				window.location.href='http://1.mini.eastday.com/versionc/?vuid='+f_vuid
+			}else{
+				window.location.href='http://test.1.mini.eastday.com/versionc/?vuid='+f_vuid
+			}
+		}else{
+			// console.log('womeiyouceshi')
+		}
+	</script>
+	<script>
+			
+		// ---------------------config.js-----------------------------
+
+		var coo_name = '';
+		var directOpen = '';
+		var directOpen_area = '';
+		// ---------------------config.js-----------------------------
+		
+
+	</script>
+	<script>
+		var logoMini = ['USBbaohe', '160wifi', 'renshengrili'];
+		var logoPathname = window.location.pathname.replace('index.html', '').slice(1, -1);
+		var logoImg = '/Public/Template/images/'+ logoPathname +'_logo.png';
+		var logoMiniBool = $.inArray(logoPathname, logoMini) > -1;
+        if(logoMiniBool){
+			var dom = '<style>'+
+							'.header{display: block;background: url('+logoImg+') no-repeat 0 0 }'+
+							'#container .left_nav li.active, #container .left_nav li:hover {background: #4285D9}'+
+							'#container .right_pannel .today_news{border-color: #4285D9}'+
+							'::-webkit-scrollbar-thumb {background: #7eace7;}'+
+						'</style>';
+            $('head').append(dom);
+		}
+    </script>
+</head>
+<body>
+	<div class="header">
+		<div class="header-close"></div>
+		<div class="header-min"></div>
+	</div>
+	<div id="container">
+		<div class="wrapper">
+			<!-- 左侧 nav 区域 start -->
+			<div class="left_nav">
+                <ul class="now_nav">
+                    <li class="nav_item more">
+                        <a>更多</a>
+                        <img src="/Public/Template/images/toggle_nav.png" alt="">
+                            
+                    </li>
+                </ul>
+                <ul class="more_nav">
+                    <li class="back">
+                        <a>返回</a>
+                        <img src="/Public/Template/images/hover_toggle_nav.png" alt="">
+                    </li>             
+				</ul>
+				<a href="javascript:;" class="feedback fankui"><span>反馈</span><img src="/Public/Template/images/feedicon.png"></a>
+				
+                <div class="nav_ad">
+                	<a href="" target="_blank" class="zhike_click_gg">
+                		<img src="" alt="">
+                	</a>
+                </div>
+				<!-- <li class="nav_item fankui" method="" date-type="fankui"><a>反馈</a></li> -->
+			</div>
+			<!-- 左侧 nav 区域 end -->
+			<!-- 中间 新闻区域 start -->
+			<div class="content">
+				<div class="scroll_con">
+
+
+				</div>
+			</div>
+			<div class="iframeContent"></div>
+			<!-- 中间 新闻区域 end -->
+			<!-- 右侧 区域 start -->
+			<div class="right_pannel">
+				<div class="showcase">
+				</div>
+				<div class="showcase">
+				</div>
+				<div class="today_news">
+					<h2>24小时热闻</h2>
+					<ul>
+
+					</ul>
+				</div>
+			</div>
+			<!-- 右侧 区域 end -->
+		</div>
+		<div class="xuanfu">
+			<a href="" target="_blank" class="zhike_click_gg">
+				<img src="">
+			</a>
+			<span class="close">X</span>
+		</div>
+		<div class="heng">
+		
+		</div>
+
+		<!-- 反馈模板 -->
+		<div class="background_model feed_back">
+			<!-- 反馈页面 -->
+			<div class="_feed_back_model">
+				<div class="_feed_box">
+					<h3>反馈内容</h3>
+					<div class="check_box">
+						<label><input id="0" type="checkbox" class="feedback_item" name="feedback_item" value="广告太多"><span>广告太多</span></label>
+						<label><input id="1" type="checkbox" class="feedback_item" name="feedback_item" value="新闻不感兴趣"><span>新闻不感兴趣</span></label>
+						<label><input id="2" type="checkbox" class="feedback_item" name="feedback_item" value="内容低俗"><span>内容低俗</span></label>
+						<label class="lable_w"><input id="3" class="feedback_item" type="checkbox" name="feedback_item" value="存在色情、赌博类消息"><span>存在色情、赌博类消息</span></label>
+						<label><input id="4" type="checkbox" class="feedback_item" name="feedback_item" value="内容无法点击"><span>内容无法点击</span></label>
+					</div> 
+					<div class="_feedlink">
+						<i>联系方式</i>
+						<input class="feed_contact" type="text" placeholder="请输入QQ号或手机号（选填）">
+					</div>
+					<span class="_feed_submit">提交</span>
+					<div class="float_close"></div>
+				</div>
+			</div>
+		  </div>
+		<div class="prompt pro_error">亲，请输入您的建议或意见！</div>
+		<div class="prompt pro_success">提交成功，感谢您的建议或意见！</div>
+		<img src="/Public/Template/images/fk_success.png" alt="" class="fk_success">
+
+
+	</div>
+	<script src="/Public/Template/js/global.js"></script>
+	<script src="//dup.baidustatic.com/js/ds.js"></script>
+</body>
+<script>
+	// 360广告showid
+	var days = '0';
+	var flush = '';
+	var showIdLeft = 'x8lfZE';
+	var showIdRight = 'oY7kID';
+	var showIdRightTop = 'O8d69k';
+	var pos_360 = '["\u5317\u4eac","\u4e0a\u6d77","\u5e7f\u5dde","\u6df1\u5733","\u6210\u90fd","\u5929\u6d25"]';
+	var PB_messageLeft360 = 'VCaKJ8';
+	var PB_messageRight360 = 'oY7kID';
+	var PB_messageRight360Top = 'O8d69k';
+	var leftImgAd = '';
+	var leftImgAd_area = '';
+	var xuanFuImgAd = '';
+	var xuanFuImgAd_area = '';
+
+	var hengFu = '';
+	var hengFu2 = '';
+	var hengFu_area = '[]';
+	var hengFuTime = '';
+	if(hengFu_area.length == 0) {
+		hengFu_area = [];
+	}else {
+		try{
+			hengFu_area = JSON.parse(hengFu_area);
+		}catch(e){
+			hengFu_area = window.eval(hengFu_area);
+		}
+		
+	}
+	//地方站
+	var dfzInfoJson = [];
+
+	//渠道绑定域名
+	var domainQidJson = '{"www.lieqinews.com":"ludashi013cs","miniimg.eastday.com":"ludashi013cs","video.eastday.com":"lds057","dzh.mop.com":"02015","sports.eastday.com":"lds057","auto.mop.com":"lds057","mil.eastday.com":"02251","health.eastday.com":"lds057"}';
+	
+	// 渠道号
+	var global_qid = '01739';
+	var dsp_qid = '01739';
+	var json = {"baiduAd ":["","","5880599","5587423"],"textAd ":[null],"headImg":"","news":[{"tab":1,"title":"\u63a8\u8350","src":"","hot_wrap":false,"logo":"toutiao","template":1,"noad":true,"pdata":"|1|toutiao|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"","24h_api":"http:\/\/mini.eastday.com\/apidata\/top50jsonp.json","region":[],"data":[{"type":"1","fbs":{"title":"\u53e4\u4ee3\u7687\u5e1d\u73a9\u5f04\u5983\u5b50\u5982\u6b64\u653e\u8361\uff0c\u6298\u78e8\u5983\u5b50\u4e0d\u5f53\u4eba\u6765\u5bf9\u5f85\uff01","src":"http:\/\/www.dxqck.com\/dsp\/novellist\/novel071804.html?qid=01739&_100_\u63a8\u8350","originSrc":"http:\/\/www.dxqck.com\/dsp\/novellist\/novel071804.html","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d319497a3371.png","http:\/\/hot.eastday.com\/mini\/resources\/img\/5d31949a15d88.png","http:\/\/hot.eastday.com\/mini\/resources\/img\/5d31949c6d0e7.png","http:\/\/hot.eastday.com\/mini\/resources\/img\/5d31949ebc582.png"],"color":"#000000","pdata":"http:\/\/www.dxqck.com\/dsp\/novellist\/novel071804.html|1|toutiao|1|pic|''","icon":"0","lunboText":"","content":"","source":"","img43":"","img21":"","date":"2019-07-19 18:00:00","newsgg":"1"},"bs":{"title":"\u5458\u5de5\u8c03\u6574\u98ce\u6247\u89e6\u753520\u79d2\u60e8\u6b7b \u540c\u4e8b\u5374\u89c1\u6b7b\u4e0d\u6551","src":"https:\/\/mini.eastday.com\/a\/n190721080013946.html?qid=01739&_100_\u63a8\u8350","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d33f9ee1f3e8.gif"],"color":"#000000","pdata":"https:\/\/mini.eastday.com\/a\/n190721080013946.html|1|toutiao|1|pic|''","icon":"0","lunboText":"","content":"","source":"","newsgg":"0"},"fbs_v1":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|1|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v1":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|1|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"fbs_v2":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|1|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v2":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|1|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"region":["\u5317\u4eac","\u4e0a\u6d77"]},{"type":"1","fbs":{"title":"\u5468\u51ac\u96e8\u65b0\u604b\u60c5\u66dd\u5149\uff1f\u4e0e\u795e\u79d8\u7537\u6478\u8138\u66a7\u6627","src":"https:\/\/mini.eastday.com\/a\/n190703132508948.html?qid=01739&_101_\u63a8\u8350","originSrc":"https:\/\/mini.eastday.com\/a\/n190703132508948.html","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d33f9f2b1897.jpg"],"color":"#000000","pdata":"https:\/\/mini.eastday.com\/a\/n190703132508948.html|1|toutiao|2|pic|''","icon":"0","lunboText":"","content":"","source":"","img43":"","img21":"","date":"2019-07-21 13:36:54","newsgg":"0"},"bs":{"title":"\u5468\u51ac\u96e8\u65b0\u604b\u60c5\u66dd\u5149\uff1f\u4e0e\u795e\u79d8\u7537\u6478\u8138\u66a7\u6627","src":"https:\/\/mini.eastday.com\/a\/n190703132508948.html?qid=01739&_101_\u63a8\u8350","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d33f9f2b1897.jpg"],"color":"#000000","pdata":"https:\/\/mini.eastday.com\/a\/n190703132508948.html|1|toutiao|2|pic|''","icon":"0","lunboText":"","content":"","source":"","newsgg":"0"},"fbs_v1":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|2|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v1":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|2|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"fbs_v2":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|2|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v2":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|2|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"region":[]},{"type":"1","fbs":{"title":"\u5cb3\u6bcd\u4f4f\u9662\u975e\u8ba9\u5973\u5a7f\u966a\u5e8a\uff0c\u533b\u751f\u585e\u4e00\u7eb8\u6761\uff0c\u5973\u5a7f\u4e00\u77a7\u8138\u7eff\u4e86","src":"http:\/\/miniimg.eastday.com\/detail_n\/n190718095402368.html?qid=ludashi013cs&_102_\u63a8\u8350","originSrc":"http:\/\/miniimg.eastday.com\/detail_n\/n190718095402368.html","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2fd50a31e5e.gif"],"color":"#000000","pdata":"http:\/\/miniimg.eastday.com\/detail_n\/n190718095402368.html|1|toutiao|3|pic|''","icon":"0","lunboText":"","content":"","source":"","img43":"","img21":"","date":"2019-07-19 16:17:11","newsgg":"0"},"bs":{"title":"\u5cb3\u6bcd\u4f4f\u9662\u975e\u8ba9\u5973\u5a7f\u966a\u5e8a\uff0c\u533b\u751f\u585e\u4e00\u7eb8\u6761\uff0c\u5973\u5a7f\u4e00\u77a7\u8138\u7eff\u4e86","src":"http:\/\/miniimg.eastday.com\/detail_n\/n190718095402368.html?qid=ludashi013cs&_102_\u63a8\u8350","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2fd50a31e5e.gif"],"color":"#000000","pdata":"http:\/\/miniimg.eastday.com\/detail_n\/n190718095402368.html|1|toutiao|3|pic|''","icon":"0","lunboText":"","content":"","source":"","newsgg":"0"},"fbs_v1":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|3|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v1":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|3|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"fbs_v2":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|3|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v2":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|3|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"region":[]},{"type":"1","fbs":{"title":"\u8303\u51b0\u51b0\u79c1\u4e0b\u662f\u4e2a\u600e\u6837\u7684\u4eba\uff1f\u674e\u6668\u7684\u56de\u7b54\u8ba9\u4eba\u60ca\u8bb6","src":"http:\/\/www.lieqinews.com\/a\/n190715110100531.html?qid=ludashi013cs&_103_\u63a8\u8350","originSrc":"http:\/\/www.lieqinews.com\/a\/n190715110100531.html","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2becde6604a.gif"],"color":"#000000","pdata":"http:\/\/www.lieqinews.com\/a\/n190715110100531.html|1|toutiao|4|pic|''","icon":"0","lunboText":"","content":"","source":"","img43":"","img21":"","date":"2019-07-19 16:17:11","newsgg":"0"},"bs":{"title":"\u8303\u51b0\u51b0\u79c1\u4e0b\u662f\u4e2a\u600e\u6837\u7684\u4eba\uff1f\u674e\u6668\u7684\u56de\u7b54\u8ba9\u4eba\u60ca\u8bb6","src":"http:\/\/www.lieqinews.com\/a\/n190715110100531.html?qid=ludashi013cs&_103_\u63a8\u8350","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2becde6604a.gif"],"color":"#000000","pdata":"http:\/\/www.lieqinews.com\/a\/n190715110100531.html|1|toutiao|4|pic|''","icon":"0","lunboText":"","content":"","source":"","newsgg":"0"},"fbs_v1":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|4|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v1":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|4|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"fbs_v2":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|4|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v2":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|4|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"region":[]},{"type":"1","fbs":{"title":"\u56e0\u8eab\u6750\u592a\u597d\u88ab\u8e22\u51fa\u56fd\u5bb6\u961f\uff0c\u8bef\u5165\u5a31\u4e50\u5708\u5374\u7206\u7ea2","src":"https:\/\/mini.eastday.com\/a\/n190715104546689.html?qid=01739&_104_\u63a8\u8350","originSrc":"https:\/\/mini.eastday.com\/a\/n190715104546689.html","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2bece3e167e.gif","http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2bece6e3533.gif","http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2becea4abd0.gif"],"color":"#000000","pdata":"https:\/\/mini.eastday.com\/a\/n190715104546689.html|1|toutiao|5|pic|''","icon":"0","lunboText":"","content":"","source":"","img43":"","img21":"","date":"2019-07-19 16:17:11","newsgg":"0"},"bs":{"title":"\u56e0\u8eab\u6750\u592a\u597d\u88ab\u8e22\u51fa\u56fd\u5bb6\u961f\uff0c\u8bef\u5165\u5a31\u4e50\u5708\u5374\u7206\u7ea2","src":"https:\/\/mini.eastday.com\/a\/n190715104546689.html?qid=01739&_104_\u63a8\u8350","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2bece3e167e.gif","http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2bece6e3533.gif","http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2becea4abd0.gif"],"color":"#000000","pdata":"https:\/\/mini.eastday.com\/a\/n190715104546689.html|1|toutiao|5|pic|''","icon":"0","lunboText":"","content":"","source":"","newsgg":"0"},"fbs_v1":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|5|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v1":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|5|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"fbs_v2":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|5|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v2":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|5|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"region":[]},{"type":"1","fbs":{"title":"\u6700\u65b0\uff01\u8b66\u65b9\u516c\u5e039\u5c81\u5973\u5b69\u7ae0\u5b50\u6b23\u6b7b\u56e0\uff01\u5168\u7f51\u5173\u6ce8\u7684\u516d\u5927\u7591\u95ee\u6709\u7b54\u6848\u4e86","src":"https:\/\/mini.eastday.com\/a\/n190715094750976.html?qid=01739&_105_\u63a8\u8350","originSrc":"https:\/\/mini.eastday.com\/a\/n190715094750976.html","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2becee4177d.gif","http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2becf190395.gif","http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2becf4339b0.gif"],"color":"#000000","pdata":"https:\/\/mini.eastday.com\/a\/n190715094750976.html|1|toutiao|6|pic|''","icon":"0","lunboText":"","content":"","source":"","img43":"","img21":"","date":"2019-07-19 16:17:11","newsgg":"0"},"bs":{"title":"\u6700\u65b0\uff01\u8b66\u65b9\u516c\u5e039\u5c81\u5973\u5b69\u7ae0\u5b50\u6b23\u6b7b\u56e0\uff01\u5168\u7f51\u5173\u6ce8\u7684\u516d\u5927\u7591\u95ee\u6709\u7b54\u6848\u4e86","src":"https:\/\/mini.eastday.com\/a\/n190715094750976.html?qid=01739&_105_\u63a8\u8350","imgSrc":"","imgArr":["http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2becee4177d.gif","http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2becf190395.gif","http:\/\/hot.eastday.com\/mini\/resources\/img\/5d2becf4339b0.gif"],"color":"#000000","pdata":"https:\/\/mini.eastday.com\/a\/n190715094750976.html|1|toutiao|6|pic|''","icon":"0","lunboText":"","content":"","source":"","newsgg":"0"},"fbs_v1":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|6|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v1":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|6|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"fbs_v2":{"title":"","src":"","originSrc":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|6|pic|''","icon":"","lunboText":"","content":"","source":"","img43":"","img21":"","date":null,"newsgg":""},"bs_v2":{"title":"","src":"","imgSrc":"","imgArr":[],"color":"","pdata":"|1|toutiao|6|pic|''","icon":"","lunboText":"","content":"","source":"","newsgg":""},"region":[]}]},{"tab":2,"title":"\u5a31\u4e50","src":"","hot_wrap":false,"logo":"yule","template":1,"noad":true,"pdata":"|1|yule|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"","24h_api":"http:\/\/mini.eastday.com\/apidata\/top20yulejsonp.json","region":[],"data":null},{"tab":3,"title":"\u7f8e\u5973","src":"","hot_wrap":false,"logo":"tupian","template":1,"noad":true,"pdata":"|1|tupian|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"http:\/\/miniimg.eastday.com\/json\/mini_meinv.json","24h_api":"","region":[],"data":null},{"tab":4,"title":"\u519b\u4e8b","src":"","hot_wrap":false,"logo":"junshi","template":1,"noad":true,"pdata":"|1|junshi|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"http:\/\/mini.eastday.com\/minineibuapi\/minineibujsonpmil.json","24h_api":"","region":[],"data":null},{"tab":5,"title":"\u4f53\u80b2","src":"","hot_wrap":false,"logo":"tiyu","template":1,"noad":true,"pdata":"|1|tiyu|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"http:\/\/sports.eastday.com\/data\/json_dtmini.js","24h_api":"","region":[],"data":null},{"tab":6,"title":"\u89c6\u9891","src":"","hot_wrap":false,"logo":"video","template":1,"noad":true,"pdata":"|1|video|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"http:\/\/video.eastday.com\/json\/top200mini.json","24h_api":"http:\/\/video.eastday.com\/json\/mini_video_info.json","region":[],"data":null},{"tab":7,"title":"\u517b\u751f","src":"","hot_wrap":false,"logo":"jiankang","template":1,"noad":true,"pdata":"|1|jiankang|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"http:\/\/mini.eastday.com\/minineibuapi\/minineibujsonphealth.json","24h_api":"","region":[],"data":null},{"tab":8,"title":"\u7535\u7ade","src":"","hot_wrap":false,"logo":"youxi","template":1,"noad":true,"pdata":"|1|youxi|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"http:\/\/sports.eastday.com\/data\/json_yxmini.js","24h_api":"","region":[],"data":null},{"tab":9,"title":"\u8d22\u7ecf","src":"","hot_wrap":false,"logo":"caijing","template":1,"noad":true,"pdata":"|1|caijing|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"","24h_api":"http:\/\/mini.eastday.com\/apidata\/top20caijingjsonp.json","region":[],"data":null},{"tab":10,"title":"\u65f6\u5c1a","src":"","hot_wrap":false,"logo":"shishang","template":1,"noad":true,"pdata":"|1|shishang|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"","24h_api":"http:\/\/mini.eastday.com\/apidata\/top20shishangjsonp.json","region":[],"data":null},{"tab":11,"title":"\u793e\u4f1a","src":"","hot_wrap":false,"logo":"shehui","template":1,"noad":true,"pdata":"|1|shehui|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"","24h_api":"http:\/\/mini.eastday.com\/apidata\/top20shehuijsonp.json","region":[],"data":null},{"tab":12,"title":"\u79d1\u6280","src":"","hot_wrap":false,"logo":"keji","template":1,"noad":true,"pdata":"|1|keji|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"","24h_api":"http:\/\/mini.eastday.com\/apidata\/top20kejijsonp.json","region":[],"data":null},{"tab":13,"title":"\u56fd\u9645","src":"","hot_wrap":false,"logo":"guoji","template":1,"noad":true,"pdata":"|1|guoji|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"","24h_api":"http:\/\/mini.eastday.com\/apidata\/top20guojijsonp.json","region":[],"data":null},{"tab":14,"title":"\u5386\u53f2","src":"","hot_wrap":false,"logo":"lishi","template":1,"noad":true,"pdata":"|1|lishi|0|text|''","title_color":"#000000","guide":0,"right":1,"data_api":"","24h_api":"http:\/\/mini.eastday.com\/apidata\/top20lishijsonp.json","region":[],"data":null}]}
+	//悬浮360屏蔽开关
+	var hengFuSwitch = '0';
+	//第一条新闻or广告
+	var newsgg = '';
+</script>
+<script>
+	//绑定视频站日志
+	// $('body').on('click' , 'a' , function(){
+	// 	if ($(this).attr("pdata")){
+	// 			$.cookie("video_global_pdata",$(this).attr("pdata"),{path:'/'})
+	// 	}
+	// });
+
+</script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        host = window.location.host;
+        if(host == 'hot.eastday.com'){ //hot域名下
+
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?9412b460c89aabe4ba96db0f7385d550";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?0f43db62c85e6938084c9b765fcf7eb0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+
+        }else if(host == 'mini.panfn.com'){
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?cc02ac89b16b63002a35c8978ad5697f";
+			var s = document.getElementsByTagName("script")[0]; 
+			s.parentNode.insertBefore(hm, s);
+		}else{
+
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?0f43db62c85e6938084c9b765fcf7eb0";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        }
+        
+    })();
+</script>
+<script type="text/javascript">
+    var href = (window.location.host).split('.')[0];
+    var src = document.createElement('script');
+    src.charset = 'UTF-8';
+    src.type = 'text/javascript';
+    if(href == 'hot'){
+        src.src = "http://tajs.qq.com/stats?sId=61987053";
+    }else if (href == 'mini') {
+        src.src = "http://tajs.qq.com/stats?sId=56309991";
+    }
+    $(document.body).append(src)
+</script>
+<script src="/Public/Template/js/md5.js"></script>
+<script type="text/javascript" src="/Public/Template/js/jquery.mousewheel.min.js"></script>
+<script src="/Public/Template/js/dspad.js"></script>
+<script src="/Public/Template/smallmini900/js/smallmini.js?0428"></script>
+<script type="text/javascript" src="/Public/Template/js/qiangtiao.js"></script>
+<script src="/Public/Template/js/small_firstopen.js"></script>
+<!-- 东方统计 -->
+	<div style="display:none">
+			<script type="text/javascript">document.write(unescape("%3Cscript  src='http://tongji.eastday.com/webdig.js?z=1' type='text/javascript'%3E%3C/script%3E"));</script>
+			<script type="text/javascript">wd_paramtracker("_wdxid=000000000000000000000000000000000000000000") </script>
+	</div>
+</html>

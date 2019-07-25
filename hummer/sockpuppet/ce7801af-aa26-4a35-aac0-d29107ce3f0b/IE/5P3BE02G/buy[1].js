@@ -1,0 +1,1 @@
+ login_indicator={"fastBuy":false,"hasLoggedIn":false,"hasPhantomLoggedIn":true,"popupWindow":"https://login.taobao.com/member/login.jhtml?is_ignore=false&from=buy&style=mini&redirect_url=//buy.taobao.com/auction/fastbuy/loginSuccess.vm?from=itemDetail","redirect":false,"success":true,"token":[],"tokenForScreen":""}
