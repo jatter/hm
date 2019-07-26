@@ -1,5 +1,8 @@
 import win.ui;
 import win.ui.statusbar;
+import debug.log4a;
+
+debug.log4a.init("main", "/log/main");
 /*DSG{{*/
 mainForm = win.form(text="hummer";right=836;bottom=555;image=$"\include\images\bg.gif";bkBottom=2;bkLeft=83;bkRight=255;bkTop=110;border="none";max=false)
 mainForm.add(
@@ -86,6 +89,7 @@ mainForm.wndproc = function(hwnd,message,wparam,lparam){
     select(message) {//判断消息类型
         case 0x10/*_WM_CLOSE窗口关闭消息*/{
             if(win.msgboxTest("确定退出系统?","询问")=false){
+                debug.log4a.close();
                 return wparam; 
             }
         }   

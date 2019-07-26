@@ -1,7 +1,9 @@
 import win.ui;
 import sqlite;
 import time;
-import console;
+import debug.log4a;
+
+debug.log4a.init("allpurchase", "/log/allpurchase");
 var db = sqlite("/hummer.dll");//打开数据库连接
 /*DSG{{*/
 var winform = win.form(text="全部抢购";right=829;bottom=479)
@@ -40,6 +42,16 @@ winform.datetimeEnd.time = time.now();
 winform.listview.setExtended(0x4/*_LVS_EX_CHECKBOXES*/);
 winform.listview.setExtended(0x20/*_LVS_EX_FULLROWSELECT*/);
 winform.listview.setExtended(0x8000000/*_LVS_EX_AUTOCHECKSELECT*/);
+
+//关闭窗口
+winform.wndproc = function(hwnd,message,wparam,lparam){
+    select(message) {//判断消息类型
+        case 0x10/*_WM_CLOSE窗口关闭消息*/{
+            debug.log4a.close();
+        }   
+    }
+    //无返回值则继续调用默认回调函数
+}
 
 //查询登录用户信息
 queryPurchaseInfo = function(queryParam){

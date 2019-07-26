@@ -1,10 +1,11 @@
 import win.ui;
 import sqlite;
 import time;
-import console;
 import web.form.sockpuppet;
 import formtool;
-import zz;
+import debug.log4a;
+
+debug.log4a.init("mypurchase", "/log/mypurchase");
 var db = sqlite("/hummer.dll");//打开数据库连接
 /*DSG{{*/
 var winform = win.form(text="我的抢购";right=836;bottom=478)
@@ -52,7 +53,17 @@ var wb = web.form.sockpuppet( winform.customWeb
      ,//可输入_DLCTL_ 前缀的常量以控制下载行为
      ,//"USER AGENT"
      );
-wb.noScriptErr=true; 
+wb.noScriptErr=true;
+
+//关闭窗口
+winform.wndproc = function(hwnd,message,wparam,lparam){
+    select(message) {//判断消息类型
+        case 0x10/*_WM_CLOSE窗口关闭消息*/{
+            debug.log4a.close();
+        }   
+    }
+    //无返回值则继续调用默认回调函数
+}
 
 //查询登录用户信息
 queryPurchaseInfo = function(queryParam){
@@ -100,7 +111,7 @@ queryPurchaseInfo({});
 
 //查询
 winform.buttonQuery.oncommand = function(id,event){
-    zz.trace("winform.buttonQuery.oncommand:"+mainForm.staticUserName.text);
+    debug.log4a.debug("winform.buttonQuery.oncommand:"+mainForm.staticUserName.text);
     var queryParam = {};
     queryParam["user_id"] = mainForm.staticUserName.text;
     if(""!=string.trim(winform.editPurchaseId.text)){
@@ -117,7 +128,7 @@ winform.buttonQuery.oncommand = function(id,event){
     if(""!=string.trim(winform.datetimeEnd.text)){
        queryParam["datetimeEnd"] = winform.datetimeEnd.text;
     }
-    console.varDump(queryParam);
+    debug.log4a.debug("winform.buttonQuery.oncommand:"+queryParam);
     
     //判断查询开始日期不能大于结束日期
     if(queryParam["datetimeBegin"] && queryParam["datetimeEnd"]){

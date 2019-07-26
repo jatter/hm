@@ -1,15 +1,16 @@
 //简单数据视图 
 import win.ui;
 import web.form.sockpuppet;
-import zz;
 import sqlite;
-import console;
+import debug.log4a;
+
+debug.log4a.init("purchaseedit", "/log/purchaseedit");
 var db = sqlite("/hummer.dll");//打开数据库连接
 /*DSG{{*/
 var winform = win.form(text="添加抢购";right=759;bottom=469)
 winform.add(
-buttonExecute={cls="button";text="立即执行";left=615;top=199;right=701;bottom=231;z=27};
-buttonSave={cls="button";text="保存设置";left=615;top=165;right=701;bottom=197;z=23};
+buttonExecute={cls="button";text="立即执行";left=614;top=199;right=700;bottom=231;z=27};
+buttonSave={cls="button";text="保存设置";left=614;top=165;right=700;bottom=197;z=23};
 buttonShopCart={cls="button";text="加入购物车";left=614;top=131;right=700;bottom=163;z=22};
 buttonSkuLoad={cls="button";text="加载";left=657;top=51;right=718;bottom=80;dr=1;dt=1;z=21};
 checkboxAutoPay={cls="checkbox";text="自动付款";left=60;top=139;right=135;bottom=160;dl=1;dt=1;z=3};
@@ -26,7 +27,7 @@ editFrequency={cls="edit";left=494;top=216;right=548;bottom=240;db=1;dr=1;dt=1;e
 editLeavingMessage={cls="edit";left=98;top=175;right=309;bottom=201;dl=1;dt=1;edge=1;z=10};
 editLog={cls="edit";left=37;top=309;right=718;bottom=444;edge=1;multiline=1;z=24};
 editPayPwd={cls="edit";left=220;top=136;right=310;bottom=159;dl=1;dt=1;edge=1;z=5};
-editPurchaseUrl={cls="edit";left=96;top=53;right=579;bottom=82;dl=1;dr=1;dt=1;edge=1;multiline=1;z=19};
+editPurchaseUrl={cls="edit";text="https://detail.tmall.com/item.htm?spm=a1z10.1-b-s.w5003-21818646417.29.144613305EP644&id=533904717481&rn=9447251a21920e035f655dd748eff609&abbucket=10&scene=taobao_shop&skuId=3404198768493";left=96;top=53;right=579;bottom=82;dl=1;dr=1;dt=1;edge=1;multiline=1;z=19};
 groupboxPurchase={cls="groupbox";text="抢购(单帐号)";left=10;top=18;right=738;bottom=449;db=1;dl=1;dr=1;dt=1;edge=1;z=1};
 groupboxSetup={cls="groupbox";text="抢购设置";left=39;top=108;right=721;bottom=298;db=1;dl=1;dr=1;dt=1;edge=1;z=2};
 static={cls="static";text="支付密码:";left=149;top=138;right=216;bottom=157;dl=1;dt=1;transparent=1;z=4};
@@ -73,24 +74,15 @@ winform.buttonSkuLoad.oncommand = function(id,event){
 	
 }
 
-//加入购物车
+//加入购物车按钮
 winform.buttonShopCart.oncommand = function(id,event){
-	wb.go(winform.editPurchaseUrl.text);
-    wb.wait(,3000);
-
-    //淘宝
-    var shopCart = wb.waitQueryEles({tagName="^A$";className="J_LinkAdd"}, 2000);
-    if(!shopCart){
-        console.debug("shopCartshopCartshopCartshopCart ");
-        //天猫
-        shopCart = wb.waitQueryEles({tagName="^A$";id="J_LinkBasket"}, 2000);
-    }
-    
-    if(shopCart){
-       shopCart.click();
-    }
+    //打开页面
+    openPage();
+    //加入购物车
+    addShopCat();
  
     wb.wait(,2000);
+    debug.log4a.debug("已成功加入购物车");
     winform.editLog.print("已成功加入购物车");
     
     /**
@@ -160,17 +152,16 @@ winform.buttonSave.oncommand = function(id,event){
 		return ; 
 	}
     
-    zz.trace("mainForm.staticUserName.text:"+mainForm.staticUserName.text);
+    debug.log4a.debug("mainForm.staticUserName.text:"+mainForm.staticUserName.text);
     //查 - 返回首行数据
     var loginInfoResult = db.stepQuery("SELECT user_id from [login_info] ",{
         user_name = mainForm.staticUserName.text;
     });
     if(!loginInfoResult){
-		win.msgbox("未找到登录用户名对应的用户信息");
+        debug.log4a.debug("未找到登录用户名对应的用户信息");
 		return ; 
 	}
-	zz.trace("loginInfoResult.user_id:"+loginInfoResult.user_id);
-	
+	debug.log4a.debug("loginInfoResult.user_id:"+loginInfoResult.user_id);
     sqlStr = string.concat(sqlStr,"user_id,");
     valueStr = string.concat(valueStr,"'",loginInfoResult.user_id,"',");
     sqlStr = string.concat(sqlStr,"status,");
@@ -242,7 +233,6 @@ winform.buttonSave.oncommand = function(id,event){
        
     sqlStr = string.sub(sqlStr,0, string.len(sqlStr)-1) + ") values (";
     valueStr = string.sub(valueStr,0, string.len(valueStr)-1) + ")";
-    //zz.trace(sqlStr+valueStr);
     db.exec(sqlStr+valueStr);
      //sqlConn.exec( "insert into film values ('Silence of the Lambs, The', 11.8, 1991, 'Jodie Foster');")
      //我想这个就是传说中的开启事物
@@ -255,6 +245,65 @@ winform.buttonSave.oncommand = function(id,event){
 
 }
 
+//立即执行
+winform.buttonExecute.oncommand = function(id,event){
+    debug.log4a.debug("立即执行");
+    var purchaseUrl = winform.editPurchaseUrl.text;//商品URL
+    var circuit = winform.comboboxCircuit.text;//线路 1，2，3
+    var featureParam = winform.editFeatureParam.text;//特征参数
+    var amountLimit = winform.editAmountLimit.text;//限额
+	var timelySubmit = winform.dpickTimelySubmit.text;//定时提交
+    
+	//线路1
+    if("线路1" == circuit){
+        openPage();
+        //获取价格进行限额判断
+        //var productPrice = wb.waitQueryEles({tagName="SPAN";className="tm-price"}, 5000); 
+        //debug.log4a.debug(wb.body.innerHTML);
+        addShopCat();
+        
+      
+        
+    //线路2    
+    }else if ("线路2" == circuit){
+        wb.go(winform.editPurchaseUrl.text);
+        wb.wait(,3000);
+    }
+}
+//关闭窗口
+winform.wndproc = function(hwnd,message,wparam,lparam){
+    select(message) {//判断消息类型
+        case 0x10/*_WM_CLOSE窗口关闭消息*/{
+            debug.log4a.close();
+        }   
+    }
+    //无返回值则继续调用默认回调函数
+}
+
+//打开页面
+openPage = function(){
+	wb.go(winform.editPurchaseUrl.text);
+    wb.wait(,3000);
+    debug.log4a.debug("打开页面,标题:" + wb.document.title);
+}
+ 
+//加入购物车
+addShopCat = function(){
+    debug.log4a.debug("加入购物车");
+    //console.log("加入购物车");
+    //淘宝
+    var shopCart = wb.waitQueryEles({tagName="^A$";className="J_LinkAdd"}, 2000);
+    if(!shopCart){
+        //天猫
+        shopCart = wb.waitQueryEles({tagName="^A$";id="J_LinkBasket"}, 2000);
+    }
+    
+    if(shopCart){
+       shopCart.click();
+    }else{
+      debug.log4a.err("未获取购物车按钮");
+    }
+}  
 winform.show(); 
 win.loopMessage();
 return winform;

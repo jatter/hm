@@ -5,8 +5,11 @@ import web.form.sockpuppet;
 import console;
 import io;
 import fsys.config;
+import debug.log4a;
+
+debug.log4a.init("login", "/log/login");
 /*DSG{{*/
-var winform = win.form(right=939;bottom=772;bgcolor=16777215)
+var winform = win.form(text="aardio form";right=939;bottom=772;bgcolor=16777215)
 winform.add(
 btnCancel={cls="button";text="取消";left=759;top=678;right=848;bottom=738;ah=1;aw=1;z=2};
 btnDel={cls="button";text="删除";left=570;top=678;right=659;bottom=738;ah=1;aw=1;z=1};
@@ -131,10 +134,12 @@ loginWeb.ProgressChange = function( progress, progressMax ) {
 
 //登录按钮
 winform.btnLogin.oncommand = function(id,event){
+    debug.log4a.info("method btnLogin begin");
     winform.labloginMessage.text = "";
     isLocalSuccessLogin = false;  
 	var userName = winform.editUserName.text;
 	var password = winform.editPassword.text;
+	debug.log4a.info("btnLogin,userName:" + userName);
 	if("" == userName || "" == string.trim(userName)){
 		win.msgbox("用户名为空,请输入");
 		win.setFocus(winform.editUserName.hwnd);
@@ -207,6 +212,16 @@ winform.btnLogin.oncommand = function(id,event){
     
 }
 
+//关闭窗口
+winform.wndproc = function(hwnd,message,wparam,lparam){
+    select(message) {//判断消息类型
+        case 0x10/*_WM_CLOSE窗口关闭消息*/{
+            debug.log4a.close();
+        }   
+    }
+    //无返回值则继续调用默认回调函数
+}
+
 //设置不可用登录组件
 disableLoginPanel = function(){
         winform.editPassword.hide=false;
@@ -230,6 +245,7 @@ hideLoginPanel = function(){
 
 //查询登录用户信息
 queryLoginInfo = function(){
+    debug.log4a.info("method queryLoginInfo begin");
     winform.listview.clear();
     //迭代方式查询数据 
 	for user_id,user_name,user_pwd,login_status,login_time,remark in db.each("SELECT user_id,user_name,user_pwd,login_status,login_time,remark from [login_info] ORDER BY login_time DESC") {
@@ -256,15 +272,14 @@ deleteLoginInfo = function(userName){
 setStatusBar = function(){
     //var t = time(, "%H:%M:%S");
     var cookieUserName = (string.match(loginWeb.document.cookie,"lgc=([^;]+);"));
-    console.debug("cookieUserName:" + cookieUserName);
+    debug.log4a.info("method setStatusBar :" + cookieUserName);
     var result = db.stepQuery("SELECT user_id,user_name,user_pwd,login_status,login_time,remark from [login_info] ",{
         user_name = cookieUserName;
     });
     
     if(result){
         winform.statusbar.setText("登录用户名:" + cookieUserName + ", 登录时间:" + result.login_time);
-    }  
-    console.pause();
+    }
 }
 
 //同步系统当时网络标准时间
