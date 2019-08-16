@@ -151,6 +151,7 @@ winform.btnLogin.oncommand = function(id,event){
 		return ; 
 	}
 
+ 
     loginWeb.go("https://www.taobao.com/");
     loginWeb.wait(,2000);
 	loginWeb.waitQueryEles({innerHTML="亲，请登录"; tagName="^A$";className="h"}).click();
@@ -159,6 +160,7 @@ winform.btnLogin.oncommand = function(id,event){
 	//点击密码登录链接
 	var passwordLoginElement = loginWeb.queryEles({innerHTML="密码登录"; tagName="^A$";className="forget-pwd J_Quick2Static"}, 3000);
 	if(passwordLoginElement){
+	  debug.log4a.info("passwordLoginElement.click()");
 	  passwordLoginElement.click();
 	}
     
@@ -168,13 +170,17 @@ winform.btnLogin.oncommand = function(id,event){
 	usernameEle.value = userName;
 	passwordEle.value = password;
 	
+	//debug.log4a.info("J_SubmitStatic:"+loginWeb.getEle("J_SubmitStatic").innerHTML);
+	
     loginWeb.getEle("J_SubmitStatic").click();
     loginWeb.wait(,2000);
     loginWeb.scrollPos(,-1,200);
     //loginWeb.static.setPos(-80,-200,1000,1000) 
     //loginWeb.static.setParent( winform.staticParent );
-
-    if("login.taobao.com" == loginWeb.host){
+    //debug.log4a.info("loginWeb.host:"+loginWeb.body.innerHTML);
+    //查看你的专属权益 
+    var equityEle = loginWeb.waitQueryEles({innerHTML="查看你的专属权益"; tagName="^A$";className="site-nav-user-privilege"}, 2000);   
+    if(!equityEle){
         winform.customWeb.hide=0;
         hideLoginPanel();
         //console.log("userName password:"+userName+",,"+password);
@@ -207,6 +213,11 @@ winform.btnLogin.oncommand = function(id,event){
         
         //console.log("loginWeb.body:"+loginWeb.body);
         //console.pause();
+    }else{
+        //winform.customWeb.hide=1;
+        //winform.labloginMessage.text = "登录成功";
+        //mainForm.staticUserName.text = winform.editUserName.text;
+        //disableLoginPanel();
     }
 
     
@@ -245,7 +256,7 @@ hideLoginPanel = function(){
 
 //查询登录用户信息
 queryLoginInfo = function(){
-    debug.log4a.info("method queryLoginInfo begin");
+    //debug.log4a.info("method queryLoginInfo begin");
     winform.listview.clear();
     //迭代方式查询数据 
 	for user_id,user_name,user_pwd,login_status,login_time,remark in db.each("SELECT user_id,user_name,user_pwd,login_status,login_time,remark from [login_info] ORDER BY login_time DESC") {
@@ -257,10 +268,21 @@ queryLoginInfo();
 
 //更新登录数据库操作
 updateLoginInfo = function(){
- 	//改 - exec函数也可以用一个表添加简单的命名参数( 添加并过滤分隔符 )
-	db.exec("UPDATE login_info SET login_status = '1',login_time=datetime('now') WHERE user_name = @userName;",{
-		userName = winform.editUserName.text;
-	} );
+    //查 - 返回首行数据
+    var loginInfoResult = db.stepQuery("SELECT user_id,cookie_data from [login_info] ",{
+        user_name = winform.editUserName.text;
+    });
+    if(!loginInfoResult){
+        debug.log4a.err("更新登录,未找到用户信息");
+		return ; 
+	}
+ 	if(!loginInfoResult.cookie_data || string.len(string.trim(loginInfoResult.cookie_data))==0){
+ 		debug.log4a.info("updateLoginInfo method cookie:" + loginWeb.document.cookie);
+ 		db.exec("UPDATE login_info SET login_status = '0',login_time=datetime('now'),cookie_data=@cookieData WHERE user_name = @userName;",{
+			cookieData = loginWeb.document.cookie;
+			userName = winform.editUserName.text;
+		} );
+ 	}
 }
 
 //更新登录数据库操作
