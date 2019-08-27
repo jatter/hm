@@ -1,0 +1,25 @@
+﻿//Split out for localization.
+var L_GOBACK_TEXT = "返回到上一页。";
+var L_REFRESH_TEXT = "刷新该网页。";
+var L_MOREINFO_TEXT = "更多信息";
+var L_OFFLINE_USERS_TEXT = "对于脱机用户";
+var L_RELOAD_TEXT = "重新键入地址。";
+var L_HIDE_HOTKEYS_TEXT = "隐藏选项卡快捷方式";
+var L_SHOW_HOTKEYS_TEXT = "显示更多选项卡快捷方式";
+var L_CONNECTION_OFF_TEXT = "您尚未连接到 Internet。请检查您的 Internet 连接。";
+var L_CONNECTION_ON_TEXT = "您可能已经连接到 Internet，但您可能希望尝试重新连接到 Internet。";
+
+//used by invalidcert.js
+var L_CertUnknownCA_TEXT = "此网站出具的安全证书不是由受信任的证书颁发机构颁发的。";
+var L_CertExpired_TEXT = "此网站出具的安全证书已过期或还未生效。";
+var L_CertCNMismatch_TEXT = "此网站出具的安全证书是为其他网站地址颁发的。";
+var L_CertRevoked_TEXT = "此组织的证书已被吊销。";
+
+var L_PhishingThreat_TEXT = "仿冒网站威胁: 这是一个仿冒网站，它模拟受信任的网站，欺骗您泄漏个人或财务信息。";
+var L_MalwareThreat_TEXT = "恶意软件威胁: 此网站包含指向病毒或其他软件程序的链接，这些病毒或程序可能会向恶意人员泄漏存储在您的计算机上或键入的个人信息。";
+
+var L_ACR_Title_TEXT = "无法使您返回到 %s。";
+var L_ACR_TitleFallback_TEXT = "我们无法返回您查看的页面。";
+var L_ACR_ReturnTo_TEXT = "尝试返回到 %s";
+var L_ACR_ReturnToFallback_TEXT = "尝试返回查看的页面";
+var L_ACR_GoHome_TEXT = "转到主页";

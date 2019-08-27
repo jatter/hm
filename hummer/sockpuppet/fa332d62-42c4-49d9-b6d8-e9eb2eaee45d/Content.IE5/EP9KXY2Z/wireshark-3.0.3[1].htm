@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.9">
+<title>Wireshark 3.0.3 Release Notes</title>
+<link rel="stylesheet" href="./ws.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Wireshark 3.0.3 Release Notes</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_what_is_wireshark">What is Wireshark?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Wireshark is the world’s most popular network protocol analyzer. It is
+used for troubleshooting, analysis, development and education.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_whats_new">What’s New</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>The Windows installers now ship with Qt 5.12.4. They previously
+shipped with Qt 5.12.3.</p>
+</li>
+<li>
+<p>The Windows installers now ship with Npcap 0.996. They previously
+shipped with Npcap 0.995.</p>
+</li>
+<li>
+<p>The macOS installer now ships with Qt 5.12.4. It previously
+shipped with Qt 5.12.1.</p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="_bug_fixes">Bug Fixes</h3>
+<div class="paragraph">
+<p>The following vulnerabilities have been fixed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.wireshark.org/security/wnpa-sec-2019-20">wnpa-sec-2019-20</a>
+ASN.1 BER and related dissectors crash.
+<a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15870">Bug 15870</a>.
+<a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13619">CVE-2019-13619</a>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following bugs have been fixed:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>"ninja install" installs help/faq.py instead of help/faq.txt. <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15543">Bug 15543</a>.</p>
+</li>
+<li>
+<p>In Wireshark 3.0, encrypted DOCSIS PDU packets no longer match the filter "eth.dst". <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15731">Bug 15731</a>.</p>
+</li>
+<li>
+<p>Developer&#8217;s Guide section 3.9 "Contribute your changes" should incorporate or link "Writing a good commit message" from the Wiki. <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15752">Bug 15752</a>.</p>
+</li>
+<li>
+<p>RSL dissector bugs in presence of optional IEs. <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15789">Bug 15789</a>.</p>
+</li>
+<li>
+<p>The "Media Attribute Value" field is missed in rtcp SDP dissection (packet-sdp.c). <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15791">Bug 15791</a>.</p>
+</li>
+<li>
+<p>BTLE doesn&#8217;t properly detect start fragment of L2CAP PDUs. <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15807">Bug 15807</a>.</p>
+</li>
+<li>
+<p>Wi-SUN FAN decoder error, Channel Spacing and Reserved fields are swapped. <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15821">Bug 15821</a>.</p>
+</li>
+<li>
+<p>tshark: Display filter error message references "-d" when it should reference "-Y". <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15825">Bug 15825</a>.</p>
+</li>
+<li>
+<p>Open "protocol" preferences &#8230;&#8203; does not work for protocol in subtree. <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15836">Bug 15836</a>.</p>
+</li>
+<li>
+<p>Problems with sshdump "Error by extcap pipe: sh: sudo: command not found". <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15845">Bug 15845</a>.</p>
+</li>
+<li>
+<p>editcap won&#8217;t change encapsulation type when writing pcap format. <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15873">Bug 15873</a>.</p>
+</li>
+<li>
+<p>ITU-T G.8113.1 MPLS-TP OAM CC,LMM,LMR,DMM and DMR are not seen in the 3.0.2. <a href="https://bugs.wireshark.org/bugzilla/show_bug.cgi?id=15887">Bug 15887</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_new_and_updated_features">New and Updated Features</h3>
+<div class="paragraph">
+<p>There are no new features in this release.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_new_protocol_support">New Protocol Support</h3>
+<div class="paragraph">
+<p>There are no new protocols in this release.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_updated_protocol_support">Updated Protocol Support</h3>
+<div class="paragraph">
+<p>AERON, ASN.1, BTLE, CUPS, DNS, DOCSIS, DPNSS, GSM RLC/MAC, HiQnet, ISO 14443, ISObus VT, LDAP, MAC LTE, MIME multipart, MPLS, MQ, RSL, SDP, SMB, TNEF, and Wi-SUN</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_new_and_updated_capture_file_support">New and Updated Capture File Support</h3>
+<div class="paragraph">
+<p>Ascend</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_new_and_updated_capture_interfaces_support">New and Updated Capture Interfaces support</h3>
+<div class="paragraph">
+<p>There is no new or updated capture file support in this release.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_wireshark">Getting Wireshark</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Wireshark source code and installation packages are available from
+<a href="https://www.wireshark.org/download.html" class="bare">https://www.wireshark.org/download.html</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_vendor_supplied_packages">Vendor-supplied Packages</h3>
+<div class="paragraph">
+<p>Most Linux and Unix vendors supply their own Wireshark packages. You can
+usually install or upgrade Wireshark using the package management system
+specific to that platform. A list of third-party packages can be found
+on the <a href="https://www.wireshark.org/download.html#thirdparty">download page</a>
+on the Wireshark web site.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_file_locations">File Locations</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Wireshark and TShark look in several different locations for preference
+files, plugins, SNMP MIBS, and RADIUS dictionaries. These locations vary
+from platform to platform. You can use About→Folders to find the default
+locations on your system.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_help">Getting Help</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The User’s Guide, manual pages and various other documentation can be
+found at <a href="https://www.wireshark.org/docs/" class="bare">https://www.wireshark.org/docs/</a></p>
+</div>
+<div class="paragraph">
+<p>Community support is available on <a href="https://ask.wireshark.org/">Wireshark’s
+Q&amp;A site</a> and on the wireshark-users mailing list. Subscription
+information and archives for all of Wireshark’s mailing lists can be
+found on <a href="https://www.wireshark.org/lists/">the web site</a>.</p>
+</div>
+<div class="paragraph">
+<p>Bugs and feature requests can be reported on
+<a href="https://bugs.wireshark.org/">the bug tracker</a>.</p>
+</div>
+<div class="paragraph">
+<p>Official Wireshark training and certification are available from
+<a href="http://www.wiresharktraining.com/">Wireshark University</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_frequently_asked_questions">Frequently Asked Questions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A complete FAQ is available on the
+<a href="https://www.wireshark.org/faq.html">Wireshark web site</a>.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2019-07-17 17:04:39 UTC
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,161 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="ErrorPageTemplate.css" >
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Internet Explorer 无法显示该网页</title>
+        
+        <script src="errorPageStrings.js" language="javascript" type="text/javascript">
+        </script>
+        <script src="httpErrorPagesScripts.js" language="javascript" type="text/javascript">
+        </script>
+    </head>
+
+    <body onLoad="javascript:initGoBack();initMoreInfo('infoBlockID');">
+
+        <table width="730" cellpadding="0" cellspacing="0" border="0">
+
+        <!-- Error title -->
+            <tr>
+                <td id="infoIconAlign" id=width="60" align="left" valign="top" rowspan="2">
+                    <img src="info_48.png" id="infoIcon" alt="信息图标">
+                </td>
+                <td id="mainTitleAlign" valign="middle" align="left" width="*">
+                    <h1 id="mainTitle">此程序无法显示网页</h1>
+                </td>
+            </tr>
+
+            <tr>
+                <!-- This row is for HTTP status code, as well as the divider-->
+                <td id="statusCodeAlign" class="errorCodeAndDivider" align="right">&nbsp;
+                    <div class="divider"></div>
+                </td>
+            </tr>
+
+
+        <!-- Error Body -->
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td id="likelyCausesAlign" valign="top" align="left">
+                    <h3 id="likelyCauses">最可能的原因是:</h3>
+                    <ul>
+                        <li id="causeNotConnected">未连接到 Internet。</li>
+                        <li id="causeSiteProblem">该网站遇到了问题。</li>
+                        <li id="causeErrorInAddress">在地址中可能存在键入错误。</li>
+                    </ul>
+                </td>
+            </tr>
+
+        <!-- What you can do -->
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td id="whatToTryAlign" valign="top" align="left">
+                    <h2 id="whatToTry">您可以尝试以下操作:</h2>
+                </td>
+            </tr>
+
+        <!-- Check Connection -->
+            <tr>
+                <td >
+                    &nbsp;
+                </td>
+                <td id="checkConnectionID" align="left" valign="middle">
+                    <h4>
+                    <table>
+                        <tr>
+                            <td valign="top">
+                                <img src="bullet.png" border="0" alt="" class="actionIcon">
+                            </td>
+                            <td valign="top">
+                                <ID id="checkConnection">检查您的 Internet 连接。尝试访问其他网站以确保已连接到 Internet。</ID>
+                            </td>
+                         </tr>
+                    </table>
+                    </h4>
+                </td>
+            </tr>
+
+        <!-- retype address -->
+            <tr>
+                <td >
+                    &nbsp;
+                </td>
+                <td id="retypeAddressAlign" align="left" valign="middle">
+                    <h4>
+                        <table>
+                            <tr>
+                                <td valign="top">
+                                    <img src="bullet.png" border="0" alt="" class="actionIcon">
+                                </td>
+                                <td valign="top">
+                                    <ID id="retypeAddress">重新键入地址。</ID>
+                                </td>
+                            </tr>
+                        </table>
+                    </h4>
+                </td>
+            </tr>
+
+        <!-- back to previous page -->
+            <tr>
+                <td >
+                    &nbsp;
+                </td>
+                <td id="goBackAlign" align="left" valign="middle">
+                    <h4>
+                        <table>
+                            <tr>
+                                <td valign="top">
+                                    <img src="bullet.png" border="0" alt="" class="actionIcon">
+                                </td>
+                                <td valign="top">
+                                    <span id="goBackContainer"></span><noscript id="goBack">返回到上一页。</noscript>
+                                </td>
+                            </tr>
+                        </table>
+                    </h4>
+                </td>
+            </tr>
+
+
+        <!-- InfoBlock -->
+            <tr>
+                <td id="infoBlockAlign" align="right" valign="top">
+                    &nbsp;
+                </td>
+                <td id="moreInfoAlign" align="left" valign="middle">
+                    <h4>
+                        <table>
+                            <tr>
+                                <td valign="top">
+                                    <a href="#" onclick="javascript:expandCollapse('infoBlockID', true); return false;"><img src="down.png" id="infoBlockIDImage" border="0" class="actionIcon" alt="详细信息"></a>
+                                </td>
+                                <td valign="top">
+                                    <span id="moreInfoContainer"></span>
+                                    <noscript><ID id="moreInformation">详细信息</ID></noscript>
+                                </td>
+                            </tr>
+                        </table>
+                    </h4>
+                    <div id="infoBlockID" class="infoBlock" style="display: none">
+                        <p>
+                            <ID id="errorExpl1">此问题可能是由下列各种问题导致的:</ID>
+			    <ul>
+                                <li id="errorExpl2">Internet 连接已丢失。</li>
+                                <li id="errorExpl3">该网站暂时不可用。</li>
+                                <li id="errorExpl4">无法连接到域名服务器(DNS)。</li>
+                                <li id="errorExpl5">域名服务器(DNS)没有该网站的域的列表。</li>
+                            </ul>
+                        </p>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

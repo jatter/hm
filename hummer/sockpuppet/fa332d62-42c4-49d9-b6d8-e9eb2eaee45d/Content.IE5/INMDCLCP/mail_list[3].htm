@@ -1,0 +1,257 @@
+<!DOCTYPE html><script>
+document.domain="mail.qq.com";
+function getTop()
+{
+var f=arguments.callee,w;
+    !(f.execption) && (f.execption = "");
+if(!f.t)
+{try{w=window;f.t=w!=parent?(parent.getTop?parent.getTop():parent.parent.getTop()):w;}catch(e){f.t=reTryGetTop();f.execption=e.message;}}
+return f.t;
+}
+function reTryGetTop()
+{
+var _oWin = window,
+_oWinParent = parent;
+try
+{
+while(_oWin != _oWinParent)
+{
+_oWin = _oWinParent;
+_oWinParent = _oWinParent.parent;
+}
+}
+catch(e)
+{
+ossLogForSetFrame.getTopException = true;
+}
+return _oWin;
+};
+try{window.top=getTop();}catch(e){eval("var top=getTop();");}
+var gsUsed="90";
+var g_uin="280632347";
+window == getTop() && document.write('<script src="http://rescdn.qqmail.com/zh_CN/htmledition/js/all47d640.js"></'+'script>');
+(getTop().initPageEvent || function(){})(window);
+</script><script>parent.beginStatTime && parent.beginStatTime(window);</script><html ><head><meta http-equiv="Content-Type" content="text/html; charset=gb18030" /><meta name="save" content="history">    <title>QQ邮箱 - 垃圾箱</title><link rel="stylesheet" type="text/css" href="http://rescdn.qqmail.com/zh_CN/htmledition/style/comm2010469107.css" /><link rel="stylesheet" type="text/css" href="http://rl.mail.qq.com/cgi-bin/getcss?sid=Bh2x7PCqqBJJEwNe&ft=skin" /><style type="text/css">.smt_id_settopcontainer {margin-left:-14px;}.smt_container.smt_id_settopcontainer .smt_inner:after {margin-left:8px;}u {outline: medium none;}.tbody {overflow-x:hidden;_overflow-y:visible;min-width:675px;overflow-x:auto;}.talk {display:block;font-size:12px;font-weight:normal;text-decoration:none;clear:both;border-left:none;border-right:none;*position:relative;padding:8px 0px 3px 9px;border-bottom-width:2px;border-top:none;}.talk b {font-size:14px}.talk .one{left:0;}.toarea .F,.toarea .M{border-bottom-width:1px;}.toarea .bd {border-bottom-width:1px;border-top:0 none;border-left:0 none;border-right:0 none;}.talk label{cursor:pointer;}.talk .cur_default {text-decoration:none;}.jumpmenusdjust {_padding-top:8px;}input.s2bg {background:url(http://rescdn.qqmail.com/zh_CN/htmledition/images/newicon/shop1e9c5d.gif) 0 0 no-repeat;border:0;padding:0;width:16px;height:14px;_vertical-align:middle;}.rssbg {background:url(http://rescdn.qqmail.com/zh_CN/htmledition/images/dy/dy_center1e9c5d.png) no-repeat 0 0px;width:12px;height:14px;padding:0;border-width:0;}.ico_rssObj{margin:2px 0 0 -15px;position:absolute;}table.i td.ab{padding-top:0;padding-bottom:2px;}.icon_mailtop{vertical-align:middle;margin-left:2px;margin-right:4px;*position:relative;*top:1px;}.maillist_title_tag{display:inline-block;position:relative; margin-right:5px; padding:0 5px 2px; *padding:2px 5px 0; border-radius:2px;  font-weight:normal; }.maillist_title_tag .arrow{_display:none; position:absolute; right:-3px; top:50%; margin-top:-3px; border-width:3px 0 3px 3px; border-style:dashed dashed dashed solid; border-color:transparent transparent transparent #e5e5e5; width:0; height:0; font-size:0; line-height:0;}.importantmail{color:#fff;}.importantmail .arrow{border-color:transparent transparent transparent #e5e5e5;}.F .importantmail{background-color:#e5e5e5; color:#666;}.M .importantmail{background-color:#e5e5e5; color:#bbb;}.M .importantmail .arrow{border-left-color:#e5e5e5;}.popdelmail{color:#aeb9c9;}.popdelmail .arrow{ border-color:transparent transparent transparent #ebf0f8;}.F .popdelmail,.M .popdelmail {background-color:#ebf0f8; color:#aeb9c9;}.M .popdelmail .arrow{border-left-color:#ebf0f8;}.V .popdelmail {background-color:#e1e4ea;}.V .popdelmail .arrow{border-left-color:#e1e4ea;}@media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0){.importantmail .arrow,.popdelmail .arrow{display:none;}}</style><script language="javascript" type="text/javascript">
+function changeUnreadVersion()
+{
+getTop().showProcess(1, true, "切换中...", null, false);
+var _sContent = "Fun=submit&t=unreadmail.json&subt=changeversion&sid=Bh2x7PCqqBJJEwNe&openunread=0&loc=mail_list,,,119";
+getTop().QMAjax.send( "/cgi-bin/setting4",
+{
+method : "POST",
+content: _sContent,
+onload: function(_abIsSuccess)
+{
+if (_abIsSuccess)
+{
+getTop().showProcess(0);
+window.location.href = "/cgi-bin/readtemplate?sid=Bh2x7PCqqBJJEwNe&t=unreadmail&tagid=&folderid=6";
+}
+else
+{
+getTop().showErr('切换失败');
+}
+}
+});
+}
+</script><script language="javascript" type="text/javascript">
+(function()
+{
+window.tmpSortTypePrev = parseInt("6");
+window.tmpReadedMailId = null;
+
+window.oPreMails = [];
+window.oPreUWMails = [];
+getTop().QMAjax.send("/cgi-bin/do?sid=Bh2x7PCqqBJJEwNe&action=checkpoint&url=" + encodeURIComponent(location.href));
+getTop().QMMailCache.newCache( window, "1566268106226958" );
+window.gRefresh = !getTop().QMMailCache.isRefresh(window);
+
+})();
+(function()
+{
+if (!window.gRefresh)
+{
+getTop().setFolderUnread("6", 5);
+}
+else
+{
+getTop().setFolderUnread("6", getTop().getFolderUnread("6"), null, window);
+}
+}
+)();
+function submitSort(iurl, iSortType, iSortAsc)
+{
+var t = getTop().SN("mailid", document);
+var tmpMailId = "";
+for(var i=0;i<t.length;i++) {
+if(t[i].checked == true) {
+tmpMailId = t[i].value;
+break;
+}
+}
+getTop().gSelectedMailId = tmpMailId;
+if(tmpMailId == "" && tmpReadedMailId) {
+tmpMailId = tmpReadedMailId;
+getTop().recordReadedMailId(tmpMailId);
+}
+if(tmpMailId != "") iurl += "&checkmailid=" + tmpMailId;
+
+if(tmpSortTypePrev == iSortType){
+iurl += "&sortasc=" + iSortAsc;
+}
+else{
+if(iSortType == 5 || iSortType == 7)
+iurl += "&sortasc=1";
+else
+iurl += "&sortasc=0";
+}
+
+location.href=iurl ;
+}
+
+function DoMailOpr(fr, act)
+{
+if ( "del_unread" == act && !confirm( "您确定要彻底删除此文件夹的所有未读邮件？" ) )
+return;
+else if("del_stranger" == act && !confirm("您确定要彻底删除此文件夹中所有陌生人的未读邮件吗？"))
+return;
+if ("read_stranger" == act)
+{
+fr.flag.value = "new";
+fr.status.value = "false";
+fr.loc.value = "mail_list,,,104";
+}
+else if("del_stranger" == act)
+{
+fr.Fun.value="PerDel";
+fr.loc.value = "mail_list,,,105"
+}
+fr.mailaction.value = act;
+fr.action="/cgi-bin/mail_mgr?sid=Bh2x7PCqqBJJEwNe";
+fr.submit();
+}
+function ShowMails(flag,loc)
+{
+location.href="/cgi-bin/mail_list?sid=Bh2x7PCqqBJJEwNe&folderid=6&tagid=&ftype=&stype=&flag=" + flag + "&loc=mail_list,,,"+loc;
+}
+function CheckCheckBoxsCount()
+{
+var _oTop = getTop();
+var _inputs = _oTop.GelTags("input", _oTop.S("frm",window));
+var _count = 0;
+for ( var i = 0, _len = _inputs.length; i < _len; i++ )
+{
+if ( _inputs[ i ].type == "checkbox" && _inputs[ i ].name == "mailid" && _inputs[ i ].checked )
+{
+if (_inputs[i].value == 'AC0000-00000000000000000000000')
+{
+_count = -4;
+break;
+}
+else if ( _inputs[i].value.indexOf("@") == 0  && _count > 0)
+{
+_count = -1;
+break;
+}
+else if ( _inputs[i].value.indexOf("C") == 0 )
+{
+if(_inputs[i].getAttribute("adconv") == 1)
+{
+_count = -3;
+}
+else
+{
+_count = -2;
+}
+break;
+}
+else
+{
+_count ++;
+}
+   }
+}
+   return _count;
+}
+function FwMailML()
+{
+var _count = CheckCheckBoxsCount();
+if ( _count == -1 )
+{
+getTop().showError( "群邮件不能作为附件批量转发" );
+return false;
+}
+else if ( _count == -2 )
+{
+getTop().showError( "会话邮件不能作为附件批量转发" );
+return false;
+}
+else if( _count == -3)
+{
+getTop().showError( "广告邮件不能作为附件批量转发" );
+return false;
+}
+else if (_count == -4)
+{
+getTop().showError("广告邮件不支持作为附件批量转发");
+return false;
+}
+else if (_count == 0)
+{
+getTop().showError(getTop().gsMsgNoMail);
+return false;
+}
+else if (_count > 10)
+{
+getTop().showError( "转发邮件不能超过10封" );
+return false;
+}
+if(getTop().checkSelectGroup())
+{
+getTop().showError("该组邮件不能作为附件批量转发");
+return false;
+}
+var _frm=getTop().S("frm",window);
+_frm.mailaction.value = _count == 1 ? "readmailemlfw" : "readmaileml";
+_frm.t.value = "compose";
+_frm.s.value = "forward";
+_frm.action = "/cgi-bin/readmail?t=compose&s=forward&sid=Bh2x7PCqqBJJEwNe";
+_frm.target = "mainFrame";
+_frm.submit();
+
+return false;
+}
+</script></head><body class="tbody" id="list"><script>getTop().gnIsUseWideScreen && getTop().addClass(document.body, "widescreen");</script><div class="mailcontainer" id="qqmail_mailcontainer" ><form name="f_topmail" method="post" action="/cgi-bin/mail_mgr?sid=Bh2x7PCqqBJJEwNe"  target="actionFrame" ><input type="hidden" name="topmails" value="0" /><input type="hidden" name="mailaction" value="topstatus" /><input type="hidden" name="s" value="topmail" /></form><form name="submit_form" action="/cgi-bin/foldermgr?sid=Bh2x7PCqqBJJEwNe" method="POST" target="actionFrame"><input type="hidden" name="sid" value="Bh2x7PCqqBJJEwNe" ><input name="fun" type="hidden" value="empty"><input name="folderid" type="hidden" ><input type="hidden" name="rk" value=""><input type="hidden" name="loc" value=""></form><div class="txt_title"  ><div class="somail" id="somail"><form id="frmSort" name="frmSort" method="get" action="/cgi-bin/mail_list?sid=Bh2x7PCqqBJJEwNe" target="mainFrame"  style="margin:0;padding:0"><input type="hidden" name="sid" value="Bh2x7PCqqBJJEwNe" ><input type="hidden" name="s" value=""><input type="hidden" name="page" value=0><input type="hidden" name="sortasc" value="0"><input type="hidden" name="sorttype"  value="7"></form><form id="star_frm" name="star_frm" method="post" target="actionFrame" action="/cgi-bin/mail_mgr?sid=Bh2x7PCqqBJJEwNe" ><input name="mailid" type="hidden" value="" /><input name="status" type="hidden" value="false" /><input name="flag" type="hidden" value="star" /><input name="mailaction" type="hidden" value="mail_flag" /><input name="sid" type="hidden" value="Bh2x7PCqqBJJEwNe" /></form><div id="gotnomail" class="normal" style="position:absolute;top:35px;"></div></div>垃圾箱<span id="_ut" class="f_size normal black">   (共&nbsp;<span id="_ut_c">5</span>&nbsp;封<span id="_ua" style="  display:;  " >，其中 <span id="_ur" style="display:;" ><a href="/cgi-bin/mail_list?sid=Bh2x7PCqqBJJEwNe&s=unread&folderid=6&flag=new&page=0&topmails=0" class="green" onclick="getTop().QMMLCache.upVer()">未读邮件</a> <span id="_ur_c">5</span> 封</span><span id="_uc" style="display:none;" class="hide">，</span><span id="_ui" style="display:none;"><b class="hide"><a href="/cgi-bin/mail_list?sid=Bh2x7PCqqBJJEwNe&s=star&folderid=6&flag=star&page=0&topmails=0" class="green">星标邮件</a> <span id="_ui_c">0</span> 封</b></span></span>)</span></div><script>
+(function() {
+var tag = [{}];
+tag.length = tag.length - 1;
+getTop().QMTag && getTop().QMTag.set(tag, "1566268106227370");
+window.goMoveItems = [
+{ sId: 'fid_1', sItemValue: "收件箱" },
+{ sId: 'fid_3', sItemValue: "已发送" },
+{ sId: "fid_130", sItemValue:"QQ邮件订阅" },{ sId: "fid_131", sItemValue: "信用卡列表" },{ nHeight: 10, sItemValue: '<div style="background:#CCC; height:1px; margin-top:5px; overflow:hidden;"></div>' },
+{ sId: "new", sItemValue : '新建文件夹...' }
+];
+} )();
+</script><div id="sortinfo" style="display:none;" isorttype="6" isortasc="1" ssorttype="day"></div><form id="frm" name="frm" method="post" target="actionFrame"><input type="hidden" name="folderid" value="6" ><input type="hidden" name="s" value="maillist"><input type="hidden" name="sid" value="Bh2x7PCqqBJJEwNe" ><input type="hidden" name="Fun" value="PerDel"><input name="srcfolderid" type="hidden" value="6"><input name="destfolderid" type="hidden"><input name="status" type="hidden"><input name="isspam" type="hidden"><input name="flag" type="hidden"><input name="mailaction" type="hidden"><input name="confirm" type="hidden"><input name="addr" type="hidden"><input name="nick" type="hidden"><input name="destfolder" type="hidden"><input name="t" type="hidden"><input name="loc" type="hidden" /><input name="foldername" type="hidden"><input name="reporttype" type="hidden"><div class="toolbg1 toolbgline toolheight nowrap" style=""><div class="right"><script>document.write(0 + 1);</script>/<script >document.write(0 + 1);</script> 页</div><div class="nowrap left" unselectable="on" onselectstart="return false;"><a class="btn_gray btn_space" hidefocus id="quick_del" onClick="return getTop().checkPerDelML( '6', false,document);" href="javascript:;" name="del">彻底删除</a><a class="btn_gray btn_space" hidefocus onClick="return FwMailML();" href="javascript:;">转发</a><a id="btn_reportSpam" class="btn_gray btn_space" hidefocus onClick="getTop().reportSpamML(true,window)" href="javascript:;">举报</a><a class="btn_gray btn_space" hidefocus onClick="getTop().reportSpamML(false,window)" href="javascript:;">这不是垃圾邮件</a><a class="btn_gray btn_space" hidefocus id="setAllReaded" onClick='getTop().setFolderReaded("6","","5","");' href="javascript:;">全部标为已读</a><span id="markContainer" name="markContainer" class="btn_space"></span><span id="selmContainer" name="selmContainer"></span><script>(function() {
+(typeof goMoveItems != "undefined") && getTop().initMailSelect(goMoveItems, true, true, window, '6', false,true);
+} )();</script></div></div><table cellspacing="0" cellpadding="0" style="table-layout:fixed;width:100%;*width:auto;" class="O2"><tr><td style="padding:1px 0 1px 5px;" width="27"><input type="checkbox" id="ckb_selectAll" onClick="getTop().oprSelectAllClick(this, document)" onmousedown="this.middleStatus = this.indeterminate;" title="选中/取消选中" /></td><td class="o_title2" style="width:6px;font-size:1px;padding:0;">&nbsp;</td><td style="width:31px;padding:0;"><input type="button" class="ico_mailtitle" disabled/></td><td class="o_title2" style="width:135px;*width:134px;"><a   href="javascript:;" target="actionFrame"onclick="submitSort('/cgi-bin/mail_list?sid=Bh2x7PCqqBJJEwNe&folderid=6&page=0&sorttype=5&fun=&s=&searchmode=&filetype=&stype=&topmails=',5,1)" hidefocus>发件人</a></td><td class="o_title2"><a   href="javascript:;" target="actionFrame"onclick="submitSort('/cgi-bin/mail_list?sid=Bh2x7PCqqBJJEwNe&folderid=6&page=0&sorttype=7&fun=&s=&searchmode=&filetype=&stype=&topmails=',7,1)" hidefocus>主题</a></td><td class="o_title2" style="padding-left:2px;width:100px;"><div style="margin-left:10px;"><a   href="javascript:;" target="actionFrame"onclick="submitSort('/cgi-bin/mail_list?sid=Bh2x7PCqqBJJEwNe&folderid=6&page=0&sorttype=6&fun=&s=&searchmode=&filetype=&stype=&topmails=',6,1)" hidefocus>时间↓</a></div></td><td style="width:20px;font-size:1px;padding-left:2px">&nbsp;</td></tr></table>                        <div id="selectAll" class="graytip_con"            style="height:0;laeft:-1000px;"             ftype="mail_operall" fid="6" tid="" totalcnt="5" flags="" unreadcnt=""electallnotifyopenfull$!1)%>  <div class="graytip">                                              </div></div>        <div id="tips_bar"><div id="tips" class="graytip"><a href="javascript:;" onClick="getTop().QMMLCache.upVer();getTop().emptyFolder(true,function(){getTop().doFolderEmpty('6', submit_form)},'垃圾箱'); return false" target="actionFrame" class="nolinkbg normal fdleft" hidefocus>立即删除所有垃圾邮件</a>&nbsp;(系统将自动清理超过&nbsp;<a href="/cgi-bin/folderlist?sid=Bh2x7PCqqBJJEwNe&templatename=folderlist_setting&subtmpl=null&jump=spam">30</a>&nbsp;天的垃圾邮件)</div></div><script type="text/javascript">
+getTop().getMainWin().curListCanTopmail = false;
+</script></a></a></a></a></a></a></a></a></a></a><div class="bd talk"><input type="checkbox" class="one" name="selectgroup" onClick="getTop().CA(this)" style="position:absolute;margin:0 0 0 -33px" id="showbefore1566268106234523" keyword="showbefore"  /><a class="cur_default"><label for="showbefore1566268106234523" hidefocus><b>更早</b> (<span class='newfd underline' title='选中组内该页所有邮件' hidefocus>5 封</span>)</label></a><div class="sidetip" style="visibility:visible;" name="selectgrouptip" keyword="showbefore"><span class="sidetip_content" un="select">已勾选<span un="nowcnt">50</span>封邮件，<a href="javascript:;" onclick="getTop().selectGroupCheck(this,true);">勾选该组全部1736封邮件</a></span><span class="sidetip_content" style="display:none;" un="unselect">已勾选<span un="totalcnt">1736</span>封邮件，<a href="javascript:;" onclick="getTop().selectGroupCheck(this,false);">取消勾选</a></span><div class="arrow"><div class="arrow_dk"></div><div class="arrow_lt"></div></div></div></div><div class="toarea" group_id="showbefore1566268106234523" id="div_showbefore"><table cellspacing="0" class="i F"><tr><td class="cx">                                    <input totime="1564529775000"  istop="" type="checkbox" unread=true   fn="xgkzmchm@gmail.com" fa="xgkzmchm@gmail.com" name="mailid" value="ZC0031-EQpl3sIWRvy8OCh1xtjfc97" colid="-145116696" adconv="0" /></td><td class="ci"><div class="ciz " >&nbsp;</div><div class="cir  Ru" title="">&nbsp;</div><div class="cij" title="附件">&nbsp;</div></td><td hitmailid="" onClick="getTop().RD(event,'ZC0031-EQpl3sIWRvy8OCh1xtjfc97',1,1,'6',0,0,'','9775');" class="l">                                    <table cellspacing="0" class="i  bold"><tr><td class="tl tf ">                                                    <nobr t="6" mailid="ZC0031-EQpl3sIWRvy8OCh1xtjfc97" xqs="" fid="6" cfid="6" dm="qq.com" ibm="false" iba="" bcd="-145116696" ctd="" sys="1" isad="0" mop="1">                                                                                                                                        <span class="" t="u" e="xgkzmchm@gmail.com" u="" n="xgkzmchm@gmail.com" addrvip="false" mailid="ZC0031-EQpl3sIWRvy8OCh1xtjfc97" rejecthtml="rejectionhtml" filinghtml="filinghtml" io="false" mop="1" addrid="" fml="true" >xgkzmchm@gmail.com                                                                        </span>                                                                    </nobr></td><td class="fg_n "><div></div></td><td class="gt"><div class="tf no">                            <span class="icon_mailtop" title="置顶邮件" style="display:none"></span>                            <u tabindex="0" class="black tt ">Custom Software Development Solution from China</u><b class="no " >&nbsp;-&nbsp;We,&nbsp;specic&nbsp;in&nbsp;China,&nbsp;along&nbsp;with&nbsp;in-depth&nbsp;analysis&nbsp;and&nbsp;deep-down&nbsp;research&nbsp;of&nbsp;client&nbsp;requirements.&nbsp;Ex</b>&nbsp;</div>                                                <div class="TagDiv">                                                                                                                                                                    </div>                                                </td><td class="dt"><div>7月31日</div></td><td class="fg"><div></div></td></tr></table></td></tr></table><script>getTop().MLI(null, window,'6', '9775');</script><table cellspacing="0" class="i F"><tr><td class="cx">                                    <input totime="1562303317000"  istop="" type="checkbox" unread=true   fn="Testasmoat&nbsp;Seasettesh" fa="mcthefooajpd@outlook.com" name="mailid" value="ZC0005-i5DFY3~k6VNNQFANjqhuN97" colid="-145116696" adconv="0" /></td><td class="ci"><div class="ciz " >&nbsp;</div><div class="cir  Ru" title="">&nbsp;</div><div class="cij" title="附件">&nbsp;</div></td><td hitmailid="" onClick="getTop().RD(event,'ZC0005-i5DFY3~k6VNNQFANjqhuN97',1,1,'6',0,0,'','3317');" class="l">                                    <table cellspacing="0" class="i  bold"><tr><td class="tl tf ">                                                    <nobr t="6" mailid="ZC0005-i5DFY3~k6VNNQFANjqhuN97" xqs="" fid="6" cfid="6" dm="qq.com" ibm="false" iba="" bcd="-145116696" ctd="" sys="1" isad="0" mop="1">                                                                                                                                        <span class="" t="u" e="mcthefooajpd@outlook.com" u="" n="Testasmoat&nbsp;Seasettesh" addrvip="false" mailid="ZC0005-i5DFY3~k6VNNQFANjqhuN97" rejecthtml="rejectionhtml" filinghtml="filinghtml" io="false" mop="1" addrid="" fml="true" >Testasmoat&nbsp;Seasettesh                                                                        </span>                                                                    </nobr></td><td class="fg_n "><div></div></td><td class="gt"><div class="tf no">                            <span class="icon_mailtop" title="置顶邮件" style="display:none"></span>                            <u tabindex="0" class="black tt ">&lt;p&gt;　　&quot;I will, Commissioner,&quot; she promised, with an arch smile. &quot;And Iknow papa will be so grateful to you for all your kindness tome!&quot;It was at this critical moment that Cassidy entered from theopposite side of the office. As his eyes fell on the girl ...</u><b class="no " ></b>&nbsp;</div>                                                <div class="TagDiv">                                                                                                                                                                    </div>                                                </td><td class="dt"><div>7月5日</div></td><td class="fg"><div></div></td></tr></table></td></tr></table><script>getTop().MLI(null, window,'6', '3317');</script><table cellspacing="0" class="i F"><tr><td class="cx">                                    <input totime="1560727034000"  istop="" type="checkbox" unread=true   fn="postmaster" fa="postmaster@ict.ac.cn" name="mailid" value="ZC0017-vqVfKjb7adPVJTVoUElfS96" colid="-145116696" adconv="0" /></td><td class="ci"><div class="ciz " >&nbsp;</div><div class="cir  Ru" title="">&nbsp;</div><div class="cij Ju" title="附件">&nbsp;</div></td><td hitmailid="" onClick="getTop().RD(event,'ZC0017-vqVfKjb7adPVJTVoUElfS96',1,1,'6',0,0,'','7034');" class="l">                                    <table cellspacing="0" class="i  bold"><tr><td class="tl tf ">                                                    <nobr t="6" mailid="ZC0017-vqVfKjb7adPVJTVoUElfS96" xqs="" fid="6" cfid="6" dm="qq.com" ibm="false" iba="" bcd="-145116696" ctd="" sys="1" isad="0" mop="1">                                                                                                                                        <span class="" t="u" e="postmaster@ict.ac.cn" u="" n="postmaster" addrvip="false" mailid="ZC0017-vqVfKjb7adPVJTVoUElfS96" rejecthtml="rejectionhtml" filinghtml="filinghtml" io="false" mop="1" addrid="" fml="true" >postmaster                                                                        </span>                                                                    </nobr></td><td class="fg_n "><div></div></td><td class="gt"><div class="tf no">                            <span class="icon_mailtop" title="置顶邮件" style="display:none"></span>                            <u tabindex="0" class="black tt ">系统退信/Systems bounce</u><b class="no " >&nbsp;-&nbsp;&nbsp;抱歉，您的邮件被退回来了……/&nbsp;Sorry,&nbsp;your&nbsp;mail&nbsp;is&nbsp;returned...&nbsp;原邮件信息/&nbsp;Original&nbsp;e-mail&nbsp;message&nbsp;</b>&nbsp;</div>                                                <div class="TagDiv">                                                                                                                                                                    </div>                                                </td><td class="dt"><div>6月17日</div></td><td class="fg"><div></div></td></tr></table></td></tr></table><script>getTop().MLI(null, window,'6', '7034');</script><table cellspacing="0" class="i F"><tr><td class="cx">                                    <input totime="1560170625000"  istop="" type="checkbox" unread=true   fn="披风" fa="1194306661@qq.com" name="mailid" value="ZC0010-2sFDIj5uQfsFKTllyYp5X96" colid="-145116696" adconv="0" /></td><td class="ci"><div class="ciz " >&nbsp;</div><div class="cir  Ru" title="">&nbsp;</div><div class="cij" title="附件">&nbsp;</div></td><td hitmailid="" onClick="getTop().RD(event,'ZC0010-2sFDIj5uQfsFKTllyYp5X96',1,1,'6',0,0,'','0625');" class="l">                                    <table cellspacing="0" class="i  bold"><tr><td class="tl tf ">                                                    <nobr t="6" mailid="ZC0010-2sFDIj5uQfsFKTllyYp5X96" xqs="" fid="6" cfid="6" dm="qq.com" ibm="false" iba="" bcd="-145116696" ctd="" sys="0" isad="0" mop="1">                                                                                                                                        <span class="" t="u" e="1194306661@qq.com" u="" n="披风" addrvip="false" mailid="ZC0010-2sFDIj5uQfsFKTllyYp5X96" rejecthtml="rejectionhtml" filinghtml="filinghtml" io="false" mop="1" addrid="" fml="true" >披风                                                                        </span>                                                                    </nobr></td><td class="fg_n "><div></div></td><td class="gt"><div class="tf no">                            <span class="icon_mailtop" title="置顶邮件" style="display:none"></span>                            <u tabindex="0" class="black tt ">免费领取60G的自媒体软件和学习资料你需要吗？</u><b class="no " >&nbsp;-&nbsp;免费领取60G的自媒体软件和学习资料你需要吗？&nbsp;需要的加我vx：13487665171&nbsp;</b>&nbsp;</div>                                                <div class="TagDiv">                                                                                                                                                                    </div>                                                </td><td class="dt"><div>6月10日</div></td><td class="fg"><div></div></td></tr></table></td></tr></table><script>getTop().MLI(null, window,'6', '0625');</script><table cellspacing="0" class="i F"><tr><td class="cx">                                    <input totime="1560146066000"  istop="" type="checkbox" unread=true   fn="Seknutou&nbsp;Thoothete" fa="taynonlwqvf@hotmail.com" name="mailid" value="ZL0010-orkq8Owcdc8ycGA89poGF96" colid="-145116696" adconv="0" /></td><td class="ci"><div class="ciz " >&nbsp;</div><div class="cir  Ru" title="">&nbsp;</div><div class="cij Ju" title="附件">&nbsp;</div></td><td hitmailid="" onClick="getTop().RD(event,'ZL0010-orkq8Owcdc8ycGA89poGF96',1,1,'6',0,0,'','6066');" class="l">                                    <table cellspacing="0" class="i  bold"><tr><td class="tl tf ">                                                    <nobr t="6" mailid="ZL0010-orkq8Owcdc8ycGA89poGF96" xqs="" fid="6" cfid="6" dm="qq.com" ibm="false" iba="" bcd="-145116696" ctd="" sys="1" isad="0" mop="1">                                                                                                                                        <span class="" t="u" e="taynonlwqvf@hotmail.com" u="" n="Seknutou&nbsp;Thoothete" addrvip="false" mailid="ZL0010-orkq8Owcdc8ycGA89poGF96" rejecthtml="rejectionhtml" filinghtml="filinghtml" io="false" mop="1" addrid="" fml="true" >Seknutou&nbsp;Thoothete                                                                        </span>                                                                    </nobr></td><td class="fg_n "><div></div></td><td class="gt"><div class="tf no">                            <span class="icon_mailtop" title="置顶邮件" style="display:none"></span>                            <u tabindex="0" class="black tt ">&lt;p&gt;　　Life on board was rough and wholesome; the comfort in the snug strongoaken cabin below was enhanced by the impression of the piercing coldoutside, when they went down to supper or for rest.</u><b class="no " ></b>&nbsp;</div>                                                <div class="TagDiv">                                                                                                                                                                    </div>                                                </td><td class="dt"><div>6月10日</div></td><td class="fg"><div></div></td></tr></table></td></tr></table><script>getTop().MLI(null, window,'6', '6066');</script></div><div class="list_btline"><div style="height:19px;*height:24px;padding-top:5px;*padding-top:3px;"  class="f_size selbar_bt barspace2"><span class="addrtitle">选择：</span>&nbsp;<a href="javascript:;" onClick="getTop().selectAll(true,document,'all');getTop().checkAll('mailid',document);getTop().changeSelectAllCkbStatus();return false;">全部</a>&nbsp;-&nbsp;<a href="javascript:;"                    onClick="getTop().selectAll(false,document,'no');getTop().checkAll('mailid',document);getTop().changeSelectAllCkbStatus();return false;">无</a>&nbsp;-&nbsp;<a href="javascript:;" onClick="getTop().selectAll(false,document,'readed');getTop().selectReadMail('true',document);getTop().checkAll('mailid',document);getTop().changeSelectAllCkbStatus();return false;">已读</a>&nbsp;-&nbsp;<a href="javascript:;" onClick="getTop().selectAll(false,document,'unread');getTop().selectReadMail('false',document);getTop().checkAll('mailid',document);getTop().changeSelectAllCkbStatus();return false;">未读</a></div></div><div class="toolbg1 toolbgline toolheight nowrap" style=""><div class="right"><script>document.write(0 + 1);</script>/<script >document.write(0 + 1);</script> 页</div><div class="nowrap left" unselectable="on" onselectstart="return false;"><a class="btn_gray btn_space" hidefocus id="quick_del" onClick="return getTop().checkPerDelML( '6', false,document);" href="javascript:;" name="del">彻底删除</a><a class="btn_gray btn_space" hidefocus onClick="return FwMailML();" href="javascript:;">转发</a><a id="btn_reportSpam" class="btn_gray btn_space" hidefocus onClick="getTop().reportSpamML(true,window)" href="javascript:;">举报</a><a class="btn_gray btn_space" hidefocus onClick="getTop().reportSpamML(false,window)" href="javascript:;">这不是垃圾邮件</a><a class="btn_gray btn_space" hidefocus id="setAllReaded" onClick='getTop().setFolderReaded("6","","5","");' href="javascript:;">全部标为已读</a><span id="markContainer" name="markContainer" class="btn_space"></span><span id="selmContainer" name="selmContainer"></span><script>(function() {
+(typeof goMoveItems != "undefined") && getTop().initMailSelect(goMoveItems, true, true, window, '6', false,true);
+} )();</script></div></div></form><script>
+(function()
+{
+getTop().switchFolder('folder_6');
+if (window.gRefresh)
+{
+var info = getTop().getMailListInfo();
+getTop().setMailListInfo(getTop().getFolderUnread("6")
+|| (info.unread + getTop().QMMailCache.getVar("unread")), info.star + getTop().QMMailCache.getVar("star"));
+}
+getTop().rdVer.preRD(oPreUWMails.concat(oPreMails));
+})();
+</script></div></body><script type="text/javascript" src="http://rescdn.qqmail.com/zh_CN/htmledition/js/speed-report29d207.js"></script><script>
+    (Math.random() < 0.01) && xly_report.pageSpeed("78500235");
+</script></html><script>parent.endStatTime && parent.endStatTime(window, 
+{folderid:"6",perpage:"25",type:"mail_list",rcgi:"mail_list",rt:"",rs:"",wm_flowid:"450075039"});</script>

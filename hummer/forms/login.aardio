@@ -276,7 +276,8 @@ updateLoginInfo = function(){
         debug.log4a.err("更新登录,未找到用户信息");
 		return ; 
 	}
- 	if(!loginInfoResult.cookie_data || string.len(string.trim(loginInfoResult.cookie_data))==0){
+ 	//当cookie为null,或""时,更新cookie
+ 	if(!(loginInfoResult.cookie_data && string.len(string.trim(loginInfoResult.cookie_data))>0)){
  		debug.log4a.info("updateLoginInfo method cookie:" + loginWeb.document.cookie);
  		db.exec("UPDATE login_info SET login_status = '0',login_time=datetime('now'),cookie_data=@cookieData WHERE user_name = @userName;",{
 			cookieData = loginWeb.document.cookie;

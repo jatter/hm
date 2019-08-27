@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="GB2312"?>
+<QQSHOW code="0" msgnum="0"></QQSHOW>

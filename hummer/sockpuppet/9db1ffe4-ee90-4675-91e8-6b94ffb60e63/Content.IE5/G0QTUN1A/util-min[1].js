@@ -1,0 +1,1 @@
+KISSY.add("kg/kmd-adapter/0.0.6/util",[],function(d,t,a,e){e.exports=d});

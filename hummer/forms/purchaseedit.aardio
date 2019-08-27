@@ -133,23 +133,10 @@ winform.buttonShopCart.oncommand = function(id,event){
 }
 
 //保存配置
-winform.buttonSave.oncommand = function(id,event){	
-	console.log("wb.document.cookie:"+wb.document.cookie); 
-	
+winform.buttonSave.oncommand = function(id,event){
+	whttpOpenShopCatPage();
+	return ; 
 	//inet.clearCookie("taobao.com");
-    var cookies = inet.getCookie("https://taobao.com");
-    
-  	whttp  = inet.whttp();
-  	whttp.beforeSend = function(){whttp.writeHeader("Cookie: " ++ cookies);}
-	whttp.afterSend = function(statusCode,contentLength){whttp.readHeader();}
-
-	var str = whttp.get("https://cart.taobao.com/cart.htm?from=btop");
-	//var str = whttp.get("https://taobao.com");
-	console.log("whttp.cookies:"+whttp.cookies)
-    var cookiesTest = whttp.readHeader("Set-Cookie:");
-    console.log(cookiesTest);
-    console.log("buttonSave str:"+ str);
-    
     var purchaseUrl = winform.editPurchaseUrl.text;//商品URL
     var circuit = winform.comboboxCircuit.text;//线路 1，2，3
     var isAutoPay = winform.checkboxAutoPay.checked;//自动付款 1:选中 0:未选中
@@ -472,8 +459,8 @@ chromeDriverReceiveCoupon = function(){
 //线路一aardio全选购物车商品
 defaultSelectAll = function(){
     debug.log4a.debug("全选购物车商品");
-    winform.editLog.print("全选购物车商品");
-    debug.log4a.debug("defaultSelectAll:"+wb.body.innerHTML);
+    wdebug.log4a.debug("defaultSelectAll:"+wb.body.innerHTML);inform.editLog.print("全选购物车商品");
+    
     var selectAllEle = wb.waitQueryEles({tagName="^DIV$";id="J_SelectAll1"}, 2000);  
     if(!selectAllEle){
       debug.log4a.err("未获取全选购物车商品按钮");
@@ -589,6 +576,67 @@ chromeDriverSubmitOrder = function(){
     }
     submitOrderEle.click();
     return true;
+}
+
+
+//线路一aardio打开购物车页面
+aardioOpenShopCatPage = function(){
+    debug.log4a.debug("打开aardio购物车页面");
+    
+    //创建web窗体
+	var wb = web.form.sockpuppet( mainForm 
+     	,0x8/*_UIFLAG_SCROLL_NO 禁用滚动条*/
+     	,//可输入_DLCTL_ 前缀的常量以控制下载行为
+     	,//"USER AGENT"
+     	);
+	wb.noScriptErr=true; 
+    wb.go("https://cart.taobao.com/cart.htm?from=btop");
+    wb.wait(,4000);
+    cookieData = wb.document.cookie;
+    debug.log4a.info("aardioOpenShopCatPage cookie:" + cookieData);
+    debug.log4a.debug("aardioOpenShopCatPage:"+wb.body.innerHTML);
+    //var shopCartEle = wb.waitQueryEles({tagName="^A$";id="mc-menu-hd"}, 2000);  
+    //if(!shopCartEle){
+    //   debug.log4a.err("未获取购物车按钮");
+    //   winform.editLog.print("未获取购物车按钮");
+    //   return false;
+    //}
+    //shopCartEle.click();
+    return true;
+}
+
+//whttp打开购物车页面
+whttpOpenShopCatPage = function(){
+    debug.log4a.debug("打开default购物车页面");
+    import sqlite;
+    import inet;
+    import inet.http;
+    var db = sqlite("/hummer.dll");//打开数据库连接
+    var loginInfoResult = db.stepQuery("SELECT user_id,cookie_data from [login_info] ",{
+        user_name = "18351815346";
+    });
+    var cookieData = loginInfoResult.cookie_data;
+	debug.log4a.debug("defaultOpenShopCatPage cookieData:" + cookieData);	
+    http = inet.http();
+    //whttp.addHeaders = /***
+    //Content-Type: application/x-www-form-urlencoded; charset=utf-8
+    //***/;
+    //whttp.beforeSend = function(){	whttp.writeHeader("Cookie: " ++ cookieData );	}
+    //whttp.afterSend = function(statusCode,contentLength){ whttp.readHeader(); }
+    
+    var headerParam = {};
+    headerParam["Accept"] = "application/x-ms-application, image/jpeg, application/xaml+xml, image/gif, image/pjpeg, application/x-ms-xbap, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, */*";
+    headerParam["Accept-Language"] = "zh-CN,zh;q=0.9";
+    headerParam["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8";
+    headerParam["User-Agent"] = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; .NET4.0C; .NET4.0E; InfoPath.2)";
+    headerParam["Accept-Encoding"] = "gzip, deflate";
+    headerParam["Host"] = "cart.taobao.com";
+    headerParam["Connection"] = "Keep-Alive";
+    headerParam["Cookie"] = cookieData;
+    http.headers = headerParam;
+    var cartResult = http.get("https://cart.taobao.com/cart.htm?from=btop");	
+	//var cartResult = whttp.get("https://cart.taobao.com/cart.htm?from=btop");
+    debug.log4a.debug("defaultOpenShopCatPage cartResult:" + cartResult);
 }
 
 winform.show(); 

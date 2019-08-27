@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>资讯</title>
+</head>
+
+<body>
+    <script>
+    //客户端 异步调用入口
+    var jsAsynCall = function(data) {
+
+        try {
+
+            if (window.cefQuery) {
+                var request_id = window.cefQuery({
+                    request: 'jsAsynCall("' + JSON.stringify(data) + '")',
+                    persistent: false,
+                    onSuccess: function(response) {
+
+                    },
+                    onFailure: function(error_code, error_message) {
+
+                    }
+                })
+                console.warn('cef 调用windowClose成功');
+            } else {
+                //qt内核调用模式
+                window.qtWebkitQuery.jsAsynCall(JSON.stringify(data));
+                console.warn('qt 调用windowClose成功');
+            }
+
+        } catch (_e) {
+            //IE内核处理
+            if(data.type === 'windowClose') {
+                window.external.ClickNotify("windowClose", "");
+            }
+        }
+    };
+
+    var exitMini = function() {
+        var nextDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+        var m = +nextDate.getMonth() + 1;
+        var d = nextDate.getDate();
+        var dayLimit = nextDate.getFullYear() + '-' + (m < 10 ? ('0' + m) : m) + '-' + (d < 10 ? ('0' + d) : d) + ' 00:00:00';
+
+        jsAsynCall({
+            "method": 'CallExApi',
+            "func": 'wreg',
+            "param": 'HKEY_CURRENT_USER\\Software\\kingsoft\\Office\\6.0\\plugins\\minisiteex\\nwstrynxtopntm;sz;' + dayLimit
+        });
+
+        jsAsynCall({
+            'method': 'ClickNotify',
+            'type': 'windowClose'
+        });
+    }
+
+    exitMini();
+
+    </script>
+</body>
+
+</html>

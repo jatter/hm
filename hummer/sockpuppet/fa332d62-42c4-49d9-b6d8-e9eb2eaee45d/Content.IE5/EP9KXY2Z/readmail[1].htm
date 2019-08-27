@@ -1,0 +1,182 @@
+<!DOCTYPE html><script>
+document.domain="mail.qq.com";
+function getTop()
+{
+var f=arguments.callee,w;
+    !(f.execption) && (f.execption = "");
+if(!f.t)
+{try{w=window;f.t=w!=parent?(parent.getTop?parent.getTop():parent.parent.getTop()):w;}catch(e){f.t=reTryGetTop();f.execption=e.message;}}
+return f.t;
+}
+function reTryGetTop()
+{
+var _oWin = window,
+_oWinParent = parent;
+try
+{
+while(_oWin != _oWinParent)
+{
+_oWin = _oWinParent;
+_oWinParent = _oWinParent.parent;
+}
+}
+catch(e)
+{
+ossLogForSetFrame.getTopException = true;
+}
+return _oWin;
+};
+try{window.top=getTop();}catch(e){eval("var top=getTop();");}
+var gsUsed="547";
+var gbSupportNW=true;
+(getTop().initPageEvent || function(){})(window);
+</script><script>parent.beginStatTime && parent.beginStatTime(window);</script><html><head><meta http-equiv="Content-Type" content="text/html; charset=gb18030" /><meta name="save" content="history" /><meta name="referrer" content="origin"> <title>深入理解JVM虚拟机（JVM性能调优、内存模型、虚拟机原理）课程 - QQ邮箱</title><script language="JavaScript">
+(function() {
+getTop().loadJsFileToTop([
+"http://rescdn.qqmail.com/zh_CN/htmledition/js/com/kits/qmeditor/qqmail/release/editor47d62d.js",
+"http://rescdn.qqmail.com/zh_CN/htmledition/js/readmail245b44b.js",
+"http://rescdn.qqmail.com/zh_CN/htmledition/js/com/kits/qmpreviewer/js/qmpreviewer392e89.js", "http://rescdn.qqmail.com/zh_CN/htmledition/js/location_identify/location_identify25f2fd.js"
+]);
+getTop().loadJsFileToTop(["http://rescdn.qqmail.com/zh_CN/htmledition/js/qmnetdisk38a714.js"]);
+})();
+</script><script>getTop().switchFolder('folder_8');</script><link rel="stylesheet" type="text/css" href="http://rescdn.qqmail.com/zh_CN/htmledition/style/comm2010469107.css" /><link rel="stylesheet" type="text/css" href="http://rescdn.qqmail.com/zh_CN/htmledition/style/readmail201242eb45.css" /><link rel="stylesheet" type="text/css" href="http://rl.mail.qq.com/cgi-bin/getcss?sid=Bh2x7PCqqBJJEwNe&ft=skin" /><style type="text/css">.body a{text-decoration:none;}a, a:link, a:visited, a:active {text-decoration:none;}a:hover {text-decoration:underline;}.ico_preview {width:11px; height:11px; margin:0 3px -1px 0; background:url(http://rescdn.qqmail.com/zh_CN/htmledition/images/newicon/mail327a44.png) no-repeat -47px -224px;}.qqmail_card_thumb {display:none}.tcolor { font:normal 12px Verdana; color:#7f7f7f; }.qm_sel1 { margin-left:1px; }.grounp { font-size:12px; padding:16px 5px 22px 5px; }.grounpline { background:url(http://rescdn.qqmail.com/zh_CN/htmledition/images/dottedline1e9c5d.gif) repeat-x; height:1px; overflow:hidden }.unread { background:#f6faff; }.gpinfo { color:#7b7b7b; margin-bottom:10px; }.gpinfo a, .gpinfo a:link, .gpinfo a:hover, .gpinfo a:visited { color:#007ac9; }.gpinfo .stair { font:normal 12px Verdana; }.nickname { font-size:14px; }.sendertime { color:#9e9e99; margin-bottom:12px; font-size:11px; }.gpcontent { margin:12px 2px; font-size:14px; }.imgunread { margin:0 0 0 -12px }.imgread { display:none; }.addtake { margin-top:16px; text-align:right; }.img_att { margin-right:4px; }.show1, .hide0 { display:none; }.qm_dispname { margin-bottom:4px;line-height:21px; }.find_voter { padding: 5px 0 12px 11px; margin:0; line-height:1.5;}.addrtitle em{font-style:normal; font-weight:bold; color:#000;}.ico_add2attach {width:12px; height:12px; display:inline-block; background:url(http://rescdn.qqmail.com/zh_CN/htmledition/images/newicon/mail327a44.png) no-repeat -96px -208px; vertical-align:middle; margin:-2px 2px 0 0;*margin-top:1px;}.ico_addedattach {width:12px; height:12px; display:inline-block; background:url(http://rescdn.qqmail.com/zh_CN/htmledition/images/newicon/mail327a44.png) no-repeat -112px -208px; vertical-align:middle; margin:-2px 2px 0 0;*margin-top:0px;_margin-top:1px;}.ico_down {width:9px; height:10px; margin:0 3px -1px 0;background:url(http://rescdn.qqmail.com/zh_CN/htmledition/images/newicon/mail327a44.png) no-repeat -32px -224px;}/*qrcode*/.wx_qrCode{margin-left:5px;opacity:0.6;filter:alpha(opacity=60);}.wx_qrCode .qr_icon{height:12px;width:12px;display:inline-block;vertical-align:middle;margin:-1px 4px 0 0;background:url(http://rescdn.qqmail.com/zh_CN/htmledition/images/newicon/mail327a44.png) no-repeat -84px -224px;}.wx_qrCode:hover{opacity:1;filter:alpha(opacity=100);}.TagDiv{_position:static;}/*网盘小图标*/.netdisk_multi .netdisk_hide .bind_down_icon{background:url(http://rescdn.qqmail.com/zh_CN/htmledition/images/xdisk/bind_disk/icons1e9c5d.png) 0 -15px no-repeat;width:7px;height:4px;display:inline-block;vertical-align:middle;margin:0 0 0 3px;*margin:2px 0 0 3px;font-size:0px;}@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2){.ico_add2attach,.ico_addedattach,.ico_down,.ico_preview,.wx_qrCode .qr_icon{background-image:-webkit-image-set(url(http://rescdn.qqmail.com/zh_CN/htmledition/images/newicon/mail327a44.png) 1x, url(http://rescdn.qqmail.com/zh_CN/htmledition/images/newicon/mail@2X23c71e.png) 2x);}}</style></head><body  context="@097eb65d000c" module="qmGroupMail" style="background:#fff;color:#000;font-size:12px;font-weight:normal;padding:0 7px 6px 4px;margin:0;"><div class="mailcontainer"  id="qqmail_mailcontainer"><div style="margin:4px 9px 3px 0"><div style="float:right;margin:8px 0 0 0"><a onClick="getTop().goUrlTopWin('/cgi-bin/frame_html?sid=Bh2x7PCqqBJJEwNe&target=today');" class="green">进入QQ邮箱</a></div><a onClick="getTop().goUrlTopWin('/cgi-bin/frame_html?sid=Bh2x7PCqqBJJEwNe&target=today');" title="进入QQ邮箱"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/spacer1e9c5d.gif" class="logo_min_0" width="151" height="34" /></a></div><div style="position:relative;z-index:2;"><div id="systemMaintence" class="infobar" style="display:none;"></div><div class="toolbg toolbgline toolheight" style="*position:relative;"><div class="qm_right" id="nextmail_bt"> <a style="color:#a0a0a0" disabled&nbsp;title="上一封(未读邮件)：(无主题)"class="bold"id="prevmail" accessKey="b">上一封</a>&nbsp;<a style="color:#a0a0a0" disabled&nbsp;title="下一封(未读邮件)：(无主题)"class="bold"id="nextmail" accessKey="n">下一封</a></div><div class="qm_left nowrap"><a ck="optMail" opt="reply" t="compose_group" accesskey="g" class="btn_gray btn_space left" hidefocus href="javascript:;">回复</a><a ck="optMail" opt="forward" accesskey="j" class="btn_gray btn_space left" hidefocus href="javascript:;">转发</a><a ck="delMail"  class="btn_gray btn_space left" hidefocus href="javascript:;">删除</a><a ck="delMail" opt="1" class="btn_gray btn_space left" hidefocus href="javascript:;">彻底删除</a><a class="btn_gray btn_space left" module="qmAntiSpam" mimefrom="159299165@groupmail.qq.com" name="spam" ck="reportSpam" noaddblack="1" hidefocus href="javascript:;">举报</a><div id="markContainer" name="markContainer" class="btn_space left"></div><div id="selmContainer" name="selmContainer" class="left"></div></div></div><div class="readmailinfo" style="position:relative;z-index:2;"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="rmg_mailinfo"><tr><td height="24" valign="middle" style="word-break:break-all;padding:10px 8px 3px 14px;" class="txt_left settingtable"><div class="qm_left"  style="padding-bottom:3px;"><span id="subject" class="sub_title " >深入理解JVM虚拟机（JVM性能调优、内存模型、虚拟机原理）课程</span><input type="button" id="img_star" ck="starMail" class="qm_ico_flagoff" title="标为星标"  hidefocus/></div><div id="tagContainer" ck="tag" class="TagDiv TagReadmail" style="overflow:visible;margin-top:0;"></div><div class="clr"></div></td></tr><tr><td valign="middle" style="padding-left:14px;"><span><span class="addrtitle ">QQ群：</span><b class="grn" title="159299165">Java架构师研习社</b>&nbsp;&nbsp; <span  style="display:none" ><span style="color:#2BAA34">我</span>&nbsp;发给&nbsp;"Jate"&lt;280632347@qq.com&gt;</span> <a ck="settingGroup" href="javascript:;">设置</a></td></tr><tr><td><table width="100%" border="0" cellspacing="0" cellpadding="0"><tr><td width="99%" style="word-break:break-all;padding:3px 12px 0 14px;line-height:19px;"><span class="addrtitle ">时&nbsp;&nbsp;间：</span><b class="tcolor">2019年8月19日(星期一) 中午11:00</b></td><td width="1%" nowrap valign="top" style="padding:4px 12px 0 0;text-align:right" class="noUnderLineList"><span><a href="javascript:location.href='/cgi-bin/readmail?t=readmail_group&disptype=text&sid=Bh2x7PCqqBJJEwNe&mailid=@097eb65d000c&s=notify'+(getTop().bnewwin?'&newwin=true':'')">纯文本</a> | </span><span id="remind_edit" class="pointer"></span> <input type="button" class="qm_ico_print" style="margin-right:4px;" title="打印" ck="optMail2" opt="print" s="group"/><a id="aSwitchOption" onClick="getTop().switchOption(window)" hidefocus><input type="button" class="qm_ico_quickdown" alt="显示更多操作" id="display_more_operator" /></a><span id="tipRemindEdit"></span></td></tr><tr><td style="padding:0 14px 3px 14px;line-height:20px;" colspan="2"><span id="trOption" style="display:none"> <span class="addrtitle">大&nbsp;&nbsp;小：</span>3.4K<br/><a  href="javascript:;" ck="optMail2" opt="print" s="group">打印</a><span >&nbsp;|&nbsp;<a href="javascript:;" ck="optMail2" opt="note">保存到记事本</a></span> </td></tr></table></td></tr><tr><td class="onesize" style="height:6px;"></td></tr></table></div><div class="readmailinfo" style="padding:10px 14px;"><div id="quickreply" module="qmGroupQReply" class=" quickreply qm_conversation_quickreply"><div class="qm_msg infobar" id="afterSendingDiv" style="margin-top:-2px;margin-left:43px;position:absolute;border:0;padding:4px 12px 4px;display:none;">正在发送...</div><div style="width:492px;"><div style="margin-top:1px;" class="qm_left addrtitle ">回&nbsp;&nbsp;复：</div><div class="left" style="margin-bottom:4px;*margin-bottom:1px;"><div style="" class="clear"><span id="QMEditorToolBarPlusArea" style="padding:0"></span><span id="tooBarContain"></span></div><textarea accesskey="q"id="source" name="source" class="input_onclick qm_txt graytext left" style="overflow:auto;height:45px;">我来说两句...</textarea><div class="input_onclick left" style="display:none;padding:0;margin:4px 0 0 0;"><div id="QMEditorArea" tIndex="1" style="width:405px;height:100%;"></div><div class="'bd_upload oneheight"></div></div></div><div class="qm_right bd_ccc" style="height:52px;width:50px;"><input ck="send" id='sendbtn' name='sendbtn' type="button" class="grptitle_tab bd right" value="发表" style="height:52px;width:50px;cursor:pointer" tabindex="2" /><input type="hidden" id="content" name="content__html" /></div><div style="clear:both;height:0;font-size:0;line-hegiht:0;"></div></div></div><div style="line-height:14px;padding-right:0"><div class="attbg" id="starStatus" style="_zoom:1;padding:6px 14px;display:none"><span class="addrtitle">标记：</span>已将此邮件标记为星标邮件。&nbsp;<a id="starStatuslink" ck="starMail" href="javascript:;">取消星标</a></div><div class="attbg" id="mailtopStatus" style="_zoom:1;padding:6px 14px;display:none"><span class="addrtitle">标记：</span>已将此邮件在列表中置顶。&nbsp;<a id="mailtopStatuslink" ck="topMail" href="javascript:;">取消置顶</a></div><div class="attbg" id="starTopStatus" style="_zoom:1;padding:6px 14px;display:none"><span class="addrtitle">标记：</span>已将此邮件标记为星标邮件，并在列表中置顶。&nbsp;<a ck="starMail" href="javascript:;">取消星标</a>&nbsp;<a ck="topMail" href="javascript:;">取消置顶</a></div></div></div><div class="settingtable"  style="padding:6px 14px 4px 14px;margin:10px 16px 0;"><span class="addrtitle">温馨提示：</span>腾讯公司不会通过邮件来发布中奖信息。请勿轻信密保、汇款、中奖消息，勿轻易拨打陌生电话。<a href="http://service.qq.com/info/9622.html" target="_blank">详见反骗术中心</a>。</div></div><div id="contentDiv" class="" style="position:relative;margin:0 16px;padding-top:10px;padding-bottom:10px;min-height:100px;" onClick="getTop().preSwapLink(event,'', '@097eb65d000c');"><div id="submail_start_div" style="height:0px;">&nbsp;</div><div class="qm_converstaion_bd"style="_position:relative;border-width:0px;margin-right:0;"><div class="qm_left"  style="position:relative;z-index:2;background:url(/cgi-bin/getqqicon?uin=4407509&sid=Bh2x7PCqqBJJEwNe&mode=newaddr) no-repeat 0 0;filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/cgi-bin/getqqicon?uin=4407509&sid=Bh2x7PCqqBJJEwNe&mode=newaddr',sizingMethod='scale');width:40px;height:40px;background-size:40px;" t="1" u="4407509" n="秋名山老司机" e=""  qq="4407509" ignore="true"><a t="u" style="display:block;height:40px;"><img src="http://rescdn.qqmail.com/zh_CN/htmledition/images/spacer1e9c5d.gif" style="background:url(http://rescdn.qqmail.com/zh_CN/htmledition/images/rss/mask_share_avator.png) no-repeat 0 0;*background:url();width:40px;height:40px;" class="pointer" title1="给他写信"  t="u" /></a></div><div class="graytext nowrap qm_dispname" style="position:relative;z-index:2;_zoom:1;"><div class="qm_right f_size normal graytext">1 楼</div><a ignore="true" class="green b_size bold " style="text-decoration:none;margin-right:5px;*position:relative;" t="1" u="4407509" n="秋名山老司机" e="" qq="4407509">秋名山老司机</a><span class="f_size normal">昨天<span style='font-size:6px'>&nbsp;</span>11:00</span><span id="referinfo_#mailid#" class="hide"></span></div><div class="qm_margin_left"><div id="contentDiv gpcontent_1" class="body qm_bigsize qm_converstaion_body show0" style="position:relative;_position:auto;z-index:2;zoom:1;margin-left:35px;padding:5px 10px 10px 15px;"><div class="qmbox" style="width:100%;"><span style="font-weight: bold;"><font size="5"><span style="color: rgb(0, 128, 128);">深入理解JVM虚拟机课程，学习的报名：<a href="https://ke.qq.com/course/435570">https://ke.qq.com/course/435570 </a></span></font></span><br  /><div><div><div class="grounp read"><div class="gpcontent show0"><div><br  /></div><div><span style="color:#ff0000;"><span style="font-size:24px;"><span style="font-family:Arial,Helvetica,sans-serif;"><strong>深入理解JVM虚拟机（JVM内存模型、性能监控、虚拟机原理）一期</strong></span></span></span><br  /><span style="color:#0000ff;"><span style="font-size:20px;"><span style="font-family:Arial,Helvetica,sans-serif;"><strong>01、JVM摘要说明.mp4<br  />02、JVM课程内容介绍.mp4<br  />03、JDK、JRE、JVM关系.mp4<br  />04、JVM内存溢出重现报告拆解.mp4<br  />05、JVM可视化工具jconsole.mp4<br  />06、JVM学习心得体会.mp4<br  />07、JVM前世今生.mp4<br  />08、虚拟机_HotSpotVM.mp4<br  />09、虚拟机_J9 VM.mp4<br  />10、虚拟机_Zing VM.mp4<br  />11、虚拟机_JRockit VM.mp4<br  />12、Sun Classic 以及Exact VM的历史.mp4<br  />13、虚拟机_dalvik VM.mp4<br  />14、虚拟机_MicrosoftJ VM.mp4<br  />15、虚拟机_Taobao VM.mp4<br  />16、高性能虚拟机_Azul、Liquid.mp4<br  />17、JVM虚拟机内存管理-简介.mp4<br  />18、JVM虚拟机内存管理-PC寄存器.mp4<br  />19、JVM虚拟机内存管理-虚拟机栈.mp4<br  />20、JVM虚拟机内存管理-本地方法栈.mp4<br  />21、JVM虚拟机内存管理-Java堆.mp4<br  />22、JVM虚拟机内存管理-方法区.mp4<br  />23、JVM虚拟机内存管理-运行时常量池.mp4<br  />24、JVM虚拟机内存管理-直接内存.mp4<br  />25、HotSpot虚拟机对象管理-简介-.mp4<br  />26、HotSpot虚拟机对象管理-创建对象-.mp4<br  />27、HotSpot虚拟机对象管理-对象的内存布局-.mp4<br  />28、HotSpot虚拟机对象管理-对象的访问定位-.mp4<br  />29、垃圾回收-简介.mp4<br  />30、垃圾回收-参数介绍.mp4<br  />31、垃圾收回-调用垃圾收集器.mp4<br  />32、垃圾回收-日志分析01.mp4<br  />33、垃圾回收-日志分析02.mp4<br  />34、垃圾回收-日志分析03.mp4<br  />35、垃圾回收-对象存活-可达性分析法.mp4<br  />35、垃圾回收-对象存活-计数器法.mp4<br  />36、垃圾回收-对象存活-再谈引用.mp4<br  />37、垃圾回收-对象存活-判断一个对象时候已死亡.mp4<br  />38、垃圾回收-对象存活-回收方法区.mp4<br  />39、垃圾回收-垃圾回收算法-标记清楚法.mp4<br  />40、垃圾回收-垃圾回收算法-复制算法.mp4<br  />41、垃圾回收-垃圾回收算法-标记整理算法.mp4<br  />42、垃圾回收-垃圾回收算法-HotSpot算法改良.mp4<br  />43、垃圾回收-垃圾收集器-简介.mp4<br  />44、垃圾回收-垃圾收集器-Serial 收集器.mp4<br  />45、垃圾回收-垃圾收集器-ParNew 收集器.mp4<br  />46、垃圾回收-垃圾收集器-Parallel Scavenge 收集器.mp4<br  />47、垃圾回收-垃圾收集器-Serial Old 收集器.mp4<br  />48、垃圾回收-垃圾收集器-Parallel Old 收集器.mp4<br  />49、垃圾回收-垃圾收集器-CMS 收集器.mp4<br  />50、垃圾回收-垃圾收集器-G1 收集器.mp4<br  />51、内存分配与回收策略-简介.mp4<br  />52、内存分配与回收策略-对象优先在 Eden 分配.mp4<br  />53、内存分配与回收策略-大对象直接进入永久代.mp4<br  />54、内存分配与回收策略-长期存活的对象将进入老年代.mp4<br  />55、内存分配与回收策略-动态对象年龄判定.mp4<br  />56、内存分配与回收策略-内存分配担保.mp4<br  />57、内存分配与回收策略-JVM之逃逸分析.mp4<br  />58、虚拟机性能监控与故障处理工具-简介.mp4<br  />59、虚拟机性能监控与故障处理工具-jps.mp4<br  />60、虚拟机性能监控与故障处理工具-jstat.mp4<br  />61、虚拟机性能监控与故障处理工具-jnfo.mp4<br  />62、虚拟机性能监控与故障处理工具-jmap.mp4<br  />63、虚拟机性能监控与故障处理工具-jhat.mp4<br  />64、虚拟机性能监控与故障处理工具-OQL.mp4<br  />65、虚拟机性能监控与故障处理工具-jstack.mp4<br  />66、虚拟机性能监控与故障处理工具-jconsole内存监控.mp4<br  />67、虚拟机性能监控与故障处理工具-jconsole线程监控.mp4<br  />68、虚拟机性能监控与故障处理工具-jconsole监控死锁.mp4</strong></span></span></span><br  /><br  /><br  /><br  />&nbsp;</div></div></div></div></div></div></div><div style="height:0px;">&nbsp;</div> <div class="qqmail_attachment_listmargin" style="position:relative;z-index:1;margin:0 0 0 45px;"></div></div></div><img '"' width=0 height=0 style="position:absolute" /> </div><div id="nextnewDiv" onMouseOver="this.className='attbg mail_readmode'" onMouseOut="this.className='toolbg mail_readmode'" class="toolbg mail_readmode" style="clear:both;position:relative;z-index:2;cursor:pointer;padding:0 8px 0 7px;zoom:1;display:none;" ck="prevandnext" mailid="" ><div class="bd" style="padding:2px 0 6px 0;*padding:6px 0 0 0;border-width:0 0 1px 0;"><div class="qm_left" style="margin:6px 0 0 1px;">下一封未读：</div><div class="qm_left" style="margin:0x 0 0 1px;*margin:-2px 0 0 1px"><input type="button"  style="display:block;padding:0;float:left;width:18px;height:16px;margin:5px 0 0;cursor:default;border:0;" class="Ru" /></div><div style="margin:6px 0 0 0;*margin:4px 0 0 0"><span id="nextnewmail" style="color:#000;" class="bold" target="actionFrame" name="_QQMail_ReferenceGroupMail_"></span></div><div class="clr"></div></div></div><div class="toolbg toolbgline toolheight" style="position:relative;z-index:2;clear:both;"><div class="qm_right" id="nextmail_top"> <a style="color:#a0a0a0" disabled&nbsp;title="上一封(未读邮件)：(无主题)"class="bold"id="prevmail" accessKey="b">上一封</a>&nbsp;<a style="color:#a0a0a0" disabled&nbsp;title="下一封(未读邮件)：(无主题)"class="bold"id="nextmail" accessKey="n">下一封</a></div><div class="qm_left nowrap"><a ck="optMail" opt="reply" t="compose_group" accesskey="g" class="btn_gray btn_space left" hidefocus href="javascript:;">回复</a><a ck="optMail" opt="forward" accesskey="j" class="btn_gray btn_space left" hidefocus href="javascript:;">转发</a><a ck="delMail"  class="btn_gray btn_space left" hidefocus href="javascript:;">删除</a><a ck="delMail" opt="1" class="btn_gray btn_space left" hidefocus href="javascript:;">彻底删除</a><a class="btn_gray btn_space left" module="qmAntiSpam" mimefrom="159299165@groupmail.qq.com" name="spam" ck="reportSpam" noaddblack="1" hidefocus href="javascript:;">举报</a><div id="markContainer" name="markContainer" class="btn_space left"></div><div id="selmContainer" name="selmContainer" class="left"></div></div></div><img id="qqmailcontent_load_finsih" width=0 height=0 style="position:absolute;overflow:hidden;"/></div></body></html><script>
+var _oTop = getTop();
+
+function showNetDisk(_aoContainer)
+{
+getTop().waitFor(
+function()
+{
+return getTop().QMNetDisk && getTop().QMNetDisk.getInfo()
+},
+function(_abIsOk)
+{
+if(_abIsOk)
+{
+var _oDiskInfo = getTop().QMNetDisk.getInfo(),
+_oDomAttCon = getTop().finds("div[ui-type='attCon']", _aoContainer)[0],
+_oDomList = getTop().finds("a.netdisk_hide", _oDomAttCon||_aoContainer) || [],
+_oDomAtt = _oDomList[0];
+
+for(var i = 0; i < _oDomList.length;i++)
+{
+getTop().QMNetDisk.uploadEntry(_oDomList[i]);
+}
+
+_oDomAttCon && _oDomAtt
+&& setTimeout(function()
+{
+getTop().QMNetDisk.route("tips", "readmail", _oDomAttCon, {
+offsetLeft: _oDomAtt.offsetLeft + _oDomAtt.clientWidth/2,
+offsetTop: 80
+});
+},3000);
+}
+}
+);
+}
+showNetDisk(document);
+_oTop.waitFor(
+function()
+{
+return !!(_oTop.QMReadMail);
+},
+function(_abIsOk)
+{
+if (_abIsOk)
+{
+var hasExpired = [],
+hasDeleted = [];
+
+window.QMReadMail = new (_oTop.QMReadMail.qmGroupMail)(
+{
+                    
+
+ bNeedIdentifyLocation: true,
+
+sLocationIdentifyUrl: '//'+_oTop.location.hostname+'/zh_CN/htmledition/js/location_identify/location_identify_worker2911e7.js',
+
+sLocationWorkerImportUrl: '//'+_oTop.location.hostname+'/zh_CN/htmledition/js/location_identify/location_identify25f2fd.js',
+
+  
+reandfw: "r",
+mailtype        : 'group',
+bOpenTag : "1",
+                   hadExpiredAttachs : {hasExpired:hasExpired,hasDeleted:hasDeleted},
+gid : "159299165",
+bReject : false,
+bNewreply : true,
+bNotify : true,
+flowid          : "450074803", 
+disptype: "html",
+
+oMatchTag : [],
+
+
+oMoveItems: [
+{ sId: 'fid_1', sItemValue: "收件箱" },
+{ sId: 'fid_3', sItemValue: "已发送" },
+{ sId: "fid_130", sItemValue: "QQ邮件订阅" },
+{ sId: "fid_131", sItemValue: "信用卡列表" },
+{ nHeight: 10, sItemValue: '<div style="background:#CCC; height:1px; margin-top:5px; overflow:hidden;"></div>' }, //'<hr style="color:#CCC;height:1px;"/>' },
+{ sId: "new", sItemValue : '新建文件夹...' }
+],
+
+folderid: "8",
+folderkey: "",
+bStar : false,
+bNewMail : 1},
+{
+subject : "深入理解JVM虚拟机（JVM性能调优、内存模型、虚拟机原理）课程",
+from : { 
+name : "Java架构师研习社", 
+addr : "159299165@groupmail.qq.com",
+qq : ""
+}
+},
+{
+oWin : window,
+sContext : "@097eb65d000c",
+sModuleName : "qmGroupMail"
+}
+);
+
+var tag = [{}];
+tag.length = tag.length - 1;
+getTop().QMTag && getTop().QMTag.set(tag, "1566268078099203");
+
+}
+else
+{
+debug("读信readmail2.js加载失败");
+}
+}, 10);
+
+_oTop.folderOpt({
+
+oMatchTag : [],
+
+bNewMail : 1,
+sFolderId : "folderid.DATA"||"",
+sMailId : "@097eb65d000c",
+bStar : false});
+</script><script type="text/javascript" src="http://rescdn.qqmail.com/zh_CN/htmledition/js/bj-report39afc1.js"></script><script type="text/javascript">
+BJ_REPORT.init({
+id   : 112,
+url    : "https://mail.qq.com/badjs",
+ignore : [/Script error/i],
+random : 0.1
+});
+var _oTop = getTop();
+_oTop.waitFor(
+function()
+{
+return _oTop.resetTopFrameError;
+},
+function(_abIsOk)
+{
+_oTop.resetTopFrameError();
+});
+
+</script><script>parent.endStatTime && parent.endStatTime(window, 
+{mailid:"@097eb65d000c",type:"readmail_group",rcgi:"readmail",rt:"readmail_group",rs:"notify",wm_flowid:"450074803"});</script>

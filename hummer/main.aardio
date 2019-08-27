@@ -35,6 +35,8 @@ var tbs = win.ui.tabs(
 	mainForm.btnNavOther
 );
 
+var cookieData = "";
+
 //指定选项卡的外观样式
 tbs.skin( {
 	background = { 
@@ -92,9 +94,13 @@ mainForm.wndproc = function(hwnd,message,wparam,lparam){
     select(message) {//判断消息类型
         case 0x10/*_WM_CLOSE窗口关闭消息*/{
             var res = win.msgboxTest("确定退出系统?","是否退出系统");
+            
+            defaultOpenShopCatPage();
             debug.log4a.debug("mainForm.wndproc" + tostring(res));
+            //aardioOpenShopCatPage();
             if(res == true){
                 debug.log4a.debug("mainForm.wndproc is true");
+                
                 loginout();
                 debug.log4a.close();
                 mainForm.close();

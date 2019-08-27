@@ -1,0 +1,1 @@
+S=KISSY;var VERSION_MOD="0.0.6";KISSY.config("modules",{util:{alias:"kg/kmd-adapter/"+VERSION_MOD+"/util"},"event-dom":{alias:"event"}}),define=function(e,n,S){return KISSY.add(e,n,function(e,n,a,i){S(n,a,i)})};
